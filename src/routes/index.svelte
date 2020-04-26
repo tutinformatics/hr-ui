@@ -1,7 +1,3 @@
-<script>
-	import {Input,Button, Card} from 'svelte-chota';
-	let button_text = 'Hover me';
-</script>
 
 <style>
 	h1, figure {
@@ -33,6 +29,46 @@
 	}
 </style>
 
+<script>
+	let button_text = 'Hover me';
+	let token = "";
+
+	function register() {
+		try {
+			const res = fetch("https://localhost:8443/api/auth/v1/login", {
+				method: 'POST',
+				body: JSON.stringify({
+					"userLoginId": 'sapper',
+					"currentPassword": "sapperofbiz",
+					"currentPasswordVerify": null
+				}),
+				headers: {
+					"Content-Type": "application/json; charset=UTF-8"
+				}
+			}).then(data => data.json()).then(x => token = x.token)
+		} catch (e) {
+			console.log(e)
+		}
+	}
+
+	function getEntities() {
+		try {
+			console.log(token);
+			const res = fetch("https://localhost:8443/api/generic/v1/structure/entities/Affiliate", {
+				method: "GET",
+				headers: {
+					"Content-Type": "application/json; charset=UTF-8",
+					"Bearer": token
+				}
+			}).then(data => data.json()).then(x => console.log(x))
+		} catch (e) {
+			console.log(e)
+		}
+
+	}
+
+</script>
+
 <svelte:head>
 	<title>Sapper project template</title>
 </svelte:head>
@@ -44,11 +80,16 @@
 	<figcaption>HIGH FIVE!</figcaption>
 </figure>
 
-<Input placeholder="What you want?" />
-<Button
-		on:mouseenter={ e => button_text="Don't touch me!" }
-		on:mouseleave={ e => button_text="Ok, hover me again" }
->{button_text}</Button>
-<Button>Find</Button>
+<button on:click={register}>
+	Login
+</button>
+<button on:click={getEntities}>
+	get entities
+</button>
+<!--<Button-->
+<!--		on:mouseenter={ e => button_text="Don't touch me!" }-->
+<!--		on:mouseleave={ e => button_text="Ok, hover me again" }-->
+<!--&gt;{button_text}</Button>-->
+<!--<Button>Find</Button>-->
 
 
