@@ -1,5 +1,10 @@
+<script>
+	import {Input,Button, Card} from 'svelte-chota';
+	let button_text = 'Hover me';
+</script>
+
 <style>
-	h1, figure, p {
+	h1, figure {
 		text-align: center;
 		margin: 0 auto;
 	}
@@ -21,10 +26,6 @@
 		margin: 0 0 1em 0;
 	}
 
-	p {
-		margin: 1em auto;
-	}
-
 	@media (min-width: 480px) {
 		h1 {
 			font-size: 4em;
@@ -43,4 +44,11 @@
 	<figcaption>HIGH FIVE!</figcaption>
 </figure>
 
-<p><strong>Try editing this file (src/routes/index.svelte) to test live reloading.</strong></p>
+<Input placeholder="What you want?" />
+<Button
+		on:mouseenter={ e => button_text="Don't touch me!" }
+		on:mouseleave={ e => button_text="Ok, hover me again" }
+>{button_text}</Button>
+<Button>Find</Button>
+
+
