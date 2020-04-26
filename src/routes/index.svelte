@@ -1,3 +1,8 @@
+<script>
+  import { Input, Button, Card } from "svelte-chota";
+  let button_text = "Hover me";
+</script>
+
 <style>
   h1,
   figure,
