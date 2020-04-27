@@ -1,4 +1,4 @@
-<!-- <script>
+<script>
   import { goto, stores } from "@sapper/app";
 
   const { session } = stores();
@@ -27,9 +27,11 @@
     $session.user = result;
     goto("/");
   }
-</script><form on:submit|preventDefault={register} method="POST">
+</script>
+
+<form on:submit|preventDefault={register} method="POST">
   <input bind:value={userLoginId} placeholder="Login" type="text" />
   <input bind:value={currentPassword} placeholder="Password" type="password" />
 
   <button type="submit">Login</button>
-</form> -->
+</form>
