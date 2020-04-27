@@ -24,7 +24,7 @@ const app = polka() // You can also use Express
 				maxAge: 43200000
 			},
 			store: new FileStore({
-				path: 'sessions'
+				path: '/tmp/.sessions'
 			})
 		}),
 		compression({ threshold: 0 }),
