@@ -11,7 +11,7 @@ const FileStore = sessionFileStore(session);
 const { PORT, NODE_ENV } = process.env;
 const dev = NODE_ENV === 'development';
 
-// process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
+process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
 
 const app = polka() // You can also use Express
 	.use(
@@ -24,7 +24,7 @@ const app = polka() // You can also use Express
 				maxAge: 43200000
 			},
 			store: new FileStore({
-				path: '.sessions'
+				path: 'sessions'
 			})
 		}),
 		compression({ threshold: 0 }),
