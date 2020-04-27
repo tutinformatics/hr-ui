@@ -5,7 +5,7 @@
     if (!token) return;
 
     const response = await this.fetch(
-      "https://localhost:8443/api/generic/v1/entities",
+      "https://35.228.60.244:8443/api/generic/v1/entities",
       {
         method: "GET",
         headers: {
