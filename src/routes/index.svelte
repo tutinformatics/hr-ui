@@ -1,4 +1,11 @@
-<script context="module">
+<script>
+  export let entities = [];
+
+  //   let getEntitiesButton = false;
+  //   let token = "";
+</script>
+
+<!-- <script context="module">
   export async function preload(page, session) {
     const { token } = session;
 
@@ -25,15 +32,7 @@
 
     return { entities: result };
   }
-</script>
-
-<script>
-  export let entities = [];
-
-  //   let getEntitiesButton = false;
-  //   let token = "";
-</script>
-
+</script> -->
 <h1>And here are all of the entities from Ofbiz:</h1>
 <ul>
   {#each entities as entity}
