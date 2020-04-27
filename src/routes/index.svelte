@@ -30,37 +30,43 @@
 </style>
 
 <script>
-	let button_text = 'Hover me';
+	let getEntitiesButton = false;
 	let token = "";
 
-	function register() {
+	// Login system. After login can get access to entities
+	function login() {
 		try {
 			const res = fetch("https://localhost:8443/api/auth/v1/login", {
 				method: 'POST',
 				body: JSON.stringify({
 					"userLoginId": 'sapper',
 					"currentPassword": "sapperofbiz",
-					"currentPasswordVerify": null
+					"currentPasswordVerify": null,
 				}),
 				headers: {
 					"Content-Type": "application/json; charset=UTF-8"
 				}
-			}).then(data => data.json()).then(x => token = x.token)
+			}).then(data => data.json()).then(x => token = x.token).then(getEntitiesButton = true)
 		} catch (e) {
 			console.log(e)
 		}
 	}
 
+	// Can get entities after login
 	function getEntities() {
 		try {
-			console.log(token);
-			const res = fetch("https://localhost:8443/api/generic/v1/structure/entities/Affiliate", {
-				method: "GET",
-				headers: {
-					"Content-Type": "application/json; charset=UTF-8",
-					"Bearer": token
-				}
-			}).then(data => data.json()).then(x => console.log(x))
+			if (token != "") {
+				console.log(token);
+				const res = fetch("https://localhost:8443/api/generic/v1/services", {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json; charset=UTF-8",
+						"Authorization": "Bearer " + token
+					}
+				}).then(data => data.json()).then(x => console.log(x))
+			} else {
+				console.log("Token is null")
+			}
 		} catch (e) {
 			console.log(e)
 		}
@@ -77,15 +83,20 @@
 
 <figure>
 	<img alt='Borat' src='great-success.png'>
-	<figcaption>HIGH FIVE!</figcaption>
+	<figcaption>
+		HIGH FIVE!
+	</figcaption>
+	<button on:click={login}>
+		Login
+	</button>
+	{#if getEntitiesButton}
+		<button on:click={getEntities}>
+			get entities
+		</button>
+	{/if}
 </figure>
 
-<button on:click={register}>
-	Login
-</button>
-<button on:click={getEntities}>
-	get entities
-</button>
+
 <!--<Button-->
 <!--		on:mouseenter={ e => button_text="Don't touch me!" }-->
 <!--		on:mouseleave={ e => button_text="Ok, hover me again" }-->
