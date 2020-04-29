@@ -25,7 +25,7 @@
     const result = await response.json();
 
     if (result.error) {
-      console.log(result.error);
+      console.error(result.error);
     } else {
       $session.token = result.token;
       goto("/");

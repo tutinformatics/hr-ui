@@ -2,10 +2,13 @@
   export async function preload(page, session) {
     const { token } = session;
 
-    if (!token) return;
+    if (!token) {
+      console.log("NO TOKEN");
+      return;
+    }
 
     const response = await this.fetch(
-      "https://35.228.60.244:8443/api/generic/v1/entities",
+      `${process.env.SAPPER_APP_API_URL}/api/generic/v1/entities`,
       {
         method: "GET",
         headers: {
@@ -17,7 +20,6 @@
     );
 
     const result = await response.json();
-    console.log(result);
 
     if (result.errorMessage) {
       return this.error(response.status, result.errorMessage);
@@ -29,9 +31,6 @@
 
 <script>
   export let entities = [];
-
-  //   let getEntitiesButton = false;
-  //   let token = "";
 </script>
 
 <h1>And here are all of the entities from Ofbiz:</h1>
@@ -44,20 +43,3 @@
 <svelte:head>
   <title>Sapper project template</title>
 </svelte:head>
-
-<!-- <h1>Great success!</h1>
-
-<figure>
-  <img alt="Borat" src="great-success.png" />
-  <figcaption>HIGH FIVE!</figcaption>
-  <button on:click={login}>Login</button>
-  {#if getEntitiesButton}
-    <button on:click={getEntities}>get entities</button>
-  {/if}
-</figure> -->
-
-<!--<Button-->
-<!--		on:mouseenter={ e => button_text="Don't touch me!" }-->
-<!--		on:mouseleave={ e => button_text="Ok, hover me again" }-->
-<!--&gt;{button_text}</Button>-->
-<!--<Button>Find</Button>-->

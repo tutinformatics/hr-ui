@@ -9,8 +9,6 @@
   async function register() {
     if (!userLoginId || !currentPassword) return;
 
-    console.log(userLoginId, currentPassword);
-
     const response = await fetch("/auth/register", {
       method: "POST",
       body: JSON.stringify({
@@ -19,13 +17,19 @@
         currentPasswordVerify: null
       }),
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Accept: "application/json"
       }
     });
 
     const result = await response.json();
-    $session.user = result;
-    goto("/");
+
+    if (result.error) {
+      console.error(result.error);
+    } else {
+      $session.token = result.token;
+      goto("/");
+    }
   }
 </script>
 

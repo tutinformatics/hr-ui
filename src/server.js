@@ -6,11 +6,15 @@ import session from 'express-session';
 import sessionFileStore from 'session-file-store';
 import bodyParser from 'body-parser';
 
+// Currently using filesystem cache to store sessions.
+// TODO: Change this to more flexible implementation of session store.
 const FileStore = sessionFileStore(session);
 
 const { PORT, NODE_ENV } = process.env;
 const dev = NODE_ENV === 'development';
 
+// This handles the SSL, but is kind of a hack.
+// TODO: Handle SSL somehow.
 process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
 
 const app = polka() // You can also use Express
@@ -24,7 +28,9 @@ const app = polka() // You can also use Express
 				maxAge: 43200000
 			},
 			store: new FileStore({
-				path: '/tmp/.sessions'
+				// Since we are deploying to ZEIT, there is no way to save files everywhere there.
+				// ZEIT only allows to save files in /tmp directory.
+				path: dev ? '.sessions' : '/tmp/.sessions'
 			})
 		}),
 		compression({ threshold: 0 }),
