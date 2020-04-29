@@ -3,3 +3,4 @@ __sapper__/export
 cypress
 node_modules
 .sessions
+.env
