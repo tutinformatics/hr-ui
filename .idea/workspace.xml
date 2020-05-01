@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="981ac587-fb0c-478f-89ea-346817af2624" name="Default Changelist" comment="NavBar, Login and Register page." />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Sass File" />
+        <option value="CSS File" />
+        <option value="Svelte Component" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="dev" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="C:\Users\sasha\WebstormProjects\ofbiz-sapper\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1b4MDfQY9GGjaeNZStHCQJWUzWL" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/icons" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\sasha\WebstormProjects\ofbiz-sapper\static\icons" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sasha\WebstormProjects\ofbiz-sapper\static\icons" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="981ac587-fb0c-478f-89ea-346817af2624" name="Default Changelist" comment="" />
+      <created>1587886794191</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1587886794191</updated>
+      <workItem from="1587886796431" duration="12886000" />
+      <workItem from="1587977684698" duration="7751000" />
+      <workItem from="1588101571090" duration="1915000" />
+      <workItem from="1588103491539" duration="2104000" />
+      <workItem from="1588105600048" duration="5119000" />
+      <workItem from="1588246384989" duration="1421000" />
+    </task>
+    <task id="LOCAL-00001" summary="Add &quot;Chota&quot; css design.">
+      <created>1587890638363</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1587890638363</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Trying to fetch ofbiz api.&#10;Register and Login with fetch.">
+      <created>1587902979591</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1587902979591</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Trying to fetch ofbiz api.&#10;Register and Login with fetch.">
+      <created>1587903061545</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1587903061545</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Fetch api works correctly.&#10;Can get entities from Ofbiz using API">
+      <created>1587979332192</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1587979332192</updated>
+    </task>
+    <task id="LOCAL-00005" summary="NavBar, Login and Register page.">
+      <created>1588246444688</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1588246444688</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Add &quot;Chota&quot; css design." />
+    <MESSAGE value="Trying to fetch ofbiz api.&#10;Register and Login with fetch." />
+    <MESSAGE value="Fetch api works correctly.&#10;Can get entities from Ofbiz using API" />
+    <MESSAGE value="NavBar, Login and Register page." />
+    <option name="LAST_COMMIT_MESSAGE" value="NavBar, Login and Register page." />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="733" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588104408715">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="733" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1588104408715" />
+    <state x="827" y="156" key="CommitChangelistDialog2" timestamp="1588322787392">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="827" y="156" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1588322787392" />
+    <state x="594" y="298" key="EditFileWatcherDialog" timestamp="1588105147285">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="594" y="298" key="EditFileWatcherDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588105147285" />
+    <state width="1899" height="272" key="GridCell.Tab.0.bottom" timestamp="1588103487358">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="272" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588103487358" />
+    <state width="1899" height="272" key="GridCell.Tab.0.center" timestamp="1588103487357">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="272" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588103487357" />
+    <state width="1899" height="272" key="GridCell.Tab.0.left" timestamp="1588103487357">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="272" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588103487357" />
+    <state width="1899" height="272" key="GridCell.Tab.0.right" timestamp="1588103487357">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="272" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588103487357" />
+    <state x="184" y="85" key="MergeDialog" timestamp="1588101871635">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="184" y="85" key="MergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588101871635" />
+    <state x="672" y="235" key="MultipleFileMergeDialog" timestamp="1588101871647">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="672" y="235" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588101871647" />
+    <state x="552" y="241" key="Vcs.Push.Dialog.v2" timestamp="1588322767542">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="241" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1588322767542" />
+    <state x="749" y="232" key="git4idea.branch.GitSmartOperationDialog" timestamp="1588101711591">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="749" y="232" key="git4idea.branch.GitSmartOperationDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588101711591" />
+  </component>
+</project>
