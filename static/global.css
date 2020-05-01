@@ -29,6 +29,12 @@ code {
 	border-radius: 2px;
 }
 
+.auth-form {
+	max-width: 600px;
+	margin-top: 2em;
+	margin-bottom: auto;
+}
+
 @media (min-width: 400px) {
 	body {
 		font-size: 16px;
