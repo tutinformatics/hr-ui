@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="981ac587-fb0c-478f-89ea-346817af2624" name="Default Changelist" comment="NavBar, Login and Register page." />
+    <list default="true" id="981ac587-fb0c-478f-89ea-346817af2624" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -77,7 +77,7 @@
       <workItem from="1588101571090" duration="1915000" />
       <workItem from="1588103491539" duration="2104000" />
       <workItem from="1588105600048" duration="5119000" />
-      <workItem from="1588246384989" duration="1421000" />
+      <workItem from="1588246384989" duration="1665000" />
     </task>
     <task id="LOCAL-00001" summary="Add &quot;Chota&quot; css design.">
       <created>1587890638363</created>
@@ -114,7 +114,21 @@
       <option name="project" value="LOCAL" />
       <updated>1588246444688</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="NavBar, Login and Register page.">
+      <created>1588322886762</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1588322886762</updated>
+    </task>
+    <task id="LOCAL-00007" summary="NavBar, Login and Register page.">
+      <created>1588322909531</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1588322909531</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,10 +147,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="733" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1588104408715" />
-    <state x="827" y="156" key="CommitChangelistDialog2" timestamp="1588322893928">
+    <state x="827" y="156" key="CommitChangelistDialog2" timestamp="1588322916049">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="827" y="156" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1588322893928" />
+    <state x="827" y="156" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1588322916049" />
     <state x="594" y="298" key="EditFileWatcherDialog" timestamp="1588105147285">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -165,10 +179,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="672" y="235" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588101871647" />
-    <state x="552" y="241" key="Vcs.Push.Dialog.v2" timestamp="1588322767542">
+    <state x="552" y="241" key="Vcs.Push.Dialog.v2" timestamp="1588322924634">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="241" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1588322767542" />
+    <state x="552" y="241" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1588322924634" />
     <state x="749" y="232" key="git4idea.branch.GitSmartOperationDialog" timestamp="1588101711591">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
