@@ -10,9 +10,7 @@ export async function post(req, res) {
         const { userLoginId, currentPassword, currentPasswordVerify } = req.body;
         const { SAPPER_APP_API_URL } = process.env;
 
-        console.log(SAPPER_APP_API_URL);
-
-        const response = await fetch(`${SAPPER_APP_API_URL}/api/auth/v1/register`, {
+        const response = await fetch(`${SAPPER_APP_API_URL}/auth/v1/register`, {
             method: 'POST',
             body: JSON.stringify({ userLoginId, currentPassword, currentPasswordVerify }),
             headers

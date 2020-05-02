@@ -10,22 +10,22 @@ import bodyParser from 'body-parser';
 // TODO: Change this to more flexible implementation of session store.
 const FileStore = sessionFileStore(session);
 
-const { PORT, NODE_ENV } = process.env;
+const { PORT, NODE_ENV, SAPPER_APP_JWT_SECRET } = process.env;
 const dev = NODE_ENV === 'development';
 
-// This handles the SSL, but is kind of a hack.
-// TODO: Handle SSL somehow.
+// This handles unauthorized requests for now.
+// TODO: Handle it properly somehow.
 process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
 
 const app = polka() // You can also use Express
 	.use(
 		bodyParser.json(),
 		session({
-			secret: 'ofbiz-sapper-ui',
+			secret: SAPPER_APP_JWT_SECRET,
 			resave: false,
 			saveUninitialized: true,
 			cookie: {
-				maxAge: 43200000
+				maxAge: 60000 * 30
 			},
 			store: new FileStore({
 				// Since we are deploying to ZEIT, there is no way to save files everywhere there.
