@@ -1,5 +1,7 @@
 <script>
   import { goto, stores } from "@sapper/app";
+  import { Container, Card, Button, Input } from 'svelte-chota';
+  import { mdiAccountPlus } from '@mdi/js';
 
   const { session } = stores();
 
@@ -33,9 +35,21 @@
   }
 </script>
 
-<form on:submit|preventDefault={register} method="POST">
-  <input bind:value={userLoginId} placeholder="Login" type="text" />
-  <input bind:value={currentPassword} placeholder="Password" type="password" />
+<style>
+  h4 {
+    text-align: center;
+  }
+</style>
 
-  <button type="submit">Login</button>
-</form>
+<Container class="auth-form">
+  <Card>
+    <h4 slot="header">Ofbiz register</h4>
+
+    <form on:submit|preventDefault={register} method="POST">
+      <p><Input bind:value={userLoginId} placeholder="Login" type="text" /></p>
+      <p><Input bind:value={currentPassword} placeholder="Password" type="password" /></p>
+
+      <Button outline primary type="submit" iconRight={mdiAccountPlus}>Register</Button>
+    </form>
+  </Card>
+</Container>
