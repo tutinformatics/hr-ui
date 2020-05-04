@@ -16,6 +16,7 @@ const dev = NODE_ENV === 'development';
 // This handles unauthorized requests for now.
 // TODO: Handle it properly somehow.
 process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
+console.log(SAPPER_APP_JWT_SECRET);
 
 const app = polka() // You can also use Express
 	.use(
@@ -38,7 +39,7 @@ const app = polka() // You can also use Express
 		sapper.middleware({
 			session: (req, res) => {
 				return ({
-					token: req.session.token
+					token: req.session.token,
 				})
 			}
 		})

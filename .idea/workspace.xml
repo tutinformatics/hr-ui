@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="981ac587-fb0c-478f-89ea-346817af2624" name="Default Changelist" comment="" />
+    <list default="true" id="981ac587-fb0c-478f-89ea-346817af2624" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/ManageResources.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/manage.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NavBar.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NavBar.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/auth/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/auth/register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/server.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,6 +53,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="GitIgnore" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/static/icons" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -53,12 +63,16 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.3.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\sasha\WebstormProjects\ofbiz-sapper\static\icons" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sasha\WebstormProjects\ofbiz-sapper" />
+      <recent name="C:\Users\sasha\WebstormProjects\ofbiz-sapper\static" />
+      <recent name="C:\Users\sasha\WebstormProjects\ofbiz-sapper\src" />
       <recent name="C:\Users\sasha\WebstormProjects\ofbiz-sapper\static\icons" />
     </key>
   </component>
@@ -77,7 +91,11 @@
       <workItem from="1588101571090" duration="1915000" />
       <workItem from="1588103491539" duration="2104000" />
       <workItem from="1588105600048" duration="5119000" />
-      <workItem from="1588246384989" duration="1665000" />
+      <workItem from="1588246384989" duration="1882000" />
+      <workItem from="1588415017615" duration="3184000" />
+      <workItem from="1588418225143" duration="11962000" />
+      <workItem from="1588447667968" duration="3815000" />
+      <workItem from="1588585952808" duration="446000" />
     </task>
     <task id="LOCAL-00001" summary="Add &quot;Chota&quot; css design.">
       <created>1587890638363</created>
@@ -128,7 +146,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588322909531</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="ф">
+      <created>1588322966742</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1588322966742</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -140,37 +165,38 @@
     <MESSAGE value="Trying to fetch ofbiz api.&#10;Register and Login with fetch." />
     <MESSAGE value="Fetch api works correctly.&#10;Can get entities from Ofbiz using API" />
     <MESSAGE value="NavBar, Login and Register page." />
-    <option name="LAST_COMMIT_MESSAGE" value="NavBar, Login and Register page." />
+    <MESSAGE value="ф" />
+    <option name="LAST_COMMIT_MESSAGE" value="ф" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="733" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588104408715">
+    <state x="733" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588417793838">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="733" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1588104408715" />
-    <state x="827" y="156" key="CommitChangelistDialog2" timestamp="1588322916049">
+    <state x="733" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1588417793838" />
+    <state x="827" y="156" key="CommitChangelistDialog2" timestamp="1588323106597">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="827" y="156" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1588322916049" />
+    <state x="827" y="156" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1588323106597" />
     <state x="594" y="298" key="EditFileWatcherDialog" timestamp="1588105147285">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="594" y="298" key="EditFileWatcherDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588105147285" />
-    <state width="1899" height="272" key="GridCell.Tab.0.bottom" timestamp="1588103487358">
+    <state width="1899" height="274" key="GridCell.Tab.0.bottom" timestamp="1588418204742">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="272" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588103487358" />
-    <state width="1899" height="272" key="GridCell.Tab.0.center" timestamp="1588103487357">
+    <state width="1899" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588418204742" />
+    <state width="1899" height="274" key="GridCell.Tab.0.center" timestamp="1588418204742">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="272" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588103487357" />
-    <state width="1899" height="272" key="GridCell.Tab.0.left" timestamp="1588103487357">
+    <state width="1899" height="274" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588418204742" />
+    <state width="1899" height="274" key="GridCell.Tab.0.left" timestamp="1588418204742">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="272" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588103487357" />
-    <state width="1899" height="272" key="GridCell.Tab.0.right" timestamp="1588103487357">
+    <state width="1899" height="274" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588418204742" />
+    <state width="1899" height="274" key="GridCell.Tab.0.right" timestamp="1588418204742">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="272" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588103487357" />
+    <state width="1899" height="274" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588418204742" />
     <state x="184" y="85" key="MergeDialog" timestamp="1588101871635">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -179,13 +205,17 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="672" y="235" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588101871647" />
-    <state x="552" y="241" key="Vcs.Push.Dialog.v2" timestamp="1588322924634">
+    <state x="552" y="241" key="Vcs.Push.Dialog.v2" timestamp="1588586583469">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="241" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1588322924634" />
+    <state x="552" y="241" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1588586583469" />
     <state x="749" y="232" key="git4idea.branch.GitSmartOperationDialog" timestamp="1588101711591">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="749" y="232" key="git4idea.branch.GitSmartOperationDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588101711591" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1588417341973">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1588417341973" />
   </component>
 </project>

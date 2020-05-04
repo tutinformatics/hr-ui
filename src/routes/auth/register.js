@@ -3,7 +3,7 @@ import fetch from 'node-fetch';
 const headers = {
     'Content-Type': 'application/json',
     Accept: 'application/json'
-}
+};
 
 export async function post(req, res) {
     try {
