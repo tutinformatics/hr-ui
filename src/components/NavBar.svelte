@@ -4,7 +4,9 @@
 
     const { session } = stores();
 
-    let userLoggedIn = typeof $session.token === 'string';
+    let userLoggedIn;
+    session.subscribe(v => userLoggedIn = typeof $session.token === 'string');
+
     let logo = 'https://upload.wikimedia.org/wikipedia/commons/1/1b/Svelte_Logo.svg';
 </script>
 
