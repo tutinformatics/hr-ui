@@ -1,18 +1,26 @@
 
 <script>
-    import {Button, Input, Field, Card, Row, Col} from 'svelte-chota'
-    import { Checkbox } from 'svelte-mui/src';
+    import {Input, Field, Card, Row, Col, Button} from 'svelte-chota'
+    import { Checkbox, Menu, Menuitem, Icon, Datefield, Sidepanel, Textfield} from 'svelte-mui/src';
     import { mdiPlus, mdiMagnify} from '@mdi/js';
 
     export let workers = [];
+    export let rightVisible = false;
 
+    let value = '';
     let colors = ['coral', 'goldenrod', 'limegreen'];
     let favorite = ['coral', 'goldenrod'];
+    let format = 'D.MM.YYYY';
+    let date='21.01.2020';
 
     $: checked = favorite.length === colors.length;
 
     function onAll(e) {
         let on = e.target.checked;
+    }
+
+    function visible() {
+        rightVisible = true;
     }
 
 </script>
@@ -28,7 +36,7 @@
                 <h3 class="pull-left">Manage employees</h3>
             </Col>
             <Col>
-                <Button dark outline icon={mdiPlus}>
+                <Button primary outlined>
                     New employee
                 </Button>
             </Col>
@@ -80,60 +88,60 @@
             </Row>
         </div>
         <hr/>
-        <Row>
+        <Row class="employeeCard__body">
             <Col size="1">
                 <Checkbox on:change={onAll} {checked}>
                 </Checkbox>
             </Col>
             <Col>
-                <h3>Aleksandr Aleksandrov</h3>
+                <h4>Aleksandr Aleksandrov</h4>
             </Col>
             <Col>
-                <h3>Sapper</h3>
+                <h4>Sapper</h4>
             </Col>
             <Col>
-                <h3>sasha.aleksandov@gmail.com</h3>
+                <h4>sasha.aleksandov@gmail.com</h4>
             </Col>
             <Col>
-                <h3>+37358248695</h3>
+                <h4>+37358248695</h4>
             </Col>
         </Row>
         <hr/>
-        <Row>
+        <Row class="employeeCard__body">
             <Col size="1">
                 <Checkbox on:change={onAll} {checked}>
                 </Checkbox>
             </Col>
             <Col>
-                <h3>Alexander Frolov</h3>
+                <h4>Alexander Frolov</h4>
             </Col>
             <Col>
-                <h3>Developer</h3>
+                <h4>Developer</h4>
             </Col>
             <Col>
-                <h3>alfrol@taltech.ee</h3>
+                <h4>alfrol@taltech.ee</h4>
             </Col>
             <Col>
-                <h3>+37256938555</h3>
+                <h4>+37256938555</h4>
             </Col>
         </Row>
         <hr/>
-        <Row>
+        <Row class="employeeCard__body">
             <Col size="1">
                 <Checkbox on:change={onAll} {checked}>
                 </Checkbox>
             </Col>
             <Col>
-                <h3>Ahto Reinaru</h3>
+                <h4>Ahto Reinaru</h4>
             </Col>
             <Col>
-                <h3>Project manager</h3>
+                <h4>Project manager</h4>
             </Col>
             <Col>
-                <h3>ahto.reinaru@taltech.ee</h3>
+                <h4>ahto.reinaru@taltech.ee</h4>
             </Col>
             <Col>
-                <h3>+37255936945</h3>
+                <h4>+37255936945</h4>
             </Col>
         </Row>
         <hr/>
@@ -145,22 +153,22 @@
             </Row>
         {:else}
             {#each workers as employee}
-                <Row>
+                <Row class="employeeCard__body">
                     <Col size="1">
                         <Checkbox on:change={onAll} {checked}>
                         </Checkbox>
                     </Col>
                     <Col>
-                        <h3>{employee.partyId}</h3>
+                        <h4>{employee.partyId}</h4>
                     </Col>
                     <Col>
-                        <h3>Ofbiz</h3>
+                        <h4>Ofbiz</h4>
                     </Col>
                     <Col>
-                        <h3>ofbizl@sapper.svelte</h3>
+                        <h4>ofbizl@sapper.svelte</h4>
                     </Col>
                     <Col>
-                        <h3>+37256938555</h3>
+                        <h4>+37256938555</h4>
                     </Col>
                 </Row>
                 <hr/>

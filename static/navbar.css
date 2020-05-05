@@ -1,0 +1,10 @@
+.navbar {
+    width: 100%;
+    padding: 1.5vh;
+    position: sticky;
+    top: 0;
+    left:0;
+    right:0;
+    z-index:99;
+    background-color: #d2d6dd;
+}

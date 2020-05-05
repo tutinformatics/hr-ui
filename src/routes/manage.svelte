@@ -9,7 +9,8 @@
         const body = {
             roleTypeId: "EMPLOYEE",
             partyTypeId: "PERSON",
-            lookupFlag: "Y"
+            lookupFlag: "Y",
+            patryId: "1"
         };
 
         const response = await this.fetch(`${process.env.SAPPER_APP_API_URL}/generic/v1/services/findParty`, {
@@ -17,7 +18,7 @@
             body: JSON.stringify(body),
             headers: {
                 'Content-Type': 'application/json',
-                Aceept: 'application/json',
+                Accept: 'application/json',
                 Authorization: `Bearer ${token}`
             }
         });
@@ -29,6 +30,7 @@
             return;
         }
 
+        console.log(token);
         return {employees: result.partyList};
     }
 </script>

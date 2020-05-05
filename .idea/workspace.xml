@@ -2,14 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="981ac587-fb0c-478f-89ea-346817af2624" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/ManageResources.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/manage.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/SkillResource.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/skills.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/navbar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ManageResources.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ManageResources.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/NavBar.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NavBar.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/auth/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/auth/register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/employees/index.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/employees/index.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/manage.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/manage.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/template.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/template.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/navigation.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,13 +69,13 @@
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.3.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\sasha\WebstormProjects\ofbiz-sapper\static\icons" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\sasha\WebstormProjects\ofbiz-sapper" />
       <recent name="C:\Users\sasha\WebstormProjects\ofbiz-sapper\static" />
       <recent name="C:\Users\sasha\WebstormProjects\ofbiz-sapper\src" />
+      <recent name="C:\Users\sasha\WebstormProjects\ofbiz-sapper\static\icons" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\sasha\WebstormProjects\ofbiz-sapper\static\icons" />
     </key>
   </component>
@@ -96,6 +99,7 @@
       <workItem from="1588418225143" duration="11962000" />
       <workItem from="1588447667968" duration="3815000" />
       <workItem from="1588585952808" duration="446000" />
+      <workItem from="1588588768061" duration="16459000" />
     </task>
     <task id="LOCAL-00001" summary="Add &quot;Chota&quot; css design.">
       <created>1587890638363</created>
@@ -181,22 +185,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="594" y="298" key="EditFileWatcherDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588105147285" />
-    <state width="1899" height="274" key="GridCell.Tab.0.bottom" timestamp="1588418204742">
+    <state width="1899" height="274" key="GridCell.Tab.0.bottom" timestamp="1588588823152">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588418204742" />
-    <state width="1899" height="274" key="GridCell.Tab.0.center" timestamp="1588418204742">
+    <state width="1899" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588588823152" />
+    <state width="1899" height="274" key="GridCell.Tab.0.center" timestamp="1588588823152">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="274" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588418204742" />
-    <state width="1899" height="274" key="GridCell.Tab.0.left" timestamp="1588418204742">
+    <state width="1899" height="274" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588588823152" />
+    <state width="1899" height="274" key="GridCell.Tab.0.left" timestamp="1588588823152">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="274" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588418204742" />
-    <state width="1899" height="274" key="GridCell.Tab.0.right" timestamp="1588418204742">
+    <state width="1899" height="274" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588588823152" />
+    <state width="1899" height="274" key="GridCell.Tab.0.right" timestamp="1588588823152">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="274" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588418204742" />
+    <state width="1899" height="274" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588588823152" />
     <state x="184" y="85" key="MergeDialog" timestamp="1588101871635">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -213,9 +217,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="749" y="232" key="git4idea.branch.GitSmartOperationDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588101711591" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1588417341973">
+    <state x="616" y="240" key="run.anything.popup" timestamp="1588671722731">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1588417341973" />
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1588671722731" />
   </component>
 </project>

@@ -17,7 +17,7 @@
             body: JSON.stringify(body),
             headers: {
                 'Content-Type': 'application/json',
-                Aceept: 'application/json',
+                Accept: 'application/json',
                 Authorization: `Bearer ${token}`
             }
         });
