@@ -3,14 +3,14 @@
         const { token } = session;
 
         if (!token) return this.redirect(302, '/login');
+        console.log(token)
 
         // Parameters for findParty service in Ofbiz.
         // We look for people with role EMPLOYEE and who is a PERSON.
         const body = {
             roleTypeId: "EMPLOYEE",
             partyTypeId: "PERSON",
-            lookupFlag: "Y",
-            patryId: "1"
+            lookupFlag: "Y"
         };
 
         const response = await this.fetch(`${process.env.SAPPER_APP_API_URL}/generic/v1/services/findParty`, {
@@ -30,7 +30,6 @@
             return;
         }
 
-        console.log(token);
         return {employees: result.partyList};
     }
 </script>

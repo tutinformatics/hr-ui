@@ -10,7 +10,7 @@
             roleTypeId: "EMPLOYEE",
             partyTypeId: "PERSON",
             lookupFlag: "Y"
-        }
+        };
 
         const response = await this.fetch(`${process.env.SAPPER_APP_API_URL}/generic/v1/services/findParty`, {
             method: 'POST',

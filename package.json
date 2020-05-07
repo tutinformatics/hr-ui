@@ -17,12 +17,15 @@
     "compression": "^1.7.1",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
+    "interactjs": "^1.9.13",
     "nginx": "0.0.0",
     "node-fetch": "^2.6.0",
     "polka": "next",
     "sapper-environment": "^1.0.1",
     "session-file-store": "^1.4.0",
-    "sirv": "^0.4.0"
+    "sirv": "^0.4.0",
+    "svelte-icons": "^2.1.0",
+    "svelte-moveable": "^0.8.5"
   },
   "devDependencies": {
     "@fortawesome/free-solid-svg-icons": "^5.12.1",
@@ -33,6 +36,7 @@
     "svelte": "^3.0.0",
     "svelte-chota": "^1.7.1",
     "svelte-fa": "^2.1.1",
+    "svelte-grid": "^1.10.8",
     "svelte-loader": "^2.9.0",
     "svelte-material-ui": "^1.0.0-beta.21",
     "svelte-mui": "^0.3.3-3",

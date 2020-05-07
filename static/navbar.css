@@ -8,3 +8,20 @@
     z-index:99;
     background-color: #d2d6dd;
 }
+.profile-icon {
+    color: grey;
+    height: auto;
+    width: 40px;
+    margin-right: 2%;
+}
+
+.profile-icon:hover {
+    color: black;
+    height: auto;
+    width: 40px;
+    margin-right: 2%;
+}
+
+.main-dropdown {
+    margin-top: 14px
+}

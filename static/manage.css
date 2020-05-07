@@ -1,0 +1,56 @@
+.view {
+    width: 25px;
+    height: auto;
+}
+
+.btn-group button {
+    background-color: #007bff; /* Green background */
+    border: 1px solid #007bff; /* Green border */
+    color: white; /* White text */
+    padding: 10px 24px; /* Some padding */
+    cursor: pointer; /* Pointer/hand icon */
+    float: left; /* Float the buttons side by side */
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+    background-color: #BDE8FF;
+}
+
+.other-view-card-body {
+    background-color: white;
+    margin-left: 2em;
+    margin-right: 2em;
+    margin-top: 1em;
+}
+
+.add-employee-button {
+    height: auto;
+    width: 17px;
+    margin-right: 5px;
+}
+
+.blue-button {
+    background-color: white;
+    border: 1px solid #007bff;
+    color: #007bff;
+}
+
+.other-view-card-body:hover {
+    background-color: #dde9ff;
+}
+
+.table-view-tab {
+    margin-left: 8px !important;
+}
+
+.card-view-tab {
+    margin-left: 27px !important;
+}

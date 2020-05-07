@@ -39,6 +39,7 @@
         const res = await skillResponse.json();
         console.log(token);
 
+
         if (res.errorMessage) {
             console.log(res.errorMessage);
             return;

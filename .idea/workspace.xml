@@ -2,17 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="981ac587-fb0c-478f-89ea-346817af2624" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/SkillResource.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/skills.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/navbar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/File.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/FolderMain.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/PosResource.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/dragdrop.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/folderView.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/positions.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/test.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/manage.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/test.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/ManageResources.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ManageResources.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/NavBar.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NavBar.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SkillResource.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SkillResource.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/employees/index.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/employees/index.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/manage.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/manage.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/skills.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/skills.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/template.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/template.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/navigation.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/global.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/navbar.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +34,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Sass File" />
-        <option value="CSS File" />
+        <option value="JavaScript File" />
         <option value="Svelte Component" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -70,10 +82,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sasha\WebstormProjects\hr-ui\static" />
+      <recent name="C:\Users\sasha\WebstormProjects\hr-ui\src\routes" />
+      <recent name="C:\Users\sasha\WebstormProjects\hr-ui\src" />
+      <recent name="C:\Users\sasha\WebstormProjects\hr-ui" />
       <recent name="C:\Users\sasha\WebstormProjects\ofbiz-sapper" />
-      <recent name="C:\Users\sasha\WebstormProjects\ofbiz-sapper\static" />
-      <recent name="C:\Users\sasha\WebstormProjects\ofbiz-sapper\src" />
-      <recent name="C:\Users\sasha\WebstormProjects\ofbiz-sapper\static\icons" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\sasha\WebstormProjects\ofbiz-sapper\static\icons" />
@@ -99,7 +112,9 @@
       <workItem from="1588418225143" duration="11962000" />
       <workItem from="1588447667968" duration="3815000" />
       <workItem from="1588585952808" duration="446000" />
-      <workItem from="1588588768061" duration="16459000" />
+      <workItem from="1588588768061" duration="22185000" />
+      <workItem from="1588685364223" duration="14502000" />
+      <workItem from="1588842730743" duration="9063000" />
     </task>
     <task id="LOCAL-00001" summary="Add &quot;Chota&quot; css design.">
       <created>1587890638363</created>
@@ -157,7 +172,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588322966742</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Add 'Manage employees' view as table.&#10;Add 'Manage employee skills' where can see employee rating, skill level and so on.&#10;All information about employees were taken from ofbiz automatically.&#10;Some fixes on navbar">
+      <created>1588675710744</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1588675710744</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,37 +192,38 @@
     <MESSAGE value="Fetch api works correctly.&#10;Can get entities from Ofbiz using API" />
     <MESSAGE value="NavBar, Login and Register page." />
     <MESSAGE value="ф" />
-    <option name="LAST_COMMIT_MESSAGE" value="ф" />
+    <MESSAGE value="Add 'Manage employees' view as table.&#10;Add 'Manage employee skills' where can see employee rating, skill level and so on.&#10;All information about employees were taken from ofbiz automatically.&#10;Some fixes on navbar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add 'Manage employees' view as table.&#10;Add 'Manage employee skills' where can see employee rating, skill level and so on.&#10;All information about employees were taken from ofbiz automatically.&#10;Some fixes on navbar" />
   </component>
   <component name="WindowStateProjectService">
     <state x="733" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588417793838">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="733" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1588417793838" />
-    <state x="827" y="156" key="CommitChangelistDialog2" timestamp="1588323106597">
+    <state x="827" y="156" key="CommitChangelistDialog2" timestamp="1588675709805">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="827" y="156" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1588323106597" />
+    <state x="827" y="156" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1588675709805" />
     <state x="594" y="298" key="EditFileWatcherDialog" timestamp="1588105147285">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="594" y="298" key="EditFileWatcherDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588105147285" />
-    <state width="1899" height="274" key="GridCell.Tab.0.bottom" timestamp="1588588823152">
+    <state width="1899" height="274" key="GridCell.Tab.0.bottom" timestamp="1588681337558">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588588823152" />
-    <state width="1899" height="274" key="GridCell.Tab.0.center" timestamp="1588588823152">
+    <state width="1899" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588681337558" />
+    <state width="1899" height="274" key="GridCell.Tab.0.center" timestamp="1588681337558">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="274" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588588823152" />
-    <state width="1899" height="274" key="GridCell.Tab.0.left" timestamp="1588588823152">
+    <state width="1899" height="274" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588681337558" />
+    <state width="1899" height="274" key="GridCell.Tab.0.left" timestamp="1588681337557">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="274" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588588823152" />
-    <state width="1899" height="274" key="GridCell.Tab.0.right" timestamp="1588588823152">
+    <state width="1899" height="274" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588681337557" />
+    <state width="1899" height="274" key="GridCell.Tab.0.right" timestamp="1588681337558">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="274" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588588823152" />
+    <state width="1899" height="274" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588681337558" />
     <state x="184" y="85" key="MergeDialog" timestamp="1588101871635">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -209,10 +232,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="672" y="235" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588101871647" />
-    <state x="552" y="241" key="Vcs.Push.Dialog.v2" timestamp="1588586583469">
+    <state x="552" y="241" key="Vcs.Push.Dialog.v2" timestamp="1588675712960">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="241" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1588586583469" />
+    <state x="552" y="241" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1588675712960" />
     <state x="749" y="232" key="git4idea.branch.GitSmartOperationDialog" timestamp="1588101711591">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
