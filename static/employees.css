@@ -58,15 +58,15 @@
 }
 
 .employee {
-  border: 0.1vw solid #b1acac50;
+  border: 1px solid #b1acac50;
   border-radius: 0.6vw;
   background-color: white;
   margin: 10vh auto;
   padding: 2vw;
 
-  -webkit-box-shadow: 0px 0px 29px -14px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 0px 29px -14px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 0px 29px -14px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: -6px 7px 12px -4px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: -6px 7px 12px -4px rgba(0, 0, 0, 0.6);
+  box-shadow: -6px 7px 12px -4px rgba(0, 0, 0, 0.6);
 }
 .employee-image {
   text-align: right;
@@ -86,9 +86,14 @@
 .employee__tabs a:hover {
   border-color: #007bff60;
 }
+.employee__tabs a:hover .icon,
+.employee__tabs > a.active .icon {
+  color: #ababab;
+}
 .employee__tabs > a.active {
   border-color: #007bff;
 }
+
 .employee__other-info-type {
   font-weight: 500;
 }
