@@ -1,3 +1,8 @@
+<svelte:head>
+    <script src="drag.js"></script>
+    <link rel='stylesheet' href='test.css'>
+</svelte:head>
+
 <style>
     .slot {
         position: relative;
@@ -45,7 +50,6 @@
     import {crossfade} from 'svelte/transition'
     import {quintOut, elasticOut} from 'svelte/easing'
     import { flip } from 'svelte/animate';
-    import { handle, cont } from './test.js'
 
 
     export let isCurrent;
@@ -118,16 +122,16 @@
     </Button>
 </div>
 
-<div class="container" use:cont>
-    <p class="draggable" use:handle draggable="true">1</p>
-    <p class="draggable" use:handle draggable="true">2</p>
-    <p class="draggable" use:handle draggable="true">3</p>
-    <p class="draggable" use:handle draggable="true">4</p>
+<div class="container" use:drag>
+    <p class="draggable" draggable="true">1</p>
+    <p class="draggable" draggable="true">2</p>
+    <p class="draggable" draggable="true">3</p>
+    <p class="draggable" draggable="true">4</p>
 </div>
 <hr/>
-<div class="container" use:cont>
-    <p class="draggable" use:handle draggable="true">5</p>
-    <p class="draggable" use:handle draggable="true">6</p>
-    <p class="draggable" use:handle draggable="true">7</p>
-    <p class="draggable" use:handle draggable="true">8</p>
+<div class="container">
+    <p class="draggable" draggable="true">5</p>
+    <p class="draggable" draggable="true">6</p>
+    <p class="draggable" draggable="true">7</p>
+    <p class="draggable" draggable="true">8</p>
 </div>
