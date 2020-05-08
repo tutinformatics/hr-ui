@@ -15,8 +15,7 @@ const dev = NODE_ENV === 'development';
 
 // This handles unauthorized requests for now.
 // TODO: Handle it properly somehow.
-process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
-console.log(SAPPER_APP_JWT_SECRET);
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
 
 const app = polka() // You can also use Express
 	.use(

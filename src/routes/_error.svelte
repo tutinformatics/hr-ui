@@ -1,4 +1,13 @@
 <script>
+	import { goto, stores } from '@sapper/app';
+	import { onMount } from 'svelte';
+
+	const { page, session } = stores();
+	// Redirect to the login page when sessionn is expired.
+	onMount(() => {
+		if (!$session.token && $page.path !== '/') goto('/login');
+	});
+
 	export let status;
 	export let error;
 
@@ -6,7 +15,8 @@
 </script>
 
 <style>
-	h1, p {
+	h1,
+	p {
 		margin: 0 auto;
 	}
 

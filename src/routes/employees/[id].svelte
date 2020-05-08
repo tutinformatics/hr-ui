@@ -1,0 +1,459 @@
+<script context="module">
+  export async function preload(page, session) {
+    const { token } = session;
+
+    if (!token) this.redirect(302, "/login");
+
+    const { id } = page.params;
+    const url = `${process.env.SAPPER_APP_API_URL}/generic/v1/entityquery`;
+
+    // Request for personal information like name, gender etc.
+    const personalDataBody = {
+      inputFields: {
+        partyId: id
+      },
+      fieldList: [
+        "firstName",
+        "middleName",
+        "lastName",
+        "gender",
+        "birthDate",
+        "socialSecurityNumber",
+        "passportNumber"
+      ],
+      entityRelations: {
+        _toOne_ResidenceStatusEnumeration: {
+          fieldList: ["description"]
+        },
+        _toOne_MaritalStatusEnumeration: {
+          fieldList: ["description"]
+        }
+      }
+    };
+    // Request for contacts like email, work phone etc.
+    const contactDataBody = {
+      inputFields: {
+        partyId: id
+      },
+      fieldList: ["contactMechId"],
+      entityRelations: {
+        _toOne_ContactMech: {
+          fieldList: ["contactMechTypeId", "infoString"],
+          entityRelations: {
+            _toMany_PartyContactMechPurpose: {
+              inputFields: {
+                contactMechPurposeTypeId_fld0_op: "in",
+                contactMechPurposeTypeId_fld0_value: [
+                  "GENERAL_LOCATION",
+                  "PRIMARY_EMAIL",
+                  "WORK_EMAIL",
+                  "PHONE_WORK",
+                  "PHONE_HOME"
+                ]
+              },
+              fieldList: ["contactMechPurposeTypeId"]
+            },
+            _toOne_PostalAddress: {
+              fieldList: ["address1", "houseNumber", "city", "postalCode"],
+              entityRelations: {
+                _toOne_CountryGeo: {
+                  fieldList: ["geoName"]
+                },
+                _toOne_StateProvinceGeo: {
+                  fieldList: ["geoName"]
+                }
+              }
+            },
+            _toOne_TelecomNumber: {
+              fieldList: ["countryCode", "contactNumber"]
+            }
+          }
+        }
+      }
+    };
+    // Request for employment data like who is the employer, its location etc.
+    const employmentDataBody = {
+      inputFields: {
+        partyIdTo: id
+      },
+      entityRelations: {
+        _toOne_FromParty: {
+          fieldList: ["partyId"],
+          entityRelations: {
+            _toOne_PartyGroup: {
+              fieldList: ["groupName"]
+            },
+            _toMany_PartyContactMech: {
+              areRelationResultsMandatory: true,
+              fieldList: ["contactMechId"],
+              entityRelations: {
+                _toMany_PartyContactMechPurpose: {
+                  inputFields: {
+                    contactMechPurposeTypeId_fld0_op: "equals",
+                    contactMechPurposeTypeId_fld0_value: "GENERAL_LOCATION"
+                  },
+                  fieldList: ["contactMechPurposeTypeId"]
+                },
+                _toOne_PostalAddress: {
+                  fieldList: ["address1", "houseNumber", "city", "postalCode"],
+                  entityRelations: {
+                    _toOne_CountryGeo: {
+                      fieldList: ["geoName"]
+                    },
+                    _toOne_StateProvinceGeo: {
+                      fieldList: ["geoName"]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    };
+    // Request for financial data like bank account number etc.
+    const financialDataBody = {
+      inputFields: {
+        ownerPartyId: id,
+        statusId_fld0_op: "equals",
+        statusId_fld0_value: "FNACT_ACTIVE"
+      },
+      fieldList: ["finAccountTypeId", "finAccountCode"]
+    };
+    // Request for employee position at the company.
+    const positionDataBody = {
+      inputFields: {
+        partyId: id,
+        statusId_fld0_op: "equals",
+        statusId_fld0_value: "EMPL_POS_ACTIVE"
+      },
+      entityRelations: {
+        _toOne_EmplPositionType: {
+          fieldList: ["description"]
+        },
+        _toMany_ManagedByEmplPositionReportingStruct: {
+          fieldList: ["comments", "emplPositionIdManagedBy"],
+          entityRelations: {
+            _toOne_ManagedByEmplPosition: {
+              fieldList: ["emplPositionId"],
+              entityRelations: {
+                _toOne_Party: {
+                  inputFields: {
+                    partyTypeId_fld0_op: "equals",
+                    partyTypeId_fld0_value: "PERSON"
+                  },
+                  fieldList: ["partyId"],
+                  entityRelations: {
+                    _toOne_Person: {
+                      fieldList: ["firstName", "middleName", "lastName"]
+                    }
+                  }
+                },
+                _toOne_EmplPositionType: {
+                  fieldList: ["description"]
+                }
+              }
+            }
+          }
+        }
+      }
+    };
+
+    /**
+     * Fetch the data from the server.
+     *
+     * @param {string} toUrl - url to make request to.
+     * @param {object} data - data to include to the request.
+     * @returns {object} with the requested values.
+     */
+    const fetchData = async (toUrl, data) => {
+      const response = await this.fetch(toUrl, {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          Authorization: `Bearer ${token}`
+        }
+      });
+
+      const result = await response.json();
+
+      // If there was an error, return empty object and log the error message.
+      if (!response.ok) {
+        console.error(result.errorMessage);
+        return {};
+      }
+      return result.length > 1 ? result : result[0];
+    };
+
+    const personalData = await fetchData(url + "/Person", personalDataBody);
+    const contactData = await fetchData(
+      url + "/PartyContactMech",
+      contactDataBody
+    );
+    const employmentData = await fetchData(
+      url + "/Employment",
+      employmentDataBody
+    );
+    const financialData = await fetchData(
+      url + "/FinAccount",
+      financialDataBody
+    );
+    const positionData = await fetchData(
+      url + "/EmplPosition",
+      positionDataBody
+    );
+
+    return {
+      personalData,
+      contactData,
+      employmentData,
+      financialData,
+      positionData
+    };
+  }
+</script>
+
+<script>
+  import { Container, Row, Col, Tabs, Tab } from "svelte-chota";
+  import FaBriefcase from "svelte-icons/fa/FaBriefcase.svelte";
+  import FaUserLock from "svelte-icons/fa/FaUserLock.svelte";
+  import FaPen from "svelte-icons/fa/FaPen.svelte";
+  import EmployeeWorkInfo from "../../components/EmployeeWorkInfo.svelte";
+  import EmployeePrivateInfo from "../../components/EmployeePrivateInfo.svelte";
+  import EmployeeHRInfo from "../../components/EmployeeHRInfo.svelte";
+
+  export let personalData = {};
+  export let contactData = {};
+  export let employmentData = {};
+  export let financialData = {};
+  export let positionData = {};
+
+  let isEditing = false;
+  let activeTab = 0;
+
+  /**
+   * Extract the correct type of contact from the result.
+   *
+   * @param {string} contactType - which type of contact info is needed.
+   * @return {object}
+   */
+  const extractContact = contactType => {
+    const contactMech = contactData.find(contact => {
+      const { contactMechTypeId } = contact._toOne_ContactMech;
+      return contactMechTypeId === contactType;
+    });
+
+    return contactMech ? contactMech._toOne_ContactMech : {};
+  };
+
+  /**
+   * Extract the correct type of phone number.
+   *
+   * Can be either phone or home number.
+   *
+   * @param {string} phoneType - which type of phone number is needed.
+   * @return {object}
+   */
+  const extractPhone = phoneType => {
+    const contact = extractContact("TELECOM_NUMBER");
+
+    const types = contact._toMany_PartyContactMechPurpose;
+
+    if (types.some(type => type.contactMechPurposeTypeId === phoneType)) {
+      return contact._toOne_TelecomNumber;
+    }
+    return {};
+  };
+
+  /**
+   * Extract the country code and number from the given phone object.
+   */
+  const extractPhoneChunks = phone => {
+    const countryCode = phone.countryCode || "";
+    const contactNumber = phone.contactNumber || "";
+
+    return { countryCode, contactNumber };
+  };
+
+  /**
+   * Construct the full phone with country code and number.
+   */
+  const constructFullPhone = (countryCode, contactNumber) => {
+    if (countryCode && contactNumber) {
+      return `+${countryCode}-${contactNumber}`;
+    }
+    return contactNumber || "";
+  };
+
+  let firstName = personalData.firstName || "";
+  let middleName = personalData.middleName || "";
+  let lastName = personalData.lastName || "";
+
+  const workPhone = extractPhoneChunks(extractPhone("PHONE_WORK"));
+  const homePhone = extractPhoneChunks(extractPhone("PHONE_HOME"));
+  let workPhoneCC = workPhone.countryCode;
+  let workPhoneCN = workPhone.contactNumber;
+  let homePhoneCC = homePhone.countryCode;
+  let homePhoneCN = homePhone.contactNumber;
+
+  let email = extractContact("EMAIL_ADDRESS").infoString || "";
+
+  const homeAddress = extractContact("POSTAL_ADDRESS");
+
+  let workLocation = employmentData
+    ? employmentData._toOne_FromParty._toOne_PartyGroup.groupName || ""
+    : "";
+
+  $: fullName = `${firstName} ${middleName} ${lastName}`.trim();
+  $: fullWorkPhone = constructFullPhone(workPhoneCC, workPhoneCN);
+  $: fullHomePhone = constructFullPhone(homePhoneCC, homePhoneCN);
+</script>
+
+<style>
+  h1 {
+    margin: 0;
+  }
+
+  .employee__edit-button {
+    background-color: #007bff;
+    color: white;
+    font-weight: 500;
+  }
+  /* .employee__discard-button {
+    color: #007bff;
+    background-color: white;
+    font-weight: 500;
+  } */
+  button:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+  }
+
+  input {
+    margin-bottom: 1vh;
+  }
+
+  .icon {
+    width: 2rem;
+    height: 2rem;
+    display: inline-block;
+    color: #757575;
+    vertical-align: text-top;
+  }
+</style>
+
+<Container class="employee">
+  <Row>
+    <Col size="1">
+      <!-- Toggle between the editing modes -->
+      <!-- TODO: Implement data saving when in editing mode -->
+      <button
+        class="employee__edit-button"
+        on:click={() => (isEditing = !isEditing)}>
+        {isEditing ? 'SAVE' : 'EDIT'}
+      </button>
+    </Col>
+
+    <!-- <Col size="1">
+      <button
+        class="employee__discard-button"
+        on:click={() => {
+          if (isEditing) window.location.reload();
+          return;
+        }}>
+        {isEditing ? 'DISCARD' : 'CREATE'}
+      </button>
+    </Col> -->
+  </Row>
+
+  <Row class="employee__name-and-image">
+    <Col size="5" class="employee-name">
+      {#if isEditing}
+        <input placeholder="First Name" bind:value={firstName} />
+        <input placeholder="Middle Name" bind:value={middleName} />
+        <input placeholder="Last Name" bind:value={lastName} />
+      {:else}
+        <h1>{fullName}</h1>
+      {/if}
+    </Col>
+
+    <Col class="employee-image">
+      <img src="favicon.png" alt="Employee profile image" />
+    </Col>
+  </Row>
+
+  <div class="employee__main-info">
+    <Row>
+      <Col size="2" class="employee__main-info-type">Work Phone</Col>
+      <Col size="3" class="employee__main-info-value">
+        {#if isEditing}
+          <input placeholder="372" bind:value={workPhoneCC} />
+          <input placeholder="12345678" bind:value={workPhoneCN} />
+        {:else}{fullWorkPhone}{/if}
+      </Col>
+    </Row>
+
+    <Row>
+      <Col size="2" class="employee__main-info-type">Work Email</Col>
+      <Col size="3" class="employee__main-info-value">
+        {#if isEditing}
+          <input placeholder="test@test.com" type="email" bind:value={email} />
+        {:else}{email}{/if}
+      </Col>
+    </Row>
+
+    <Row>
+      <Col size="2" class="employee__main-info-type">Work Location</Col>
+      <Col size="3" class="employee__main-info-value">
+        {#if isEditing}
+          <input placeholder="Company name" bind:value={workLocation} />
+        {:else}{workLocation}{/if}
+      </Col>
+    </Row>
+  </div>
+
+  <!-- Other employee information (work specific, private, HR specific) -->
+  <Tabs bind:active={activeTab} full class="employee__tabs">
+    <Tab>
+      <div class="icon">
+        <FaBriefcase />
+      </div>
+      Work Information
+    </Tab>
+
+    <Tab>
+      <div class="icon">
+        <FaUserLock />
+      </div>
+      Private Information
+    </Tab>
+
+    <Tab>
+      <div class="icon">
+        <FaPen />
+      </div>
+      HR Settings
+    </Tab>
+  </Tabs>
+
+  <div class="employee__other-info">
+    {#if activeTab === 0}
+      <EmployeeWorkInfo {isEditing} {employmentData} />
+    {:else if activeTab === 1}
+      <EmployeePrivateInfo
+        {isEditing}
+        {personalData}
+        {financialData}
+        {homeAddress}
+        {email}
+        bind:homePhoneCC
+        bind:homePhoneCN
+        {fullHomePhone} />
+    {:else}
+      <EmployeeHRInfo />
+    {/if}
+  </div>
+</Container>

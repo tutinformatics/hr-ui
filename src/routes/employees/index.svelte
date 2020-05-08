@@ -118,9 +118,11 @@
         {#each employees as employee}
             <Row>
                 <Col class="employeeCard">
-                    <Card class="employeeCard__body">
-                        <h4>{employee.partyId}</h4>
-                    </Card>
+                    <a href=employees/{employee.partyId}>
+                        <Card class="employeeCard__body">
+                            <h4>{employee.partyId}</h4>
+                        </Card>
+                    </a>
                 </Col>
             </Row>
         {/each}
