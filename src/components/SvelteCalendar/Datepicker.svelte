@@ -3,7 +3,7 @@
   import NavBar from "./NavBar.svelte";
   import Popover from "./Popover.svelte";
   import { getMonths } from "./lib/helpers";
-  import { formatDate, internationalize } from "timeUtils";
+  import {formatDate, internationalize} from 'timeUtils/dist/timeUtils.esm';
   import { keyCodes, keyCodesArray } from "./lib/keyCodes";
   import { onMount, createEventDispatcher } from "svelte";
 

@@ -41,6 +41,7 @@
     "svelte-material-ui": "^1.0.0-beta.21",
     "svelte-mui": "^0.3.3-3",
     "svelte-preprocess": "^3.7.4",
+    "timeUtils": "^2.0.0",
     "webpack": "^4.7.0"
   }
 }
