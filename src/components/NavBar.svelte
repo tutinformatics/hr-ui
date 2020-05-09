@@ -44,7 +44,7 @@ because Svelte starts complaining that the element must be a direct child on a c
     <Nav class="navbar">
         <a slot="left" href="/" class="brand">HR</a>
 
-        <a slot="left" href="/folderView">Main</a>
+        <a slot="left" href="/company">Main</a>
         <a slot="left" href="/employees">Employees</a>
         <a slot="left" href="/positions">Employee Positions</a>
         <a slot="left" href="/skills">Skills</a>
