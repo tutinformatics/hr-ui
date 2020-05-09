@@ -72,12 +72,11 @@ because Svelte starts complaining that the element must be a direct child on a c
         <div class="main-dropdown" slot="left">
             <div class="dropdown is-horizontal-align">
                 <Button dropdown="HUMAN RESOURCES" autoclose clear>
-                    <div class="container">
-                        <p class="draggable" draggable="true"><a href="/manage">Manage employees</a></p>
-                        <p class="draggable" draggable="true"><a href="/skills">Manage employee skills</a></p>
-                        <p class="draggable" draggable="true"><a href="/positions">Manage employee positions</a></p>
-                        <p class="draggable" draggable="true"><a href="/folderView">Main</a></p>
-                        <p class="draggable" draggable="true"><a href="/test">Draggable test</a></p>
+                    <div class="container" use:drag>
+                        <a href="/manage" class="draggable dropdown-link" draggable="true">Manage employees</a>
+                        <a href="/skills" class="draggable dropdown-link" draggable="true">Manage employee skills</a>
+                        <a href="/positions" class="draggable dropdown-link" draggable="true">Manage employee positions</a>
+                        <a href="/folderView" class="draggable dropdown-link" draggable="true">Main</a>
                     </div>
                 </Button>
             </div>

@@ -26,3 +26,13 @@
     margin-top: 14px
 }
 
+.dropdown-link:hover {
+    cursor: default;
+}
+
+.draggable.dragging {
+    cursor: default;
+    color: #d43939 !important;
+}
+
+
