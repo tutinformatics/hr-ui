@@ -16,11 +16,8 @@
     let stateProvince = stateProvinceGeo.geoName || "";
     let country = countryGeo.geoName || "";
 
-    const regex = new RegExp(",,", "g");
-    $: fullAddress = `${street},${houseNumber},${city},${postalCode},${stateProvince},${country}`.replace(
-            regex,
-            ""
-    );
+    const regex = new RegExp(",{2,}|^,", "g");
+    $: fullAddress = `${street},${houseNumber},${city},${postalCode},${stateProvince},${country}`.replace(regex, "");
 </script>
 
 <style>

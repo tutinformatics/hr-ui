@@ -12,6 +12,7 @@
     import EmployeeWorkInfo from "../../components/EmployeeWorkInfo.svelte";
     import EmployeePrivateInfo from "../../components/EmployeePrivateInfo.svelte";
     import EmployeeHRInfo from "../../components/EmployeeHRInfo.svelte";
+    import EmployeeFormButtons from "../../components/EmployeeFormButtons.svelte";
 
     let activeTab = 0;
 
@@ -44,12 +45,6 @@
 </script>
 
 <style>
-    .employee__save-button {
-        background-color: #007bff;
-        color: white;
-        font-weight: 500;
-    }
-
     input {
         margin-bottom: 1vh;
     }
@@ -118,13 +113,10 @@
 <svelte:head>
     <link rel="stylesheet" href="employees.css" />
 </svelte:head>
-<Container class="employee">
-    <Row>
-        <Col size="1">
-            <button class="employee__save-button" on:click={createEmployee}>SAVE</button>
-        </Col>
-    </Row>
 
+<EmployeeFormButtons isEditing={true} showCreate={false} />
+
+<Container class="employee">
     <Row class="employee__name-and-image">
         <Col size="5" class="employee-name">
             <input placeholder="First Name" bind:value={firstName} />

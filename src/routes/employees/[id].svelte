@@ -216,13 +216,14 @@
 </script>
 
 <script>
-    import { Container, Row, Col, Tabs, Tab } from "svelte-chota";
+    import {Container, Row, Col, Tabs, Tab} from "svelte-chota";
     import FaBriefcase from "svelte-icons/fa/FaBriefcase.svelte";
     import FaUserLock from "svelte-icons/fa/FaUserLock.svelte";
     import FaPen from "svelte-icons/fa/FaPen.svelte";
     import EmployeeWorkInfo from "../../components/EmployeeWorkInfo.svelte";
     import EmployeePrivateInfo from "../../components/EmployeePrivateInfo.svelte";
     import EmployeeHRInfo from "../../components/EmployeeHRInfo.svelte";
+    import EmployeeFormButtons from "../../components/EmployeeFormButtons.svelte";
 
     export let personalData = {};
     export let contactData = {};
@@ -241,7 +242,7 @@
      */
     const extractContact = contactType => {
         const contactMech = contactData.find(contact => {
-            const { contactMechTypeId } = contact._toOne_ContactMech;
+            const {contactMechTypeId} = contact._toOne_ContactMech;
             return contactMechTypeId === contactType;
         });
 
@@ -274,7 +275,7 @@
         const countryCode = phone.countryCode || "";
         const contactNumber = phone.contactNumber || "";
 
-        return { countryCode, contactNumber };
+        return {countryCode, contactNumber};
     };
 
     /**
@@ -320,16 +321,6 @@
         margin: 0;
     }
 
-    .employee__edit-button {
-        background-color: #007bff;
-        color: white;
-        font-weight: 500;
-    }
-    /* .employee__discard-button {
-      color: #007bff;
-      background-color: white;
-      font-weight: 500;
-    } */
     button:focus {
         border: none;
         outline: none;
@@ -338,6 +329,12 @@
 
     input {
         margin-bottom: 1vh;
+    }
+
+    .phone__extension {
+        max-width: 50px;
+        text-align: center;
+        margin-right: 1vw;
     }
 
     .icon {
@@ -349,30 +346,9 @@
     }
 </style>
 
+<EmployeeFormButtons bind:isEditing />
+
 <Container class="employee">
-    <Row>
-        <Col size="1">
-            <!-- Toggle between the editing modes -->
-            <!-- TODO: Implement data saving when in editing mode -->
-            <button
-                    class="employee__edit-button"
-                    on:click={() => (isEditing = !isEditing)}>
-                {isEditing ? 'SAVE' : 'EDIT'}
-            </button>
-        </Col>
-
-        <!-- <Col size="1">
-          <button
-            class="employee__discard-button"
-            on:click={() => {
-              if (isEditing) window.location.reload();
-              return;
-            }}>
-            {isEditing ? 'DISCARD' : 'CREATE'}
-          </button>
-        </Col> -->
-    </Row>
-
     <Row class="employee__name-and-image">
         <Col size="5" class="employee-name">
             {#if isEditing}
@@ -392,10 +368,10 @@
     <div class="employee__main-info">
         <Row>
             <Col size="2" class="employee__main-info-type">Work Phone</Col>
-            <Col size="3" class="employee__main-info-value">
+            <Col size="3" class="employee__main-info-value phone">
                 {#if isEditing}
-                    <input placeholder="372" bind:value={workPhoneCC} />
-                    <input placeholder="12345678" bind:value={workPhoneCN} />
+                    <input placeholder="372" class="phone__extension" bind:value={workPhoneCC} />
+                    <input placeholder="12345678" class="phone__number" bind:value={workPhoneCN} />
                 {:else}{fullWorkPhone}{/if}
             </Col>
         </Row>
@@ -451,7 +427,7 @@
                     {isEditing}
                     {personalData}
                     {financialData}
-                    {homeAddress}
+                    address={homeAddress}
                     {email}
                     bind:homePhoneCC
                     bind:homePhoneCN

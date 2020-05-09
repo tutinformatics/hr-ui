@@ -35,6 +35,12 @@
     input {
         margin-bottom: 1vh;
     }
+
+    .phone__extension {
+        max-width: 50px;
+        text-align: center;
+        margin-right: 1vw;
+    }
 </style>
 
 <Row>
@@ -54,10 +60,10 @@
 
         <Row>
             <Col size="2" class="employee__main-info-type">Phone</Col>
-            <Col size="3" class="employee__main-info-value">
+            <Col size="3" class="employee__main-info-value phone">
 				{#if isEditing}
-                    <input placeholder="372" bind:value={homePhoneCC} />
-                    <input placeholder="12345678" bind:value={homePhoneCN} />
+                    <input placeholder="372" class="phone__extension" bind:value={homePhoneCC} />
+                    <input placeholder="12345678" class="phone__number" bind:value={homePhoneCN} />
 				{:else}{fullHomePhone}{/if}
             </Col>
         </Row>
