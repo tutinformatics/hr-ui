@@ -20,7 +20,8 @@ function drag() {
             if (afterElem == null) {
                 container.appendChild(draggable)
             } else {
-                container.insertBefore(draggable, afterElem)
+                container.insertAdjacentElement(draggable, afterElem);
+                // container.insertBefore(draggable, afterElem)
             }
         })
     })

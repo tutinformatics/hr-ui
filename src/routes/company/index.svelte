@@ -20,7 +20,7 @@
             }),
             headers: {
                 "Content-Type": "application/json",
-                Accept: "application/json",
+                Accept: "Application/json",
                 Authorization: `Bearer ${token}`
             }
         });

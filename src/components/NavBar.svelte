@@ -4,10 +4,18 @@
 </svelte:head>
 
 <script>
-    import { Nav, Icon, Button } from "svelte-chota";
+    import { Nav, Icon, Button, Row, Col} from "svelte-chota";
     import { mdiFaceProfile } from "@mdi/js";
     import MdAccountCircle from "svelte-icons/md/MdAccountCircle.svelte";
+    import MdInsertChart from 'svelte-icons/md/MdInsertChart.svelte';
+    import MdBusiness from 'svelte-icons/md/MdBusiness.svelte';
+    import MdPermContactCalendar from 'svelte-icons/md/MdPermContactCalendar.svelte';
+    import MdCastConnected from 'svelte-icons/md/MdCastConnected.svelte';
+    import MdDeviceHub from 'svelte-icons/md/MdDeviceHub.svelte';
+    import MdExtension from 'svelte-icons/md/MdExtension.svelte';
+    import { mdiDelete, mdiApps, mdiAutoFix} from '@mdi/js';
     import { stores, goto } from "@sapper/app";
+    import SortableList from 'svelte-sortable-list/SortableList.svelte';
 
     const { session } = stores();
 
@@ -30,19 +38,31 @@
         $session.token = null;
         goto('/');
     }
+
+    let list = [
+        {name: '<div class="project-marketing"><MdPermContactCalendar/></div>'},
+        {name: '<div class="project-finance"><MdInsertChart/></div>'},
+        {name: '<div class="project-business"><MdBusiness/></div>'},
+        {name: '<div class="project-marketing"><MdCastConnected/></div>'},
+        {name: '<div class="project-dist"><MdDeviceHub/></div>'},
+        {name: '<div class="project-extension"><MdExtension/></div>'}
+    ];
+
+    const sortList = ev => {list = ev.detail};
+
 </script>
 
-<style>
-    .draggable {
-        padding: 1rem;
-        background-color: white;
-        cursor: move;
-    }
+<!--<style>-->
+<!--    .draggable {-->
+<!--        padding: 1rem;-->
+<!--        background-color: white;-->
+<!--        cursor: move;-->
+<!--    }-->
 
-    .draggable.dragging {
-        opacity: .5;
-    }
-</style>
+<!--    .draggable.dragging {-->
+<!--        opacity: .5;-->
+<!--    }-->
+<!--</style>-->
 
 <!-- Seems like we cannot render elements with 'slot' attributes in if blocks,
 because Svelte starts complaining that the element must be a direct child on a component. -->
@@ -55,13 +75,25 @@ because Svelte starts complaining that the element must be a direct child on a c
     </Nav>
 {:else}
     <Nav class="navbar">
+        <div class="dropdown drag-icon" slot="left">
+            <Button class="project-button" dropdown="" icon={mdiApps} clear>
+                <SortableList
+                        {list}
+                        on:sort={sortList}
+                        let:item
+                >
+                    <h1>
+                        {@html item.name}
+                    </h1>
+                </SortableList>
+            </Button>
+        </div>
         <a slot="left" href="/" class="brand">HR</a>
 
         <a slot="left" href="/company">Main</a>
         <a slot="left" href="/employees">Employees</a>
         <a slot="left" href="/positions">Employee Positions</a>
         <a slot="left" href="/skills">Skills</a>
-        <a slot="left" href="/test">Draggable test</a>
 
         <a slot="right" href="#" on:click={logout}>Log out</a>
         <a slot="right" class="icon" href="/">
@@ -69,21 +101,6 @@ because Svelte starts complaining that the element must be a direct child on a c
                 <MdAccountCircle />
             </div>
         </a>
-
-        <div class="main-dropdown" slot="left">
-            <div class="dropdown is-horizontal-align">
-                <Button dropdown="HUMAN RESOURCES" autoclose clear>
-                    <p><a href="/manage">Manage employees</a></p>
-                    <p><a href="/skills">Manage employee skills</a></p>
-                    <p><a href="/positions">Manage employee positions</a></p>
-                    <p><a href="/folderView">Main</a></p>
-                    <p><a href="/test">Draggable test</a></p>
-                </Button>
-            </div>
-        </div>
-
-        <a slot="right" href="/">Log out</a>
-        <a slot="right" class="icon" href="/"><div class="profile-icon"><MdAccountCircle/></div></a>
     </Nav>
 {/if}
 

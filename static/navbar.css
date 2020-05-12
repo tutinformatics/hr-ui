@@ -29,13 +29,32 @@
     margin-top: 14px
 }
 
+.drag-icon {
+    margin-top: 17px;
+}
+
+.svelte-1q4wean {
+    width: 40px !important;
+    height: 30px !important;
+    fill: black !important;
+}
+
+.project-button {
+    width: 0px !important;
+    height: auto !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    margin-right: 40px !important;
+}
+
 .dropdown-link:hover {
     cursor: default;
 }
 
-.draggable.dragging {
-    cursor: default;
-    color: #d43939 !important;
+.project-marketing, .project-business, .project-finance, .project-employees, .project-dist, .project-extension {
+    height: auto;
+    width: 60px;
+    /*margin-left: 18px;*/
 }
 
 
