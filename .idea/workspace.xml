@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="981ac587-fb0c-478f-89ea-346817af2624" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/static/store.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NavBar.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NavBar.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/test.svelte" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/drag.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/drag.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/navbar.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,6 +96,8 @@
       <workItem from="1588685364223" duration="14502000" />
       <workItem from="1588842730743" duration="10358000" />
       <workItem from="1588917584585" duration="10295000" />
+      <workItem from="1589030178303" duration="646000" />
+      <workItem from="1589289493727" duration="874000" />
     </task>
     <task id="LOCAL-00001" summary="Add &quot;Chota&quot; css design.">
       <created>1587890638363</created>
@@ -179,7 +176,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588927962829</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Draggable components on navbar.">
+      <created>1589030208725</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1589030208725</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -195,17 +199,18 @@
     <MESSAGE value="Add 'Manage employees' view as table.&#10;Add 'Manage employee skills' where can see employee rating, skill level and so on.&#10;All information about employees were taken from ofbiz automatically.&#10;Some fixes on navbar" />
     <MESSAGE value="Add card view,&#10;switch between table and card views,&#10;some fixes on navbar,&#10;demo of folder tree view" />
     <MESSAGE value="Draggable components." />
-    <option name="LAST_COMMIT_MESSAGE" value="Draggable components." />
+    <MESSAGE value="Draggable components on navbar." />
+    <option name="LAST_COMMIT_MESSAGE" value="Draggable components on navbar." />
   </component>
   <component name="WindowStateProjectService">
     <state x="733" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588417793838">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="733" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1588417793838" />
-    <state x="827" y="156" key="CommitChangelistDialog2" timestamp="1588927962062">
+    <state x="827" y="156" key="CommitChangelistDialog2" timestamp="1589030207796">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="827" y="156" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1588927962061" />
+    <state x="827" y="156" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1589030207796" />
     <state x="594" y="298" key="EditFileWatcherDialog" timestamp="1588105147285">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -234,10 +239,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="672" y="235" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588101871647" />
-    <state x="552" y="241" key="Vcs.Push.Dialog.v2" timestamp="1588927963804">
+    <state x="552" y="241" key="Vcs.Push.Dialog.v2" timestamp="1589030213774">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="241" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1588927963804" />
+    <state x="552" y="241" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1589030213774" />
     <state x="749" y="232" key="git4idea.branch.GitSmartOperationDialog" timestamp="1588101711591">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
