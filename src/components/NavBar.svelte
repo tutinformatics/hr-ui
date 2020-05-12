@@ -4,17 +4,32 @@
 </svelte:head>
 
 <script>
-    import { Nav, Icon, Button} from 'svelte-chota';
-    import { mdiFaceProfile } from '@mdi/js';
-    import MdAccountCircle from 'svelte-icons/md/MdAccountCircle.svelte'
-    import { stores } from '@sapper/app';
+    import { Nav, Icon, Button } from "svelte-chota";
+    import { mdiFaceProfile } from "@mdi/js";
+    import MdAccountCircle from "svelte-icons/md/MdAccountCircle.svelte";
+    import { stores, goto } from "@sapper/app";
 
     const { session } = stores();
 
     let userLoggedIn;
-    session.subscribe(v => userLoggedIn = typeof $session.token === 'string');
-    let logo = 'https://upload.wikimedia.org/wikipedia/commons/1/1b/Svelte_Logo.svg';
+    session.subscribe(v => (userLoggedIn = typeof $session.token === "string"));
 
+    let logo = "https://upload.wikimedia.org/wikipedia/commons/1/1b/Svelte_Logo.svg";
+
+    /**
+     * Log the user out of the system.
+     */
+    async function logout() {
+        const response = await fetch("/auth/logout", {method: "POST"});
+        const result = await response.json()
+
+        if (result.error) {
+            console.error(result.error)
+            return;
+        }
+        $session.token = null;
+        goto('/');
+    }
 </script>
 
 <style>
@@ -33,51 +48,36 @@
 because Svelte starts complaining that the element must be a direct child on a component. -->
 {#if !userLoggedIn}
     <Nav class="navbar is-horizontal-align is-vertical-align">
-        <a slot="left" href="/" class="brand">
-            <Icon src={logo} size="2" class="is-rounded navbar__image" />
-        </a>
-        <a slot="left" href="/">HUMAN RESOURCES</a>
-
-        <div class="dropdown is-horizontal-align" slot="left">
-            <Button dropdown="Categories" autoclose clear>
-                <p><a href="/">Category 1</a></p>
-                <p><a href="/">Category 2</a></p>
-                <p><a href="/">Category 3</a></p>
-                <hr>
-                <p><a href="/">Category 4</a></p>
-            </Button>
-        </div>
-
-        <div class="dropdown" slot="left">
-            <Button dropdown="Variants" autoclose clear>
-                <p><a href="/">Variant 1</a></p>
-                <p><a href="/">Variant 2</a></p>
-                <p><a href="/">Variant 3</a></p>
-                <hr>
-                <p><a href="/">Variant 4</a></p>
-            </Button>
-        </div>
-
-
+        <a slot="left" href="/" class="brand">HR</a>
 
         <a slot="right" href="/login">Login</a>
         <a slot="right" href="/register">Register</a>
     </Nav>
 {:else}
     <Nav class="navbar">
-        <a slot="left" href="/" class="brand">
-            <Icon src={logo} size="2" class="is-rounded navbar__image" />
+        <a slot="left" href="/" class="brand">HR</a>
+
+        <a slot="left" href="/company">Main</a>
+        <a slot="left" href="/employees">Employees</a>
+        <a slot="left" href="/positions">Employee Positions</a>
+        <a slot="left" href="/skills">Skills</a>
+        <a slot="left" href="/test">Draggable test</a>
+
+        <a slot="right" href="#" on:click={logout}>Log out</a>
+        <a slot="right" class="icon" href="/">
+            <div class="profile-icon">
+                <MdAccountCircle />
+            </div>
         </a>
 
         <div class="main-dropdown" slot="left">
             <div class="dropdown is-horizontal-align">
                 <Button dropdown="HUMAN RESOURCES" autoclose clear>
-                    <div class="container" use:drag>
-                        <a href="/manage" class="draggable dropdown-link" draggable="true">Manage employees</a>
-                        <a href="/skills" class="draggable dropdown-link" draggable="true">Manage employee skills</a>
-                        <a href="/positions" class="draggable dropdown-link" draggable="true">Manage employee positions</a>
-                        <a href="/folderView" class="draggable dropdown-link" draggable="true">Main</a>
-                    </div>
+                    <p><a href="/manage">Manage employees</a></p>
+                    <p><a href="/skills">Manage employee skills</a></p>
+                    <p><a href="/positions">Manage employee positions</a></p>
+                    <p><a href="/folderView">Main</a></p>
+                    <p><a href="/test">Draggable test</a></p>
                 </Button>
             </div>
         </div>
