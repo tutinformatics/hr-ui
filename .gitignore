@@ -10,3 +10,4 @@ yarn-error.log
 .sessions
 .env
 .idea
+.prettierrc
