@@ -51,10 +51,14 @@
     cursor: default;
 }
 
-.project-marketing, .project-business, .project-finance, .project-employees, .project-dist, .project-extension {
-    height: auto;
-    width: 60px;
-    /*margin-left: 18px;*/
+.project-icon {
+    height: auto !important;
+    width: 60px !important;
+    margin-left: 18px !important;
+}
+
+.project-icon:hover {
+    fill: #007bff !important;
 }
 
 

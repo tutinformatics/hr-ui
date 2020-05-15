@@ -2,12 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="981ac587-fb0c-478f-89ea-346817af2624" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/view/Aside.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/view/CardView.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/view/Menu.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/view/TVNavbar.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/view/TableView.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/view/TodoView.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/EmployeesDashboard.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EmployeesDashboard.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/NavBar.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NavBar.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/company/index.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/company/index.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/drag.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/drag.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/employees-dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/employees-dashboard.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/navbar.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,7 +61,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="GitIgnore" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/icons" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/black-dashboard" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -71,11 +77,11 @@
       <recent name="C:\Users\sasha\WebstormProjects\ofbiz-sapper\static\icons" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sasha\WebstormProjects\hr-ui\src\components\view" />
+      <recent name="C:\Users\sasha\WebstormProjects\hr-ui\src\components\tableViewNavbars" />
       <recent name="C:\Users\sasha\WebstormProjects\hr-ui\static" />
       <recent name="C:\Users\sasha\WebstormProjects\hr-ui\src\routes" />
       <recent name="C:\Users\sasha\WebstormProjects\hr-ui\src" />
-      <recent name="C:\Users\sasha\WebstormProjects\hr-ui" />
-      <recent name="C:\Users\sasha\WebstormProjects\ofbiz-sapper" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -103,7 +109,11 @@
       <workItem from="1588842730743" duration="10358000" />
       <workItem from="1588917584585" duration="10295000" />
       <workItem from="1589030178303" duration="646000" />
-      <workItem from="1589289493727" duration="13108000" />
+      <workItem from="1589289493727" duration="16714000" />
+      <workItem from="1589352458438" duration="38000" />
+      <workItem from="1589389197123" duration="8943000" />
+      <workItem from="1589437625202" duration="14000" />
+      <workItem from="1589535048705" duration="8436000" />
     </task>
     <task id="LOCAL-00001" summary="Add &quot;Chota&quot; css design.">
       <created>1587890638363</created>
@@ -196,7 +206,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589290448565</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Sortable list navbar">
+      <created>1589315301376</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1589315301376</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -214,21 +231,26 @@
     <MESSAGE value="Draggable components." />
     <MESSAGE value="Draggable components on navbar." />
     <MESSAGE value="Back up code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Back up code" />
+    <MESSAGE value="Sortable list navbar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sortable list navbar" />
   </component>
   <component name="WindowStateProjectService">
     <state x="733" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588417793838">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="733" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1588417793838" />
-    <state x="827" y="156" key="CommitChangelistDialog2" timestamp="1589290447678">
+    <state x="827" y="156" key="CommitChangelistDialog2" timestamp="1589315300587">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="827" y="156" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1589290447678" />
+    <state x="827" y="156" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1589315300587" />
     <state x="594" y="298" key="EditFileWatcherDialog" timestamp="1588105147285">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="594" y="298" key="EditFileWatcherDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588105147285" />
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1589352494215">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1589352494215" />
     <state width="1899" height="274" key="GridCell.Tab.0.bottom" timestamp="1589290964705">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -253,10 +275,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="726" y="251" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589290932658" />
-    <state x="552" y="241" key="Vcs.Push.Dialog.v2" timestamp="1589030213774">
+    <state x="552" y="241" key="Vcs.Push.Dialog.v2" timestamp="1589315303715">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="241" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1589030213774" />
+    <state x="552" y="241" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1589315303715" />
     <state x="749" y="232" key="git4idea.branch.GitSmartOperationDialog" timestamp="1588101711591">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -265,5 +287,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1589296142042" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1589317581749">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1589317581749" />
   </component>
 </project>

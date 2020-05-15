@@ -37,6 +37,7 @@
     "sapper": "^0.27.0",
     "svelte": "^3.0.0",
     "svelte-chota": "^1.7.1",
+    "svelte-dnd-action": "^0.1.1",
     "svelte-fa": "^2.1.1",
     "svelte-grid": "^1.10.8",
     "svelte-loader": "^2.9.0",

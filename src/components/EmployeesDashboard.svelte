@@ -8,6 +8,13 @@
     import FaUserPlus from 'svelte-icons/fa/FaUserPlus.svelte'
     import MdApps from 'svelte-icons/md/MdApps.svelte'
     import FaTable from 'svelte-icons/fa/FaTable.svelte'
+    import FaExpandArrowsAlt from 'svelte-icons/fa/FaExpandArrowsAlt.svelte'
+    import TodoView from './view/TodoView.svelte'
+    import CardView from './view/CardView.svelte'
+    import TableView from './view/TableView.svelte'
+
+    import TVNavbar from './view/TVNavbar.svelte'
+    import Aside from "./view/Aside.svelte"
 
     export let workers = [];
 
@@ -15,11 +22,34 @@
     let colors = ['coral', 'goldenrod', 'limegreen'];
     let favorite = ['coral', 'goldenrod'];
 
-    let tableView = true;
+    let table = true;
+    let card = false;
+    let todo = false;
 
-    function changeView() {
-        tableView = !tableView
+    workers.forEach(addId);
+
+    function addId(item, index) {
+        item.id = index;
     }
+
+    let board = [
+
+        {
+            id: 1,
+            name: "New employee",
+            items: workers
+        },
+        {
+            id: 2,
+            name: "Hiring people",
+            items: []
+        },
+        {
+            id: 3,
+            name: "Other stuff",
+            items: []
+        }
+    ];
 
     $: checked = favorite.length === colors.length;
 
@@ -30,149 +60,39 @@
     function visible() {
         rightVisible = true;
     }
-
+    console.log(table, card, todo)
 </script>
 
 
-<style>
-</style>
-
-<Card class="text-justify">
-    <div slot="header">
-        <Row class="is-horizontal-align">
-            <Col>
-                <h3 class="pull-left">Employees</h3>
-            </Col>
-            <Col>
-                <a href="/employees/create">
-                    <Button outlined class="blue-button">
-                        <Row><div class="add-employee-button"><FaUserPlus/></div> New employee</Row>
-                    </Button>
-                </a>
-            </Col>
-            <Col size="4">
-                <Field gapless>
-                    <Input placeholder="Search"/>
-                    <Button icon={mdiMagnify} class="blue-button"/>
-                </Field>
-            </Col>
-            <Col size="1">
-                <Button dropdown="Product filter" class="blue-button" autoclose>
-                    <p><a href="/">Category 1</a></p>
-                    <p><a href="/">Category 2</a></p>
-                    <p><a href="/">Category 3</a></p>
-                    <hr>
-                    <p><a href="/">Category 4</a></p>
-                </Button>
-            </Col>
-            <Col size="3">
-                <Button dropdown="Product favorite" class="blue-button" autoclose>
-                    <p><a href="/">Category 1</a></p>
-                    <p><a href="/">Category 2</a></p>
-                    <p><a href="/">Category 3</a></p>
-                    <hr>
-                    <p><a href="/">Category 4</a></p>
-                </Button>
-            </Col>
-            <Col>
-                <Row>
-                    <div class="btn-group">
-                        <Button on:click={changeView}>
-                            <div class="view"><FaTable/></div>
-                        </Button>
-
-                        <Button on:click={changeView}>
-                            <div class="view"><MdApps/></div>
-                        </Button>
-                    </div>
-                </Row>
-                <Row>
-                    <small class="table-view-tab text-light">Table view</small>
-                    <small class="card-view-tab text-light">Card view</small>
-                </Row>
-            </Col>
-        </Row>
-    </div>
-</Card>
+<Aside
+        bind:tableView={table}
+        bind:cardView={card}
+        bind:todoView={todo}
+/>
+<TVNavbar/>
+<br/>
+<br/>
+<br/>
+<br/>
 <Row>
     <Col>
-        {#if tableView}
+        {#if table}
         <Card class="text-justify">
-            <div slot="header">
-                <Row>
-                    <Col size="1">
-                        <Checkbox class="thin" bind:group={favorite} color="accent"><span></span></Checkbox>
-                    </Col>
-                    <Col>
-                        <h3>Member</h3>
-                    </Col>
-                    <Col>
-                        <h3>Department</h3>
-                    </Col>
-                    <Col>
-                        <h3>Email</h3>
-                    </Col>
-                    <Col>
-                        <h3>Telephone</h3>
-                    </Col>
-                </Row>
-            </div>
             <hr/>
-            {#if !workers}
-                <Row>
-                    <Col>
-                        <h2>You don't have employees in your company yet.</h2>
-                    </Col>
-                </Row>
-            {:else}
                 {#each workers as employee}
-                    <Row class="employeeCard__body">
-                        <Col size="1">
-                            <Checkbox on:change={onAll} {checked}>
-                            </Checkbox>
-                        </Col>
-                        <Col>
-                            <h4>{employee.partyId}</h4>
-                        </Col>
-                        <Col>
-                            <h4>Ofbiz</h4>
-                        </Col>
-                        <Col>
-                            <h4>ofbizl@sapper.svelte</h4>
-                        </Col>
-                        <Col>
-                            <h4>+37256938555</h4>
-                        </Col>
-                    </Row>
-                    <hr/>
+                <TableView worker={employee}/>
                 {/each}
-            {/if}
         </Card>
-        {:else}
-            <Checkbox class="thin" bind:group={favorite} color="accent"><span>Choose all</span></Checkbox>
+        {/if}
+        {#if card}
             <Row>
                 {#each workers as employee}
-                <Col size="3">
-                    <div style="max-width:600px">
-                        <Card class="other-view-card-body">
-                            <div slot="header">
-                                <h4>{employee.partyId}</h4>
-                            </div>
-                            <hr/>
-                            <strong>Department: </strong> Ofbiz <br/>
-                            <strong>Email: </strong> ofbizl@sapper.svelte <br/>
-                            <strong>Telephone: </strong> +37256938555 <br/>
-                            <hr/>
-                            <div slot="footer">
-                                <Row>
-                                    <Checkbox on:change={onAll} {checked}><small>Choose</small></Checkbox>
-                                </Row>
-                            </div>
-                        </Card>
-                    </div>
-                </Col>
-                    {/each}
+                <CardView worker={employee} />
+                {/each}
             </Row>
-                {/if}
+        {/if}
+        {#if todo}
+            <TodoView employees={board}/>
+        {/if}
     </Col>
 </Row>
