@@ -51,6 +51,9 @@
                         Number.parseInt(process.env.SAPPER_APP_COOKIE_MAX_AGE)
                 )
             );
+            expirationTime =
+                Date.now() +
+                Number.parseInt(process.env.SAPPER_APP_COOKIE_MAX_AGE);
 
             console.log("TOKEN updated");
         }
