@@ -5,11 +5,10 @@ import * as sapper from "@sapper/server";
 import session from "express-session";
 import sessionFileStore from "session-file-store";
 import bodyParser from "body-parser";
+import fetch from "node-fetch";
 
-// Currently using filesystem cache to store sessions.
 // TODO: Change this to more flexible implementation of session store.
 const FileStore = sessionFileStore(session);
-
 const {
     PORT,
     NODE_ENV,
@@ -18,7 +17,6 @@ const {
 } = process.env;
 const dev = NODE_ENV === "development";
 
-// This handles unauthorized requests for now.
 // TODO: Handle it properly somehow.
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
 
@@ -28,7 +26,7 @@ const app = polka() // You can also use Express
         session({
             secret: SAPPER_APP_JWT_SECRET,
             resave: false,
-            saveUninitialized: true,
+            saveUninitialized: false,
             cookie: {
                 maxAge: Number.parseInt(SAPPER_APP_COOKIE_MAX_AGE),
             },
