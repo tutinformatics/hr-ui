@@ -126,24 +126,26 @@
                 </Row>
             {:else}
                 {#each workers as employee}
-                    <Row class="employeeCard__body">
-                        <Col size="1">
-                            <Checkbox on:change={onAll} {checked}>
-                            </Checkbox>
-                        </Col>
-                        <Col>
-                            <h4>{employee.partyId}</h4>
-                        </Col>
-                        <Col>
-                            <h4>Ofbiz</h4>
-                        </Col>
-                        <Col>
-                            <h4>ofbizl@sapper.svelte</h4>
-                        </Col>
-                        <Col>
-                            <h4>+37256938555</h4>
-                        </Col>
-                    </Row>
+                    <a href={`/employees/${employee.partyId}`}>
+                        <Row class="employeeCard__body">
+                            <Col size="1">
+                                <Checkbox on:change={onAll} {checked}>
+                                </Checkbox>
+                            </Col>
+                            <Col>
+                                <h4>{employee.partyId}</h4>
+                            </Col>
+                            <Col>
+                                <h4>Ofbiz</h4>
+                            </Col>
+                            <Col>
+                                <h4>ofbizl@sapper.svelte</h4>
+                            </Col>
+                            <Col>
+                                <h4>+37256938555</h4>
+                            </Col>
+                        </Row>
+                    </a>
                     <hr/>
                 {/each}
             {/if}

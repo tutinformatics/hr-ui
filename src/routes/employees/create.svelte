@@ -1,47 +1,47 @@
 <script context="module">
     export function preload(page, session) {
-        if (!session.token) this.redirect(302, '/login');
+        if (!session.token) this.redirect(302, "/login");
     }
 </script>
 
 <script>
-    import {Container, Row, Col, Tabs, Tab} from "svelte-chota";
+    import { Container, Row, Col, Tabs, Tab } from "svelte-chota";
     import FaBriefcase from "svelte-icons/fa/FaBriefcase.svelte";
     import FaUserLock from "svelte-icons/fa/FaUserLock.svelte";
     import FaPen from "svelte-icons/fa/FaPen.svelte";
-    import EmployeeWorkInfo from "../../components/EmployeeWorkInfo.svelte";
-    import EmployeePrivateInfo from "../../components/EmployeePrivateInfo.svelte";
-    import EmployeeHRInfo from "../../components/EmployeeHRInfo.svelte";
-    import EmployeeFormButtons from "../../components/EmployeeFormButtons.svelte";
+    import EmployeeWorkInfo from "../../components/employeeForm/EmployeeWorkInfo.svelte";
+    import EmployeePrivateInfo from "../../components/employeeForm/EmployeePrivateInfo.svelte";
+    import EmployeeHRInfo from "../../components/employeeForm/EmployeeHRInfo.svelte";
+    import EmployeeFormButtons from "../../components/employeeForm/EmployeeFormButtons.svelte";
 
     let activeTab = 0;
 
-    let firstName = '';
-    let middleName = '';
-    let lastName = '';
+    let firstName = "";
+    let middleName = "";
+    let lastName = "";
 
-    let workPhoneCC = '';
-    let workPhoneCN = '';
-    let homePhoneCC = '';
-    let homePhoneCN = '';
+    let workPhoneCC = "";
+    let workPhoneCN = "";
+    let homePhoneCC = "";
+    let homePhoneCN = "";
 
-    let workEmail = '';
-    let primaryEmail = '';
+    let workEmail = "";
+    let primaryEmail = "";
 
-    let workLocation = '';
-    let workAddress = '';
-    let homeAddress = '';
+    let workLocation = "";
+    let workAddress = "";
+    let homeAddress = "";
 
-    let maritalStatus = '';
+    let position = "";
 
-    let socialSecurityNumber = '';
-    let passportNumber = '';
-    let gender = '';
-    let birthDate = '';
+    let maritalStatus = "";
 
-    async function createEmployee() {
+    let socialSecurityNumber = "";
+    let passportNumber = "";
+    let gender = "";
+    let birthDate = "";
 
-    }
+    async function createEmployee() {}
 </script>
 
 <style>
@@ -54,7 +54,6 @@
         border: none !important;
         outline: none;
         box-shadow: none;
-        margin: 0;
         padding: 0 !important;
     }
 
@@ -114,7 +113,7 @@
     <link rel="stylesheet" href="employees.css" />
 </svelte:head>
 
-<EmployeeFormButtons isEditing={true} showCreate={false} />
+<EmployeeFormButtons isEditing={true} mode="create" />
 
 <Container class="employee">
     <Row class="employee__name-and-image">
@@ -124,9 +123,9 @@
             <input placeholder="Last Name" bind:value={lastName} />
         </Col>
 
-        <Col size="4" />
+        <Col size="3" />
 
-        <Col size="3" class="employee-image">
+        <Col class="employee-image">
             <input type="file" class="profile-image" />
         </Col>
     </Row>
@@ -134,16 +133,28 @@
     <div class="employee__main-info">
         <Row>
             <Col size="2" class="employee__main-info-type">Work Phone</Col>
-            <Col size="3" class="employee__main-info-value phone" style="display: flex">
-                <input placeholder="372" class="phone__extension" bind:value={workPhoneCC} />
-                <input placeholder="12345678" class="phone__number" bind:value={workPhoneCN} />
+            <Col
+                size="3"
+                class="employee__main-info-value phone"
+                style="display: flex">
+                <input
+                    placeholder="372"
+                    class="phone__extension"
+                    bind:value={workPhoneCC} />
+                <input
+                    placeholder="12345678"
+                    class="phone__number"
+                    bind:value={workPhoneCN} />
             </Col>
         </Row>
 
         <Row>
             <Col size="2" class="employee__main-info-type">Work Email</Col>
             <Col size="3" class="employee__main-info-value">
-                <input placeholder="test@test.com" type="email" bind:value={workEmail} />
+                <input
+                    placeholder="test@test.com"
+                    type="email"
+                    bind:value={workEmail} />
             </Col>
         </Row>
 
@@ -151,6 +162,13 @@
             <Col size="2" class="employee__main-info-type">Work Location</Col>
             <Col size="3" class="employee__main-info-value">
                 <input placeholder="Company name" bind:value={workLocation} />
+            </Col>
+        </Row>
+
+        <Row>
+            <Col size="2" class="employee__main-info-type">Position</Col>
+            <Col size="3" class="employee__main-info-value">
+                <input placeholder="Position" bind:value={position} />
             </Col>
         </Row>
     </div>
@@ -177,22 +195,22 @@
     </Tabs>
 
     <div class="employee__other-info">
-		{#if activeTab === 0}
+        {#if activeTab === 0}
             <EmployeeWorkInfo isEditing={true} bind:fullAddress={workAddress} />
-		{:else if activeTab === 1}
+        {:else if activeTab === 1}
             <EmployeePrivateInfo
-                    isEditing={true}
-                    bind:fullAddress={homeAddress}
-                    bind:email={primaryEmail}
-                    bind:homePhoneCC
-                    bind:homePhoneCN
-                    bind:maritalStatus
-                    bind:passportNumber
-                    bind:socialSecurityNumber
-                    bind:gender
-                    bind:birthDate />
-		{:else}
+                isEditing={true}
+                bind:fullAddress={homeAddress}
+                bind:email={primaryEmail}
+                bind:homePhoneCC
+                bind:homePhoneCN
+                bind:maritalStatus
+                bind:passportNumber
+                bind:socialSecurityNumber
+                bind:gender
+                bind:birthDate />
+        {:else}
             <EmployeeHRInfo />
-		{/if}
+        {/if}
     </div>
 </Container>
