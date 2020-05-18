@@ -7,23 +7,27 @@
     const { session } = stores();
 
     let userLoggedIn;
-    session.subscribe(v => (userLoggedIn = typeof $session.token === "string"));
+    session.subscribe(
+        (v) => (userLoggedIn = typeof $session.token === "string")
+    );
 
-    let logo = "https://upload.wikimedia.org/wikipedia/commons/1/1b/Svelte_Logo.svg";
+    let logo =
+        "https://upload.wikimedia.org/wikipedia/commons/1/1b/Svelte_Logo.svg";
 
     /**
      * Log the user out of the system.
      */
     async function logout() {
-        const response = await fetch("/auth/logout", {method: "POST"});
-        const result = await response.json()
+        const response = await fetch("/auth/logout", { method: "POST" });
+        const result = await response.json();
 
         if (result.error) {
-            console.error(result.error)
+            console.error(result.error);
             return;
         }
         $session.token = null;
-        goto('/');
+        $session.cookie = null;
+        goto("/");
     }
 </script>
 
@@ -48,7 +52,6 @@ because Svelte starts complaining that the element must be a direct child on a c
         <a slot="left" href="/employees">Employees</a>
         <a slot="left" href="/positions">Employee Positions</a>
         <a slot="left" href="/skills">Skills</a>
-        <a slot="left" href="/test">Draggable test</a>
 
         <a slot="right" href="#" on:click={logout}>Log out</a>
         <a slot="right" class="icon" href="/">
