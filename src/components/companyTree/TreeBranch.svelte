@@ -6,13 +6,15 @@
     const { session } = stores();
 
     export let allDepartments;
+    export let departmentRelations;
     export let departmentId;
     export let departmentName;
-    export let departmentRelations;
     export let activeDepartments;
     export let level; // How deep into the tree we go.
 
-    let expanded = false;
+    // Initially the node is collapsed, unless it is the root node.
+    let expanded = false || level === 0;
+    $: expanded = activeDepartments.map(dep => dep.id).includes(departmentId);
 
     /**
      * Show or hide related departments in the tree.
@@ -20,17 +22,16 @@
     async function expand() {
         expanded = !expanded;
 
-        // Load new department only if the tree node has been expanded
-        // and it was for the first time.
         if (expanded) {
+            // Only one node from the same level can be expanded.
+            activeDepartments = activeDepartments.filter(
+                dep => dep.level < level
+            );
             activeDepartments = [
                 ...activeDepartments,
                 { id: departmentId, level }
             ];
-        }
-        // Rollback to the department that acts as a parent to the
-        // current department.
-        else if (!expanded) {
+        } else if (!expanded && parentDepId) {
             activeDepartments = activeDepartments.filter(
                 dep => dep.id !== departmentId
             );
@@ -65,7 +66,7 @@
     }
 </style>
 
-<span class:expanded on:click={expand}>
+<span on:click={expand}>
     <div class="icon">
         {#if expanded}
             <FaMinus />
@@ -83,12 +84,11 @@
             <li>
                 <svelte:self
                     {allDepartments}
+                    {departmentRelations}
                     departmentId={dep.id}
                     departmentName={dep.name}
-                    parentDepId={departmentId}
-                    level={level + 1}
-                    {departmentRelations}
-                    bind:activeDepartments />
+                    bind:activeDepartments
+                    level={level + 1} />
             </li>
         {/each}
     </ul>

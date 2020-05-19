@@ -150,8 +150,7 @@
     // These are the values of the company, the root for all other departments.
     const { id, name } = allDepartments[0];
 
-    // let departmentRelations = [{ id, name, deps: [] }];
-    let activeDepartments = [];
+    let activeDepartments = [{ id, level: 0 }];
 </script>
 
 <svelte:head>
@@ -162,11 +161,11 @@
     <Col size="4">
         <TreeBranch
             {allDepartments}
+            {departmentRelations}
             departmentId={id}
             departmentName={name}
-            level={0}
-            {departmentRelations}
-            bind:activeDepartments />
+            bind:activeDepartments
+            level={0} />
     </Col>
 
     <Col>
