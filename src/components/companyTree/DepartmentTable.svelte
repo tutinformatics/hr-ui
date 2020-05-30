@@ -1,5 +1,4 @@
 <script>
-    export let allDepartments;
     export let departmentRelations;
     export let activeDepartments;
 
@@ -52,24 +51,56 @@
 
 <style>
     table,
-    tr,
-    th {
+    th,
+    td {
         border: 1px solid black;
         border-collapse: collapse;
     }
+
+    div {
+        overflow-y: scroll;
+        max-height: 300px;
+        width: 100%;
+    }
+
+    .new-dep {
+        color: #007bff;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        box-shadow: none;
+        margin-left: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .new-dep:focus {
+        border: none;
+        outline: none;
+        box-shadow: none;
+    }
+
+    .new-dep:hover {
+        background-color: #007bff;
+        color: white;
+    }
 </style>
 
-<table>
-    <tr>
-        <th>Department</th>
-        <th>Location</th>
-    </tr>
-    {#each oneLevelDepartments as oneLevelDep}
-        {#each getSubDepartments(oneLevelDep) as dep}
-            <tr>
-                <td>{dep.name}</td>
-                <td>{dep.location}</td>
-            </tr>
+<div>
+    <table>
+        <tr>
+            <th>
+                Department
+                <button class="new-dep">Add New</button>
+            </th>
+            <th>Location</th>
+        </tr>
+        {#each oneLevelDepartments as oneLevelDep}
+            {#each getSubDepartments(oneLevelDep) as dep}
+                <tr>
+                    <td>{dep.name}</td>
+                    <td>{dep.location}</td>
+                </tr>
+            {/each}
         {/each}
-    {/each}
-</table>
+    </table>
+</div>

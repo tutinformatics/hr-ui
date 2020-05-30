@@ -61,6 +61,27 @@
                                         fieldList: ["city"]
                                     }
                                 }
+                            },
+                            _toOne_Party: {
+                                fieldList: ["partyId"],
+                                entityRelations: {
+                                    _toMany_EmplPosition: {
+                                        inputFields: {
+                                            statusId_fld0_op: "equals",
+                                            statusId_fld0_value:
+                                                "EMPL_POS_ACTIVE"
+                                        },
+                                        fieldList: ["emplPositionId"],
+                                        entityRelations: {
+                                            _toOne_EmplPositionType: {
+                                                fieldList: [
+                                                    "emplPositionTypeId",
+                                                    "description"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         }
                     }),
@@ -86,10 +107,20 @@
                 ? contact._toOne_PostalAddress.city
                 : "";
 
+            // All available positions at this department.
+            const positions = details._toOne_Party._toMany_EmplPosition;
+            const prettyPositions = positions.map(pos => {
+                return {
+                    id: pos.emplPositionId,
+                    name: pos._toOne_EmplPositionType.description
+                };
+            });
+
             const department = {
                 id: depId,
                 name: details.groupName || "",
-                location
+                location,
+                positions: prettyPositions
             };
             allDepartments.push(department);
         }
@@ -97,7 +128,7 @@
         // Here we loop over all department ids again in order ot
         // register the relations between them, since the initial
         // query for getRelatedParties returns flat list with values.
-        const departmentRelations = {};
+        let departmentRelations = {};
         for (const depId of departmentIds) {
             const relatedDepsResponse = await this.fetch(
                 `${process.env.SAPPER_APP_API_URL}/generic/v1/services/getRelatedParties`,
@@ -169,9 +200,8 @@
     </Col>
 
     <Col>
-        <DepartmentTable
-            {allDepartments}
-            {departmentRelations}
-            bind:activeDepartments />
+        <DepartmentTable {departmentRelations} bind:activeDepartments />
+        <PositionsTable {allDepartments} bind:activeDepartments />
+        <EmployeesTable bind:activeDepartments />
     </Col>
 </Row>

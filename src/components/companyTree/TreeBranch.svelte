@@ -31,7 +31,7 @@
                 ...activeDepartments,
                 { id: departmentId, level }
             ];
-        } else if (!expanded && parentDepId) {
+        } else if (!expanded) {
             activeDepartments = activeDepartments.filter(
                 dep => dep.id !== departmentId
             );
