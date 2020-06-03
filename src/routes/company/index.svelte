@@ -78,6 +78,23 @@
                                                     "emplPositionTypeId",
                                                     "description"
                                                 ]
+                                            },
+                                            _toMany_EmplPositionFulfillment: {
+                                                fieldList: ["partyId"],
+                                                entityRelations: {
+                                                    _toOne_Party: {
+                                                        fieldList: ["partyId"],
+                                                        entityRelations: {
+                                                            _toOne_Person: {
+                                                                fieldList: [
+                                                                    "firstName",
+                                                                    "middleName",
+                                                                    "lastName"
+                                                                ]
+                                                            }
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
                                     }
@@ -112,7 +129,25 @@
             const prettyPositions = positions.map(pos => {
                 return {
                     id: pos.emplPositionId,
-                    name: pos._toOne_EmplPositionType.description
+                    name: pos._toOne_EmplPositionType.description,
+                    employees: pos._toMany_EmplPositionFulfillment.map(
+                        empls => {
+                            const {
+                                firstName,
+                                middleName,
+                                lastName
+                            } = empls._toOne_Party._toOne_Person;
+
+                            return {
+                                id: empls.partyId,
+                                name: `${firstName}${
+                                    middleName === ""
+                                        ? " " + middleName + " "
+                                        : " "
+                                }${lastName}`
+                            };
+                        }
+                    )
                 };
             });
 
@@ -202,6 +237,6 @@
     <Col>
         <DepartmentTable {departmentRelations} bind:activeDepartments />
         <PositionsTable {allDepartments} bind:activeDepartments />
-        <EmployeesTable bind:activeDepartments />
+        <EmployeesTable {allDepartments} bind:activeDepartments />
     </Col>
 </Row>
