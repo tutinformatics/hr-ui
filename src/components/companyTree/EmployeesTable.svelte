@@ -26,8 +26,6 @@
 
     div {
         margin: 5vh auto;
-        overflow-y: scroll;
-        max-height: 300px;
         width: 100%;
     }
 
