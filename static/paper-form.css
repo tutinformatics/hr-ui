@@ -1,0 +1,70 @@
+.left-side {
+    margin: 0;
+    background: #ffb75e; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+        to top,
+        #ed8f03,
+        #ffb75e
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+        to top,
+        #ed8f03,
+        #ffb75e
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.right-side {
+    margin: 0;
+    padding-top: 20vh;
+}
+
+.paper {
+    border: 1px solid #b1acac50;
+    border-radius: 0.6vw;
+    background-color: white;
+    margin: 15vh auto 10vh;
+    padding: 2vw;
+
+    -webkit-box-shadow: -6px 7px 12px -4px rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: -6px 7px 12px -4px rgba(0, 0, 0, 0.6);
+    box-shadow: -6px 7px 12px -4px rgba(0, 0, 0, 0.6);
+}
+.paper-image {
+    text-align: right;
+    padding-right: 5vw;
+}
+.paper__main-info-type {
+    font-weight: 500;
+    margin-top: 2vh;
+}
+.paper__main-info-value {
+    text-align: left;
+    margin-top: 2vh;
+}
+.paper__tabs {
+    margin-top: 5vh;
+}
+.paper__tabs a:hover {
+    border-color: #007bff60;
+}
+.paper__tabs a:hover .icon,
+.paper__tabs > a.active .icon {
+    color: #007bff;
+}
+.paper__tabs > a.active {
+    border-color: #007bff;
+}
+
+.paper__other-info-type {
+    font-weight: 500;
+}
+.paper__other-info-value {
+    text-align: left;
+}
+
+.phone {
+    display: flex;
+}
+
+.position-statuses label {
+    display: block;
+}

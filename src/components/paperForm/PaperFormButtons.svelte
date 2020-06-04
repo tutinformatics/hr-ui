@@ -1,6 +1,7 @@
 <script>
     import { Container, Row, Col } from "svelte-chota";
 
+    export let forObject;
     export let isEditing = false;
     export let mode;
 </script>
@@ -14,14 +15,14 @@
         min-height: 8vh;
     }
 
-    .employee__edit-button {
+    .object__edit-button {
         background-color: white;
         color: #007bff;
         border: 2px solid white;
         font-weight: 700;
     }
 
-    .employee__discard-button {
+    .object__discard-button {
         color: white;
         background-color: #007bff;
         border: 2px solid white;
@@ -42,7 +43,7 @@
                 <!-- Toggle between the editing modes -->
                 <!-- TODO: Implement data saving when in editing mode -->
                 <button
-                    class="employee__edit-button"
+                    class="object__edit-button"
                     on:click={() => (isEditing = !isEditing)}>
                     {isEditing ? 'SAVE' : 'EDIT'}
                 </button>
@@ -51,21 +52,21 @@
             <Col size="1" style="margin: 0">
                 {#if isEditing}
                     <button
-                        class="employee__discard-button"
+                        class="object__discard-button"
                         on:click={() => {
                             if (isEditing) window.location.reload();
                         }}>
                         DISCARD
                     </button>
                 {:else}
-                    <a href="/employees/create">
-                        <button class="employee__discard-button">CREATE</button>
+                    <a href={`${forObject}/create`}>
+                        <button class="object__discard-button">CREATE</button>
                     </a>
                 {/if}
             </Col>
         {:else if mode === 'create'}
             <Col size="1" style="margin: 0">
-                <button class="employee__edit-button">SAVE</button>
+                <button class="object__edit-button">SAVE</button>
             </Col>
         {/if}
     </Row>

@@ -17,7 +17,10 @@
     let country = countryGeo.geoName || "";
 
     const regex = new RegExp(",{2,}|^,", "g");
-    $: fullAddress = `${street},${houseNumber},${city},${postalCode},${stateProvince},${country}`.replace(regex, "");
+    $: fullAddress = `${street},${houseNumber},${city},${postalCode},${stateProvince},${country}`.replace(
+        regex,
+        ""
+    );
 </script>
 
 <style>
@@ -27,15 +30,15 @@
 </style>
 
 <Row>
-    <Col size="2" class="employee__other-info-type">Address</Col>
-    <Col size={isEditing ? '3' : '5'} class="employee__other-info-value">
-		{#if isEditing}
+    <Col size="2" class="paper__other-info-type">Address</Col>
+    <Col size={isEditing ? '3' : '5'} class="paper__other-info-value">
+        {#if isEditing}
             <input placeholder="Street" bind:value={street} />
             <input placeholder="House number" bind:value={houseNumber} />
             <input placeholder="City" bind:value={city} />
             <input placeholder="Postal code" bind:value={postalCode} />
             <input placeholder="State/province" bind:value={stateProvince} />
             <input placeholder="Country" bind:value={country} />
-		{:else}{fullAddress}{/if}
+        {:else}{fullAddress}{/if}
     </Col>
 </Row>
