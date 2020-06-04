@@ -217,10 +217,10 @@
     import FaBriefcase from "svelte-icons/fa/FaBriefcase.svelte";
     import FaUserLock from "svelte-icons/fa/FaUserLock.svelte";
     import FaPen from "svelte-icons/fa/FaPen.svelte";
-    import EmployeeWorkInfo from "../../components/employeeForm/EmployeeWorkInfo.svelte";
-    import EmployeePrivateInfo from "../../components/employeeForm/EmployeePrivateInfo.svelte";
-    import EmployeeHRInfo from "../../components/employeeForm/EmployeeHRInfo.svelte";
-    import EmployeeFormButtons from "../../components/employeeForm/EmployeeFormButtons.svelte";
+    import EmployeeWorkInfo from "../../components/paperForm/EmployeeWorkInfo.svelte";
+    import EmployeePrivateInfo from "../../components/paperForm/EmployeePrivateInfo.svelte";
+    import EmployeeHRInfo from "../../components/paperForm/EmployeeHRInfo.svelte";
+    import PaperFormButtons from "../../components/paperForm/PaperFormButtons.svelte";
 
     export let personalData = {};
     export let contactData = {};
@@ -322,12 +322,6 @@
         margin: 0;
     }
 
-    button:focus {
-        border: none;
-        outline: none;
-        box-shadow: none;
-    }
-
     input {
         margin-bottom: 1vh;
     }
@@ -348,13 +342,13 @@
 </style>
 
 <svelte:head>
-    <link rel="stylesheet" href="employees.css" />
+    <link rel="stylesheet" href="paper-form.css" />
 </svelte:head>
-<EmployeeFormButtons bind:isEditing mode="edit" />
+<PaperFormButtons forObject="employees" bind:isEditing mode="edit" />
 
-<Container class="employee">
-    <Row class="employee__name-and-image">
-        <Col size="5" class="employee-name">
+<Container class="paper">
+    <Row>
+        <Col size="5" class="paper-name">
             {#if isEditing}
                 <input placeholder="First Name" bind:value={firstName} />
                 <input placeholder="Middle Name" bind:value={middleName} />
@@ -364,15 +358,15 @@
             {/if}
         </Col>
 
-        <Col class="employee-image">
+        <Col class="paper-image">
             <img src="favicon.png" alt="Employee profile image" />
         </Col>
     </Row>
 
-    <div class="employee__main-info">
+    <div class="paper__main-info">
         <Row>
-            <Col size="2" class="employee__main-info-type">Work Phone</Col>
-            <Col size="3" class="employee__main-info-value phone">
+            <Col size="2" class="paper__main-info-type">Work Phone</Col>
+            <Col size="3" class="paper__main-info-value phone">
                 {#if isEditing}
                     <input
                         placeholder="372"
@@ -387,8 +381,8 @@
         </Row>
 
         <Row>
-            <Col size="2" class="employee__main-info-type">Work Email</Col>
-            <Col size="3" class="employee__main-info-value">
+            <Col size="2" class="paper__main-info-type">Work Email</Col>
+            <Col size="3" class="paper__main-info-value">
                 {#if isEditing}
                     <input
                         placeholder="test@test.com"
@@ -399,8 +393,8 @@
         </Row>
 
         <Row>
-            <Col size="2" class="employee__main-info-type">Work Location</Col>
-            <Col size="3" class="employee__main-info-value">
+            <Col size="2" class="paper__main-info-type">Work Location</Col>
+            <Col size="3" class="paper__main-info-value">
                 {#if isEditing}
                     <input
                         placeholder="Company name"
@@ -410,8 +404,8 @@
         </Row>
 
         <Row>
-            <Col size="2" class="employee__main-info-type">Position</Col>
-            <Col size="3" class="employee__main-info-value">
+            <Col size="2" class="paper__main-info-type">Position</Col>
+            <Col size="3" class="paper__main-info-value">
                 {#if isEditing}
                     <input placeholder="Position" bind:value={position} />
                 {:else}{position}{/if}
@@ -420,7 +414,7 @@
     </div>
 
     <!-- Other employee information (work specific, private, HR specific) -->
-    <Tabs bind:active={activeTab} full class="employee__tabs">
+    <Tabs bind:active={activeTab} full class="paper__tabs">
         <Tab>
             <div class="icon">
                 <FaBriefcase />
@@ -443,7 +437,7 @@
         </Tab>
     </Tabs>
 
-    <div class="employee__other-info">
+    <div class="paper__other-info">
         {#if activeTab === 0}
             <EmployeeWorkInfo {isEditing} {employmentData} />
         {:else if activeTab === 1}

@@ -51,6 +51,10 @@
         background-color: #007bff;
         color: white;
     }
+
+    a {
+        display: contents;
+    }
 </style>
 
 <div>
@@ -58,13 +62,17 @@
         <tr>
             <th>
                 Position
-                <button class="new-pos">Add New</button>
+                <a href="positions/create">
+                    <button class="new-pos">Add New</button>
+                </a>
             </th>
             <th>Department</th>
         </tr>
         {#each positions as pos}
             <tr>
-                <td>{pos.name}</td>
+                <a href={`positions/${pos.id}`}>
+                    <td>{pos.name}</td>
+                </a>
                 <td>
                     {allDepartments.find(dep => dep.id === forDepartment.id).name}
                 </td>

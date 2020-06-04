@@ -9,10 +9,10 @@
     import FaBriefcase from "svelte-icons/fa/FaBriefcase.svelte";
     import FaUserLock from "svelte-icons/fa/FaUserLock.svelte";
     import FaPen from "svelte-icons/fa/FaPen.svelte";
-    import EmployeeWorkInfo from "../../components/employeeForm/EmployeeWorkInfo.svelte";
-    import EmployeePrivateInfo from "../../components/employeeForm/EmployeePrivateInfo.svelte";
-    import EmployeeHRInfo from "../../components/employeeForm/EmployeeHRInfo.svelte";
-    import EmployeeFormButtons from "../../components/employeeForm/EmployeeFormButtons.svelte";
+    import EmployeeWorkInfo from "../../components/paperForm/EmployeeWorkInfo.svelte";
+    import EmployeePrivateInfo from "../../components/paperForm/EmployeePrivateInfo.svelte";
+    import EmployeeHRInfo from "../../components/paperForm/EmployeeHRInfo.svelte";
+    import PaperFormButtons from "../../components/paperForm/PaperFormButtons.svelte";
 
     let activeTab = 0;
 
@@ -90,10 +90,6 @@
         background-color: #007bff;
     }
 
-    .phone {
-        display: flex;
-    }
-
     .phone__extension {
         max-width: 50px;
         text-align: center;
@@ -110,14 +106,14 @@
 </style>
 
 <svelte:head>
-    <link rel="stylesheet" href="employees.css" />
+    <link rel="stylesheet" href="paper-form.css" />
 </svelte:head>
 
-<EmployeeFormButtons isEditing={true} mode="create" />
+<PaperFormButtons forObject="employees" isEditing={true} mode="create" />
 
-<Container class="employee">
-    <Row class="employee__name-and-image">
-        <Col size="5" class="employee-name">
+<Container class="paper">
+    <Row>
+        <Col size="5" class="paper-name">
             <input placeholder="First Name" bind:value={firstName} />
             <input placeholder="Middle Name" bind:value={middleName} />
             <input placeholder="Last Name" bind:value={lastName} />
@@ -125,17 +121,17 @@
 
         <Col size="3" />
 
-        <Col class="employee-image">
+        <Col class="paper-image">
             <input type="file" class="profile-image" />
         </Col>
     </Row>
 
-    <div class="employee__main-info">
+    <div class="paper__main-info">
         <Row>
-            <Col size="2" class="employee__main-info-type">Work Phone</Col>
+            <Col size="2" class="paper__main-info-type">Work Phone</Col>
             <Col
                 size="3"
-                class="employee__main-info-value phone"
+                class="paper__main-info-value phone"
                 style="display: flex">
                 <input
                     placeholder="372"
@@ -149,8 +145,8 @@
         </Row>
 
         <Row>
-            <Col size="2" class="employee__main-info-type">Work Email</Col>
-            <Col size="3" class="employee__main-info-value">
+            <Col size="2" class="paper__main-info-type">Work Email</Col>
+            <Col size="3" class="paper__main-info-value">
                 <input
                     placeholder="test@test.com"
                     type="email"
@@ -159,21 +155,21 @@
         </Row>
 
         <Row>
-            <Col size="2" class="employee__main-info-type">Work Location</Col>
-            <Col size="3" class="employee__main-info-value">
+            <Col size="2" class="paper__main-info-type">Work Location</Col>
+            <Col size="3" class="paper__main-info-value">
                 <input placeholder="Company name" bind:value={workLocation} />
             </Col>
         </Row>
 
         <Row>
-            <Col size="2" class="employee__main-info-type">Position</Col>
-            <Col size="3" class="employee__main-info-value">
+            <Col size="2" class="paper__main-info-type">Position</Col>
+            <Col size="3" class="paper__main-info-value">
                 <input placeholder="Position" bind:value={position} />
             </Col>
         </Row>
     </div>
 
-    <Tabs bind:active={activeTab} full class="employee__tabs">
+    <Tabs bind:active={activeTab} full class="paper__tabs">
         <Tab>
             <div class="icon">
                 <FaBriefcase />
@@ -194,7 +190,7 @@
         </Tab>
     </Tabs>
 
-    <div class="employee__other-info">
+    <div class="paper__other-info">
         {#if activeTab === 0}
             <EmployeeWorkInfo isEditing={true} bind:fullAddress={workAddress} />
         {:else if activeTab === 1}
