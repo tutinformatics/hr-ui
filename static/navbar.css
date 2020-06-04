@@ -28,3 +28,37 @@
 .main-dropdown {
     margin-top: 14px
 }
+
+.drag-icon {
+    margin-top: 17px;
+}
+
+.svelte-1q4wean {
+    width: 40px !important;
+    height: 30px !important;
+    fill: black !important;
+}
+
+.project-button {
+    width: 0px !important;
+    height: auto !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    margin-right: 40px !important;
+}
+
+.dropdown-link:hover {
+    cursor: default;
+}
+
+.project-icon {
+    height: auto !important;
+    width: 60px !important;
+    margin-left: 18px !important;
+}
+
+.project-icon:hover {
+    fill: #007bff !important;
+}
+
+

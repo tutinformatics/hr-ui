@@ -1,33 +1,27 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="981ac587-fb0c-478f-89ea-346817af2624" name="Default Changelist" comment="Add 'Manage employees' view as table.&#10;Add 'Manage employee skills' where can see employee rating, skill level and so on.&#10;All information about employees were taken from ofbiz automatically.&#10;Some fixes on navbar">
-      <change afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/Alex.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/companyTree/DepartmentTable.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/companyTree/EmployeesTable.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/companyTree/PositionsTable.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/employeeForm/EmployeeFormButtons.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/company/positions.js" afterDir="false" />
+    <list default="true" id="981ac587-fb0c-478f-89ea-346817af2624" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/skillboardView/Aside.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/skillboardView/CardView.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/skillboardView/ChildNavBar.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/skillboardView/Menu.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/skillboardView/TableView.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AddressInput.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/employeeForm/AddressInput.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Department.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/companyTree/TreeBranch.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/EmployeeFormButtons.svelte" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/EmployeeHRInfo.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/employeeForm/EmployeeHRInfo.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/EmployeePrivateInfo.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/employeeForm/EmployeePrivateInfo.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/EmployeeWorkInfo.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/employeeForm/EmployeeWorkInfo.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/EmployeesDashboard.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EmployeesDashboard.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/NavBar.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NavBar.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/_error.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/_error.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/company/index.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/company/index.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/company/structure.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/company/structure.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/employees/[id].svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/employees/[id].svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/employees/create.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/employees/create.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/test.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/test.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/employees.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/employees.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SkillResource.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EmployeeSkillBoard.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/view/Aside.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboardView/Aside.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/view/CardView.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboardView/CardView.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/view/Menu.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboardView/Menu.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/view/TVNavbar.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboardView/TVNavbar.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/view/TableView.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboardView/TableView.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/view/TodoView.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboardView/TodoView.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/_layout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/_layout.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/skills.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/skills.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/drag.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/drag.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/employees-dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/employees-dashboard.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,8 +39,9 @@
       <list>
         <option value="Sass File" />
         <option value="CSS File" />
-        <option value="Svelte Component" />
+        <option value="SCSS File" />
         <option value="JavaScript File" />
+        <option value="Svelte Component" />
       </list>
     </option>
   </component>
@@ -83,8 +78,8 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="GitIgnore" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/sudoku-app" />
+    <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -106,11 +101,14 @@
       <recent name="C:\Users\sasha\WebstormProjects\ofbiz-sapper\static\icons" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Programming\WebProjects\ofbiz-sapper\src\components\companyTree" />
-      <recent name="D:\Programming\WebProjects\ofbiz-sapper\src\components\EmployeeForm" />
-      <recent name="D:\Programming\WebProjects\ofbiz-sapper\src\routes\employees" />
-      <recent name="C:\Users\sasha\WebstormProjects\hr-ui\static" />
-      <recent name="C:\Users\sasha\WebstormProjects\hr-ui\src\routes" />
+      <recent name="C:\Users\sasha\WebstormProjects\hr-ui\src" />
+      <recent name="C:\Users\sasha\WebstormProjects\hr-ui\src\components" />
+      <recent name="C:\Users\sasha\WebstormProjects\hr-ui\src\components\skillboardView" />
+      <recent name="C:\Users\sasha\WebstormProjects\hr-ui\src\components\view" />
+      <recent name="C:\Users\sasha\WebstormProjects\hr-ui\src\components\tableViewNavbars" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\sasha\WebstormProjects\ofbiz-sapper\static\icons" />
     </key>
   </component>
   <component name="RunManager">
@@ -152,19 +150,28 @@
       <workItem from="1588585952808" duration="446000" />
       <workItem from="1588588768061" duration="22185000" />
       <workItem from="1588685364223" duration="14502000" />
-      <workItem from="1588842730743" duration="9063000" />
-      <workItem from="1588933628461" duration="633000" />
-      <workItem from="1588934298708" duration="1214000" />
-      <workItem from="1588940016451" duration="10977000" />
-      <workItem from="1588955824260" duration="13221000" />
-      <workItem from="1588975904132" duration="2934000" />
-      <workItem from="1589006507121" duration="23988000" />
-      <workItem from="1589290341834" duration="2215000" />
-      <workItem from="1589362906830" duration="87000" />
-      <workItem from="1589451315964" duration="288000" />
-      <workItem from="1589453677917" duration="36837000" />
-      <workItem from="1589530788518" duration="17257000" />
-      <workItem from="1589548505743" duration="2161000" />
+      <workItem from="1588842730743" duration="10358000" />
+      <workItem from="1588917584585" duration="10295000" />
+      <workItem from="1589030178303" duration="646000" />
+      <workItem from="1589289493727" duration="16714000" />
+      <workItem from="1589352458438" duration="38000" />
+      <workItem from="1589389197123" duration="8943000" />
+      <workItem from="1589437625202" duration="14000" />
+      <workItem from="1589535048705" duration="15085000" />
+      <workItem from="1589649056974" duration="6043000" />
+      <workItem from="1589709515746" duration="1743000" />
+      <workItem from="1589794717368" duration="6083000" />
+      <workItem from="1590170714637" duration="2167000" />
+      <workItem from="1590177688366" duration="1412000" />
+      <workItem from="1590225880576" duration="94000" />
+      <workItem from="1590436586016" duration="669000" />
+      <workItem from="1590526984408" duration="4169000" />
+      <workItem from="1590595350469" duration="210000" />
+      <workItem from="1590595579385" duration="904000" />
+      <workItem from="1590609036630" duration="2541000" />
+      <workItem from="1590612484457" duration="1564000" />
+      <workItem from="1590654751304" duration="8442000" />
+      <workItem from="1590868978816" duration="2100000" />
     </task>
     <task id="LOCAL-00001" summary="Add &quot;Chota&quot; css design.">
       <created>1587890638363</created>
@@ -229,63 +236,49 @@
       <option name="project" value="LOCAL" />
       <updated>1588675710744</updated>
     </task>
-    <task id="LOCAL-00010" summary="Add &quot;Create employee&quot; form view">
-      <created>1588976642825</created>
+    <task id="LOCAL-00010" summary="Add card view,&#10;switch between table and card views,&#10;some fixes on navbar,&#10;demo of folder tree view">
+      <created>1588853411509</created>
       <option name="number" value="00010" />
       <option name="presentableId" value="LOCAL-00010" />
       <option name="project" value="LOCAL" />
-      <updated>1588976642825</updated>
+      <updated>1588853411509</updated>
     </task>
-    <task id="LOCAL-00011" summary="Some code refactorings">
-      <created>1588976714343</created>
+    <task id="LOCAL-00011" summary="Draggable components.">
+      <created>1588927962829</created>
       <option name="number" value="00011" />
       <option name="presentableId" value="LOCAL-00011" />
       <option name="project" value="LOCAL" />
-      <updated>1588976714343</updated>
+      <updated>1588927962829</updated>
     </task>
-    <task id="LOCAL-00012" summary="Add logout functionality. The session is destroyed after logout">
-      <created>1588976742843</created>
+    <task id="LOCAL-00012" summary="Draggable components on navbar.">
+      <created>1589030208725</created>
       <option name="number" value="00012" />
       <option name="presentableId" value="LOCAL-00012" />
       <option name="project" value="LOCAL" />
-      <updated>1588976742843</updated>
+      <updated>1589030208725</updated>
     </task>
-    <task id="LOCAL-00013" summary="Implement tree view for the company structure">
-      <created>1589023502176</created>
+    <task id="LOCAL-00013" summary="Back up code">
+      <created>1589290448565</created>
       <option name="number" value="00013" />
       <option name="presentableId" value="LOCAL-00013" />
       <option name="project" value="LOCAL" />
-      <updated>1589023502176</updated>
+      <updated>1589290448565</updated>
     </task>
-    <task id="LOCAL-00014" summary="Refactor employee form a little. Split EDIT and CREATE buttons to keep the app more flexible.">
-      <created>1589028486505</created>
+    <task id="LOCAL-00014" summary="Sortable list navbar">
+      <created>1589315301376</created>
       <option name="number" value="00014" />
       <option name="presentableId" value="LOCAL-00014" />
       <option name="project" value="LOCAL" />
-      <updated>1589028486505</updated>
+      <updated>1589315301376</updated>
     </task>
-    <task id="LOCAL-00015" summary="Add JWT token refreshment functionality">
-      <created>1589463653716</created>
+    <task id="LOCAL-00015" summary="Improve employee view.&#10;Added switch buttons between views as right aside component.">
+      <created>1589544481519</created>
       <option name="number" value="00015" />
       <option name="presentableId" value="LOCAL-00015" />
       <option name="project" value="LOCAL" />
-      <updated>1589463653716</updated>
+      <updated>1589544481519</updated>
     </task>
-    <task id="LOCAL-00016" summary="Fix token refreshing part. It seems to be working now">
-      <created>1589489674084</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1589489674084</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Forgot to refresh the expirationTime variable after token update">
-      <created>1589531012165</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1589531012165</updated>
-    </task>
-    <option name="localTasksCounter" value="18" />
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -299,116 +292,74 @@
     <MESSAGE value="NavBar, Login and Register page." />
     <MESSAGE value="ф" />
     <MESSAGE value="Add 'Manage employees' view as table.&#10;Add 'Manage employee skills' where can see employee rating, skill level and so on.&#10;All information about employees were taken from ofbiz automatically.&#10;Some fixes on navbar" />
-    <MESSAGE value="Add &quot;Create employee&quot; form view" />
-    <MESSAGE value="Some code refactorings" />
-    <MESSAGE value="Add logout functionality. The session is destroyed after logout" />
-    <MESSAGE value="Implement tree view for the company structure" />
-    <MESSAGE value="Refactor employee form a little. Split EDIT and CREATE buttons to keep the app more flexible." />
-    <MESSAGE value="Add JWT token refreshment functionality" />
-    <MESSAGE value="Fix token refreshing part. It seems to be working now" />
-    <MESSAGE value="Forgot to refresh the expirationTime variable after token update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Forgot to refresh the expirationTime variable after token update" />
+    <MESSAGE value="Add card view,&#10;switch between table and card views,&#10;some fixes on navbar,&#10;demo of folder tree view" />
+    <MESSAGE value="Draggable components." />
+    <MESSAGE value="Draggable components on navbar." />
+    <MESSAGE value="Back up code" />
+    <MESSAGE value="Sortable list navbar" />
+    <MESSAGE value="Improve employee view.&#10;Added switch buttons between views as right aside component." />
+    <option name="LAST_COMMIT_MESSAGE" value="Improve employee view.&#10;Added switch buttons between views as right aside component." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="792" y="374" key="#Other_File_Types" timestamp="1588964486112">
+    <state x="552" y="178" key="#Inspections" timestamp="1590657072427">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="792" y="374" key="#Other_File_Types/0.0.1920.1040/-1366.0.1366.728@0.0.1920.1040" timestamp="1588964486112" />
+    <state x="552" y="178" key="#Inspections/0.0.1920.1040@0.0.1920.1040" timestamp="1590657072427" />
     <state x="733" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588417793838">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="733" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1588417793838" />
-    <state x="580" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1589533077472">
+    <state x="827" y="156" key="CommitChangelistDialog2" timestamp="1589544478862">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1589476311195" />
-    <state x="580" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/-1366.0.1366.728@0.0.1920.1040" timestamp="1589533077472" />
-    <state x="423" y="0" width="1120" height="1040" key="CommitChangelistDialog2" timestamp="1589531002698">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="301" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1589463651038" />
-    <state x="423" y="0" width="1120" height="1040" key="CommitChangelistDialog2/0.0.1920.1040/-1366.0.1366.728@0.0.1920.1040" timestamp="1589531002698" />
-    <state x="827" y="156" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1588675709805" />
-    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1589030334670">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040/-1366.0.1366.728@0.0.1920.1040" timestamp="1589030334670" />
+    <state x="827" y="156" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1589544478862" />
     <state x="594" y="298" key="EditFileWatcherDialog" timestamp="1588105147285">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="594" y="298" key="EditFileWatcherDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588105147285" />
-    <state x="818" y="440" key="Github.Dialog.Accounts.Choose" timestamp="1588976785823">
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1590225973442">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="818" y="440" key="Github.Dialog.Accounts.Choose/0.0.1920.1040/-1366.0.1366.728@0.0.1920.1040" timestamp="1588976785823" />
-    <state width="1899" height="264" key="GridCell.Tab.0.bottom" timestamp="1589550675459">
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1590225973442" />
+    <state width="1899" height="274" key="GridCell.Tab.0.bottom" timestamp="1589290964705">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1345" height="165" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1589476148712" />
-    <state width="1899" height="264" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1366.0.1366.728@0.0.1920.1040" timestamp="1589550675459" />
-    <state width="1899" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588681337558" />
-    <state width="1899" height="264" key="GridCell.Tab.0.center" timestamp="1589550675459">
+    <state width="1899" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589290964705" />
+    <state width="1899" height="274" key="GridCell.Tab.0.center" timestamp="1589290964705">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1345" height="165" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1589476148712" />
-    <state width="1899" height="264" key="GridCell.Tab.0.center/0.0.1920.1040/-1366.0.1366.728@0.0.1920.1040" timestamp="1589550675459" />
-    <state width="1899" height="274" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588681337558" />
-    <state width="1899" height="264" key="GridCell.Tab.0.left" timestamp="1589550675459">
+    <state width="1899" height="274" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589290964705" />
+    <state width="1899" height="274" key="GridCell.Tab.0.left" timestamp="1589290964704">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1345" height="165" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1589476148712" />
-    <state width="1899" height="264" key="GridCell.Tab.0.left/0.0.1920.1040/-1366.0.1366.728@0.0.1920.1040" timestamp="1589550675459" />
-    <state width="1899" height="274" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588681337557" />
-    <state width="1899" height="264" key="GridCell.Tab.0.right" timestamp="1589550675459">
+    <state width="1899" height="274" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589290964704" />
+    <state width="1899" height="274" key="GridCell.Tab.0.right" timestamp="1589290964705">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1345" height="165" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1589476148712" />
-    <state width="1899" height="264" key="GridCell.Tab.0.right/0.0.1920.1040/-1366.0.1366.728@0.0.1920.1040" timestamp="1589550675459" />
-    <state width="1899" height="274" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588681337558" />
-    <state x="184" y="85" key="MergeDialog" timestamp="1588101871635">
+    <state width="1899" height="274" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589290964705" />
+    <state x="184" y="85" key="MergeDialog" timestamp="1589290932643">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="184" y="85" key="MergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588101871635" />
-    <state x="672" y="235" key="MultipleFileMergeDialog" timestamp="1588101871647">
+    <state x="184" y="85" key="MergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589290932643" />
+    <state x="726" y="251" key="MultipleFileMergeDialog" timestamp="1589290932658">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="672" y="235" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588101871647" />
-    <state x="680" y="139" key="RollbackChangesDialog" timestamp="1589541048878">
+    <state x="726" y="251" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589290932658" />
+    <state x="552" y="241" key="Vcs.Push.Dialog.v2" timestamp="1589544504905">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="680" y="139" key="RollbackChangesDialog/0.0.1920.1040/-1366.0.1366.728@0.0.1920.1040" timestamp="1589541048878" />
-    <state x="461" y="165" key="SettingsEditor" timestamp="1589290498603">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/-1366.0.1366.728@0.0.1920.1040" timestamp="1589290498603" />
-    <state x="92" y="92" width="1736" height="856" key="ShowDiffWithBranchDialog" timestamp="1589030334670">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="92" y="92" width="1736" height="856" key="ShowDiffWithBranchDialog/0.0.1920.1040/-1366.0.1366.728@0.0.1920.1040" timestamp="1589030334670" />
-    <state x="552" y="241" key="Vcs.Push.Dialog.v2" timestamp="1589531014712">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="393" y="169" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1589464276095" />
-    <state x="552" y="241" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1366.0.1366.728@0.0.1920.1040" timestamp="1589531014712" />
-    <state x="552" y="241" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1588675712960" />
-    <state x="668" y="95" width="583" height="849" key="find.popup" timestamp="1588949062412">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="668" y="95" width="583" height="849" key="find.popup/0.0.1920.1040/-1366.0.1366.728@0.0.1920.1040" timestamp="1588949062412" />
+    <state x="552" y="241" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1589544504905" />
     <state x="749" y="232" key="git4idea.branch.GitSmartOperationDialog" timestamp="1588101711591">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="749" y="232" key="git4idea.branch.GitSmartOperationDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588101711591" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1589481922904">
+    <state x="616" y="240" key="run.anything.popup" timestamp="1589296142042">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="438" y="168" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1589464637079" />
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/-1366.0.1366.728@0.0.1920.1040" timestamp="1589481922904" />
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1588671722731" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1589538964084">
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1589296142042" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1589317581749">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="443" y="158" width="672" height="475" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1589461790490" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1366.0.1366.728@0.0.1920.1040" timestamp="1589538964084" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1589317581749" />
   </component>
 </project>

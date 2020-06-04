@@ -54,3 +54,10 @@
 .card-view-tab {
     margin-left: 27px !important;
 }
+
+.header-menu {
+    z-index:90;
+    /*background-color: lightgrey;*/
+    box-shadow: 3px 3px  6px #ccc;
+}
+
