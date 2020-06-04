@@ -40,7 +40,7 @@
 </style>
 
 <script>
-    import {draggable} from './dragdrop.js'
+    import {draggable} from './_dragdrop.js'
     import { Nav, Icon, Button, Container} from 'svelte-chota';
     import {crossfade} from 'svelte/transition'
     import {quintOut, elasticOut} from 'svelte/easing'

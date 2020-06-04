@@ -1,24 +1,32 @@
-import fetch from 'node-fetch';
+import fetch from "node-fetch";
 
 const headers = {
-    'Content-Type': 'application/json',
-    Accept: 'application/json'
-}
+    "Content-Type": "application/json",
+    Accept: "application/json",
+};
 
 export async function post(req, res) {
     try {
-        const { userLoginId, currentPassword, currentPasswordVerify } = req.body;
+        const {
+            userLoginId,
+            currentPassword,
+            currentPasswordVerify,
+        } = req.body;
         const { SAPPER_APP_API_URL } = process.env;
 
         const response = await fetch(`${SAPPER_APP_API_URL}/auth/v1/login`, {
-            method: 'POST',
-            body: JSON.stringify({ userLoginId, currentPassword, currentPasswordVerify }),
-            headers
+            method: "POST",
+            body: JSON.stringify({
+                userLoginId,
+                currentPassword,
+                currentPasswordVerify,
+            }),
+            headers,
         });
 
         const result = await response.json();
 
-        if (typeof result.errorMessage !== 'undefined') {
+        if (typeof result.errorMessage !== "undefined") {
             throw new Error(result.errorMessage);
         }
 

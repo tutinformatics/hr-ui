@@ -29,103 +29,13 @@
             return;
         }
 
-        return { employees: result.partyList };
+        return {employees: result.partyList};
     }
 </script>
 
 <script>
-    import { Container, Card, Row, Col } from 'svelte-chota';
-
-    export let employees = [];
+    import EmployeesDashboard from '../../components/EmployeesDashboard.svelte'
+    export let employees
 </script>
 
-<style>
-    h1,
-    h2,
-    p {
-        text-align: center;
-    }
-
-    h4 {
-        margin: 0;
-        color: black;
-    }
-
-    .sticky-text {
-        position: sticky;
-        top: 25vh;
-        color: black;
-    }
-
-    .sticky-text h1 {
-        font-weight: 600;
-    }
-
-    .tips {
-        margin-top: 10vh;
-    }
-
-    .stats {
-        margin: 0;
-        margin-top: 10vh;
-        padding: 0 5vw 0 5vw;
-    }
-
-    .stats h2 {
-        font-weight: 500;
-        margin-bottom: 16px;
-    }
-</style>
-
-<Row class="employees-container">
-    <Col size="7" class="left-side">
-    <div class=sticky-text>
-        <h1>Employees</h1>
-
-        <p>Here you can see a list of all employees at your company</p>
-
-        <p class="tips">
-            By clicking on the employee you can navigate to the detailed view of this particular employee
-        </p>
-
-        <div class="stats">
-            <h2>Some statistics</h2>
-
-            <Row>
-                <Col size="4" class="stats-block">
-                <Row class="stats-header">
-                    <Col>
-                    Current Employees
-                    </Col>
-                </Row>
-                <Row class="stats-content">
-                    <Col>
-                    {employees.length}
-                    </Col>
-                </Row>
-                </Col>
-            </Row>
-        </div>
-    </div>
-    </Col>
-
-    <Col size="4" class="right-side">
-    {#if !employees}
-        <h2>You don't have employees in your company yet.</h2>
-        <!-- TODO: Make it a link that leads to employee creation view -->
-        <p>Create employee</p>
-    {:else}    
-        {#each employees as employee}
-            <Row>
-                <Col class="employeeCard">
-                    <a href=employees/{employee.partyId}>
-                        <Card class="employeeCard__body">
-                            <h4>{employee.partyId}</h4>
-                        </Card>
-                    </a>
-                </Col>
-            </Row>
-        {/each}
-    {/if}
-    </Col>
-</Row>
+<EmployeesDashboard workers={employees}/>

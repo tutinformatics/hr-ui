@@ -1,5 +1,5 @@
 <svelte:head>
-    <link rel='stylesheet' href='manage.css'>
+    <link rel='stylesheet' href='employees-dashboard.css'>
 </svelte:head>
 <script>
     import {Input, Field, Card, Row, Col, Button, Tag} from 'svelte-chota'
@@ -41,12 +41,14 @@
     <div slot="header">
         <Row class="is-horizontal-align">
             <Col>
-                <h3 class="pull-left">Manage employees</h3>
+                <h3 class="pull-left">Employees</h3>
             </Col>
             <Col>
-                <Button outlined class="blue-button">
-                    <Row><div class="add-employee-button"><FaUserPlus/></div> New employee</Row>
-                </Button>
+                <a href="/employees/create">
+                    <Button outlined class="blue-button">
+                        <Row><div class="add-employee-button"><FaUserPlus/></div> New employee</Row>
+                    </Button>
+                </a>
             </Col>
             <Col size="4">
                 <Field gapless>
@@ -116,63 +118,6 @@
                 </Row>
             </div>
             <hr/>
-            <Row class="employeeCard__body">
-                <Col size="1">
-                    <Checkbox on:change={onAll} {checked}>
-                    </Checkbox>
-                </Col>
-                <Col>
-                    <h4>Aleksandr Aleksandrov</h4>
-                </Col>
-                <Col>
-                    <h4>Sapper</h4>
-                </Col>
-                <Col>
-                    <h4>sasha.aleksandov@gmail.com</h4>
-                </Col>
-                <Col>
-                    <h4>+37358248695</h4>
-                </Col>
-            </Row>
-            <hr/>
-            <Row class="employeeCard__body">
-                <Col size="1">
-                    <Checkbox on:change={onAll} {checked}>
-                    </Checkbox>
-                </Col>
-                <Col>
-                    <h4>Alexander Frolov</h4>
-                </Col>
-                <Col>
-                    <h4>Developer</h4>
-                </Col>
-                <Col>
-                    <h4>alfrol@taltech.ee</h4>
-                </Col>
-                <Col>
-                    <h4>+37256938555</h4>
-                </Col>
-            </Row>
-            <hr/>
-            <Row class="employeeCard__body">
-                <Col size="1">
-                    <Checkbox on:change={onAll} {checked}>
-                    </Checkbox>
-                </Col>
-                <Col>
-                    <h4>Ahto Reinaru</h4>
-                </Col>
-                <Col>
-                    <h4>Project manager</h4>
-                </Col>
-                <Col>
-                    <h4>ahto.reinaru@taltech.ee</h4>
-                </Col>
-                <Col>
-                    <h4>+37255936945</h4>
-                </Col>
-            </Row>
-            <hr/>
             {#if !workers}
                 <Row>
                     <Col>
@@ -181,24 +126,26 @@
                 </Row>
             {:else}
                 {#each workers as employee}
-                    <Row class="employeeCard__body">
-                        <Col size="1">
-                            <Checkbox on:change={onAll} {checked}>
-                            </Checkbox>
-                        </Col>
-                        <Col>
-                            <h4>{employee.partyId}</h4>
-                        </Col>
-                        <Col>
-                            <h4>Ofbiz</h4>
-                        </Col>
-                        <Col>
-                            <h4>ofbizl@sapper.svelte</h4>
-                        </Col>
-                        <Col>
-                            <h4>+37256938555</h4>
-                        </Col>
-                    </Row>
+                    <a href={`/employees/${employee.partyId}`}>
+                        <Row class="employeeCard__body">
+                            <Col size="1">
+                                <Checkbox on:change={onAll} {checked}>
+                                </Checkbox>
+                            </Col>
+                            <Col>
+                                <h4>{employee.partyId}</h4>
+                            </Col>
+                            <Col>
+                                <h4>Ofbiz</h4>
+                            </Col>
+                            <Col>
+                                <h4>ofbizl@sapper.svelte</h4>
+                            </Col>
+                            <Col>
+                                <h4>+37256938555</h4>
+                            </Col>
+                        </Row>
+                    </a>
                     <hr/>
                 {/each}
             {/if}
