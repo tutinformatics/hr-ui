@@ -25,8 +25,7 @@
                 }
             }
         };
-
-        const skillResponse = await this.fetch(`${process.env.SAPPER_APP_API_URL}/generic/v1/entityquery/PartySkill`, {
+      const skillResponse = await this.fetch(`${process.env.SAPPER_APP_API_URL}/generic/v1/entityquery/PartySkill`, {
             method: "POST",
             body: JSON.stringify(skillBody),
             headers: {
@@ -38,6 +37,7 @@
 
         const res = await skillResponse.json();
         console.log(token);
+        console.log("Res: " + res);
 
 
         if (res.errorMessage) {
@@ -50,8 +50,9 @@
 </script>
 
 <script>
-    import SkillResource from "../components/SkillResource.svelte"
-    export let skills
+    import EmployeeSkillBoard from "../components/EmployeeSkillBoard.svelte"
+    export let skills;
+    console.log(skills)
 </script>
 
-<SkillResource skills={skills}/>
+<EmployeeSkillBoard skills={skills}/>

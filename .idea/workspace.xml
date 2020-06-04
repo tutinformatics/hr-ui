@@ -2,19 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="981ac587-fb0c-478f-89ea-346817af2624" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/view/Aside.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/view/CardView.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/view/Menu.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/view/TVNavbar.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/view/TableView.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/view/TodoView.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/skillboardView/Aside.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/skillboardView/CardView.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/skillboardView/ChildNavBar.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/skillboardView/Menu.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/skillboardView/TableView.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/EmployeesDashboard.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EmployeesDashboard.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/NavBar.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NavBar.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SkillResource.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EmployeeSkillBoard.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/view/Aside.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboardView/Aside.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/view/CardView.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboardView/CardView.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/view/Menu.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboardView/Menu.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/view/TVNavbar.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboardView/TVNavbar.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/view/TableView.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboardView/TableView.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/view/TodoView.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboardView/TodoView.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/_layout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/_layout.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/skills.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/skills.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/drag.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/drag.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/employees-dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/employees-dashboard.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/navbar.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +68,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="GitIgnore" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/black-dashboard" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/sudoku-app" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -73,15 +80,15 @@
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.3.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\sasha\WebstormProjects\ofbiz-sapper\static\icons" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sasha\WebstormProjects\hr-ui\src" />
+      <recent name="C:\Users\sasha\WebstormProjects\hr-ui\src\components" />
+      <recent name="C:\Users\sasha\WebstormProjects\hr-ui\src\components\skillboardView" />
       <recent name="C:\Users\sasha\WebstormProjects\hr-ui\src\components\view" />
       <recent name="C:\Users\sasha\WebstormProjects\hr-ui\src\components\tableViewNavbars" />
-      <recent name="C:\Users\sasha\WebstormProjects\hr-ui\static" />
-      <recent name="C:\Users\sasha\WebstormProjects\hr-ui\src\routes" />
-      <recent name="C:\Users\sasha\WebstormProjects\hr-ui\src" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\sasha\WebstormProjects\ofbiz-sapper\static\icons" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -113,7 +120,21 @@
       <workItem from="1589352458438" duration="38000" />
       <workItem from="1589389197123" duration="8943000" />
       <workItem from="1589437625202" duration="14000" />
-      <workItem from="1589535048705" duration="8436000" />
+      <workItem from="1589535048705" duration="15085000" />
+      <workItem from="1589649056974" duration="6043000" />
+      <workItem from="1589709515746" duration="1743000" />
+      <workItem from="1589794717368" duration="6083000" />
+      <workItem from="1590170714637" duration="2167000" />
+      <workItem from="1590177688366" duration="1412000" />
+      <workItem from="1590225880576" duration="94000" />
+      <workItem from="1590436586016" duration="669000" />
+      <workItem from="1590526984408" duration="4169000" />
+      <workItem from="1590595350469" duration="210000" />
+      <workItem from="1590595579385" duration="904000" />
+      <workItem from="1590609036630" duration="2541000" />
+      <workItem from="1590612484457" duration="1564000" />
+      <workItem from="1590654751304" duration="8442000" />
+      <workItem from="1590868978816" duration="2100000" />
     </task>
     <task id="LOCAL-00001" summary="Add &quot;Chota&quot; css design.">
       <created>1587890638363</created>
@@ -213,7 +234,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589315301376</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Improve employee view.&#10;Added switch buttons between views as right aside component.">
+      <created>1589544481519</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1589544481519</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -232,25 +260,30 @@
     <MESSAGE value="Draggable components on navbar." />
     <MESSAGE value="Back up code" />
     <MESSAGE value="Sortable list navbar" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sortable list navbar" />
+    <MESSAGE value="Improve employee view.&#10;Added switch buttons between views as right aside component." />
+    <option name="LAST_COMMIT_MESSAGE" value="Improve employee view.&#10;Added switch buttons between views as right aside component." />
   </component>
   <component name="WindowStateProjectService">
+    <state x="552" y="178" key="#Inspections" timestamp="1590657072427">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="178" key="#Inspections/0.0.1920.1040@0.0.1920.1040" timestamp="1590657072427" />
     <state x="733" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588417793838">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="733" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1588417793838" />
-    <state x="827" y="156" key="CommitChangelistDialog2" timestamp="1589315300587">
+    <state x="827" y="156" key="CommitChangelistDialog2" timestamp="1589544478862">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="827" y="156" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1589315300587" />
+    <state x="827" y="156" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1589544478862" />
     <state x="594" y="298" key="EditFileWatcherDialog" timestamp="1588105147285">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="594" y="298" key="EditFileWatcherDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588105147285" />
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1589352494215">
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1590225973442">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1589352494215" />
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1590225973442" />
     <state width="1899" height="274" key="GridCell.Tab.0.bottom" timestamp="1589290964705">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -275,10 +308,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="726" y="251" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589290932658" />
-    <state x="552" y="241" key="Vcs.Push.Dialog.v2" timestamp="1589315303715">
+    <state x="552" y="241" key="Vcs.Push.Dialog.v2" timestamp="1589544504905">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="241" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1589315303715" />
+    <state x="552" y="241" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1589544504905" />
     <state x="749" y="232" key="git4idea.branch.GitSmartOperationDialog" timestamp="1588101711591">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

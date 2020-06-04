@@ -2,19 +2,19 @@
     <link rel='stylesheet' href='employees-dashboard.css'>
 </svelte:head>
 <script>
-    import {Input, Field, Card, Row, Col, Button, Tag} from 'svelte-chota'
+    import {Input, Field, Card, Row, Col, Button, Tag, Container} from 'svelte-chota'
     import { Checkbox, Menu, Menuitem, Icon, Datefield, Sidepanel, Textfield} from 'svelte-mui/src';
     import { mdiPlus, mdiMagnify} from '@mdi/js';
     import FaUserPlus from 'svelte-icons/fa/FaUserPlus.svelte'
     import MdApps from 'svelte-icons/md/MdApps.svelte'
     import FaTable from 'svelte-icons/fa/FaTable.svelte'
     import FaExpandArrowsAlt from 'svelte-icons/fa/FaExpandArrowsAlt.svelte'
-    import TodoView from './view/TodoView.svelte'
-    import CardView from './view/CardView.svelte'
-    import TableView from './view/TableView.svelte'
+    import TodoView from './dashboardView/TodoView.svelte'
+    import CardView from './dashboardView/CardView.svelte'
+    import TableView from './dashboardView/TableView.svelte'
 
-    import TVNavbar from './view/TVNavbar.svelte'
-    import Aside from "./view/Aside.svelte"
+    import TVNavbar from './dashboardView/TVNavbar.svelte'
+    import Aside from "./dashboardView/Aside.svelte"
 
     export let workers = [];
 
@@ -27,7 +27,6 @@
     let todo = false;
 
     workers.forEach(addId);
-
     function addId(item, index) {
         item.id = index;
     }
@@ -35,16 +34,19 @@
     let board = [
 
         {
+            done: false,
             id: 1,
             name: "New employee",
             items: workers
         },
         {
+            done: false,
             id: 2,
             name: "Hiring people",
             items: []
         },
         {
+            done: false,
             id: 3,
             name: "Other stuff",
             items: []
@@ -60,7 +62,6 @@
     function visible() {
         rightVisible = true;
     }
-    console.log(table, card, todo)
 </script>
 
 
@@ -78,6 +79,28 @@
     <Col>
         {#if table}
         <Card class="text-justify">
+            <div slot="header">
+                <Row>
+                    <Col size="1">
+                        <Checkbox class="thin" bind:group={favorite} color="accent"><span></span></Checkbox>
+                    </Col>
+                    <Col>
+                        <h3>Member</h3>
+                    </Col>
+                    <Col>
+                        <h3>Skill type</h3>
+                    </Col>
+                    <Col>
+                        <h3>Skill level</h3>
+                    </Col>
+                    <Col>
+                        <h3>Rating</h3>
+                    </Col>
+                    <Col>
+                        <h3>Years exp</h3>
+                    </Col>
+                </Row>
+            </div>
             <hr/>
                 {#each workers as employee}
                 <TableView worker={employee}/>
