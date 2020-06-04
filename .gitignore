@@ -5,9 +5,10 @@ yarn-error.log
 /cypress/screenshots/
 /__sapper__/
 /.vscode/
+/.idea/
 
 .now
 .sessions
 .env
-.idea
 .prettierrc
+.idea/workspace.xml

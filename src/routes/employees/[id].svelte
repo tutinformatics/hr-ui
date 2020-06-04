@@ -10,7 +10,7 @@
         // Request for personal information like name, gender etc.
         const personalDataBody = {
             inputFields: {
-                partyId: id,
+                partyId: id
             },
             fieldList: [
                 "firstName",
@@ -19,21 +19,21 @@
                 "gender",
                 "birthDate",
                 "socialSecurityNumber",
-                "passportNumber",
+                "passportNumber"
             ],
             entityRelations: {
                 _toOne_ResidenceStatusEnumeration: {
-                    fieldList: ["description"],
+                    fieldList: ["description"]
                 },
                 _toOne_MaritalStatusEnumeration: {
-                    fieldList: ["description"],
-                },
-            },
+                    fieldList: ["description"]
+                }
+            }
         };
         // Request for contacts like email, work phone etc.
         const contactDataBody = {
             inputFields: {
-                partyId: id,
+                partyId: id
             },
             fieldList: ["contactMechId"],
             entityRelations: {
@@ -48,45 +48,45 @@
                                     "PRIMARY_EMAIL",
                                     "WORK_EMAIL",
                                     "PHONE_WORK",
-                                    "PHONE_HOME",
-                                ],
+                                    "PHONE_HOME"
+                                ]
                             },
-                            fieldList: ["contactMechPurposeTypeId"],
+                            fieldList: ["contactMechPurposeTypeId"]
                         },
                         _toOne_PostalAddress: {
                             fieldList: [
                                 "address1",
                                 "houseNumber",
                                 "city",
-                                "postalCode",
+                                "postalCode"
                             ],
                             entityRelations: {
                                 _toOne_CountryGeo: {
-                                    fieldList: ["geoName"],
+                                    fieldList: ["geoName"]
                                 },
                                 _toOne_StateProvinceGeo: {
-                                    fieldList: ["geoName"],
-                                },
-                            },
+                                    fieldList: ["geoName"]
+                                }
+                            }
                         },
                         _toOne_TelecomNumber: {
-                            fieldList: ["countryCode", "contactNumber"],
-                        },
-                    },
-                },
-            },
+                            fieldList: ["countryCode", "contactNumber"]
+                        }
+                    }
+                }
+            }
         };
         // Request for employment data like who is the employer, its location etc.
         const employmentDataBody = {
             inputFields: {
-                partyIdTo: id,
+                partyIdTo: id
             },
             entityRelations: {
                 _toOne_FromParty: {
                     fieldList: ["partyId"],
                     entityRelations: {
                         _toOne_PartyGroup: {
-                            fieldList: ["groupName"],
+                            fieldList: ["groupName"]
                         },
                         _toMany_PartyContactMech: {
                             areRelationResultsMandatory: true,
@@ -97,82 +97,63 @@
                                         contactMechPurposeTypeId_fld0_op:
                                             "equals",
                                         contactMechPurposeTypeId_fld0_value:
-                                            "GENERAL_LOCATION",
+                                            "GENERAL_LOCATION"
                                     },
-                                    fieldList: ["contactMechPurposeTypeId"],
+                                    fieldList: ["contactMechPurposeTypeId"]
                                 },
                                 _toOne_PostalAddress: {
                                     fieldList: [
                                         "address1",
                                         "houseNumber",
                                         "city",
-                                        "postalCode",
+                                        "postalCode"
                                     ],
                                     entityRelations: {
                                         _toOne_CountryGeo: {
-                                            fieldList: ["geoName"],
+                                            fieldList: ["geoName"]
                                         },
                                         _toOne_StateProvinceGeo: {
-                                            fieldList: ["geoName"],
-                                        },
-                                    },
-                                },
-                            },
-                        },
-                    },
-                },
-            },
+                                            fieldList: ["geoName"]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         };
         // Request for financial data like bank account number etc.
         const financialDataBody = {
             inputFields: {
                 ownerPartyId: id,
                 statusId_fld0_op: "equals",
-                statusId_fld0_value: "FNACT_ACTIVE",
+                statusId_fld0_value: "FNACT_ACTIVE"
             },
-            fieldList: ["finAccountTypeId", "finAccountCode"],
+            fieldList: ["finAccountTypeId", "finAccountCode"]
         };
         // Request for employee position at the company.
         const positionDataBody = {
             inputFields: {
                 partyId: id,
                 statusId_fld0_op: "equals",
-                statusId_fld0_value: "EMPL_POS_ACTIVE",
+                statusId_fld0_value: "EMPL_POS_ACTIVE"
             },
+            fieldList: ["comments"],
             entityRelations: {
-                _toOne_EmplPositionType: {
-                    fieldList: ["description"],
-                },
-                _toMany_ManagedByEmplPositionReportingStruct: {
-                    fieldList: ["comments", "emplPositionIdManagedBy"],
-                    entityRelations: {
-                        _toOne_ManagedByEmplPosition: {
-                            fieldList: ["emplPositionId"],
-                            entityRelations: {
-                                _toOne_Party: {
-                                    inputFields: {
-                                        partyTypeId_fld0_op: "equals",
-                                        partyTypeId_fld0_value: "PERSON",
-                                    },
-                                    fieldList: ["partyId"],
-                                    entityRelations: {
-                                        _toOne_Person: {
-                                            fieldList: [
-                                                "firstName",
-                                                "middleName",
-                                                "lastName",
-                                            ],
-                                        },
-                                    },
-                                },
-                                _toOne_EmplPositionType: {
-                                    fieldList: ["description"],
-                                },
-                            },
-                        },
+                _toOne_EmplPosition: {
+                    inputFields: {
+                        statusId_fld0_op: "equals",
+                        statusId_fld0_value: "EMPL_POS_ACTIVE"
                     },
-                },
-            },
+                    fieldList: ["emplPositionId", "budgetId"],
+                    entityRelations: {
+                        _toOne_EmplPositionType: {
+                            fieldList: ["emplPositionTypeId", "description"]
+                        }
+                    }
+                }
+            }
         };
 
         /**
@@ -189,8 +170,8 @@
                 headers: {
                     "Content-Type": "application/json",
                     Accept: "application/json",
-                    Authorization: `Bearer ${token}`,
-                },
+                    Authorization: `Bearer ${token}`
+                }
             });
 
             const result = await response.json();
@@ -217,7 +198,7 @@
             financialDataBody
         );
         const positionData = await fetchData(
-            url + "/EmplPosition",
+            url + "/EmplPositionFulfillment",
             positionDataBody
         );
 
@@ -226,7 +207,7 @@
             contactData,
             employmentData,
             financialData,
-            positionData,
+            positionData
         };
     }
 </script>
@@ -258,7 +239,7 @@
      */
     function extractContact(contactType) {
         const contactMech =
-            Object.values(contactData).find((contact) => {
+            Object.values(contactData).find(contact => {
                 const { contactMechTypeId } = contact._toOne_ContactMech;
                 return contactMechTypeId === contactType;
             }) || {};
@@ -281,7 +262,7 @@
 
         const types = contact._toMany_PartyContactMechPurpose || [];
 
-        if (types.some((type) => type.contactMechPurposeTypeId === phoneType)) {
+        if (types.some(type => type.contactMechPurposeTypeId === phoneType)) {
             return contact._toOne_TelecomNumber;
         }
         return {};
@@ -326,8 +307,9 @@
         ? employmentData._toOne_FromParty._toOne_PartyGroup.groupName || ""
         : "";
 
-    let position = positionData._toOne_EmplPositionType
-        ? positionData._toOne_EmplPositionType.description || ""
+    let position = positionData._toOne_EmplPosition
+        ? positionData._toOne_EmplPosition._toOne_EmplPositionType
+              .description || ""
         : "";
 
     $: fullName = `${firstName} ${middleName} ${lastName}`.trim();
