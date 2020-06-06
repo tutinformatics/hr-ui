@@ -15,10 +15,11 @@
     import {spaces} from '../store.js'
     let work_space;
 
+    // Cleans the storage
+
     const unsubscribe = spaces.subscribe(value => {
         work_space = [...value];
     });
-
     onDestroy(unsubscribe);
 
     const { session } = stores();
@@ -53,6 +54,7 @@
     ];
 
     const sortList = ev => {list = ev.detail};
+    console.log(work_space)
 </script>
 
 <!-- Seems like we cannot render elements with 'slot' attributes in if blocks,
@@ -89,11 +91,17 @@ because Svelte starts complaining that the element must be a direct child on a c
 
         <div class="dropdown is-horizontal-align is-vertical-align" slot="right">
             <Button dropdown="Workspaces" iconRight={mdiStarOutline} clear autoclose>
+                {#if !Array.isArray(work_space) || !work_space.length}
+                <div>
+                    <p>You do not added anything to list yet :(</p>
+                </div>
+                {:else}
                 <div>
                     {#each work_space as space}
-                    <p>{@html space.name}</p>
+                        <Row><Icon src={space.icon} class="workspace-icon"/>{@html space.name}</Row>
                     {/each}
                 </div>
+                {/if}
             </Button>
         </div>
 

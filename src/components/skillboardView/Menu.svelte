@@ -7,22 +7,38 @@
     import {Input, Field, Card, Row, Col, Button, Tag, Nav, Modal} from 'svelte-chota'
     import FaUserPlus from 'svelte-icons/fa/FaUserPlus.svelte'
     import {mdiMagnify} from '@mdi/js';
+    import {mdiStar} from '@mdi/js';
     import {spaces} from '../../store.js'
+    let storage_items;
+    const unsubscribe = spaces.subscribe(value => {
+        storage_items = [...value];
+    });
+
 
     let open = false;
     const show = () => open=true;
     const hide = () => open=false;
 
-    let added = false;
+    function checkStorage(name) {
+        var i;
+        for (i = 0; i < storage_items.length; i++) {
+            console.log(storage_items[i].name);
+            if (storage_items[i].name === name) {
+                return true
+            }
+        }
+        return false
+    }
+
 
 
     function addWorkSpace(val) {
-        if (!added) {
+        if (!checkStorage(val)) {
             spaces.update(n => n.concat({
                 id: spaces.length + 1,
+                icon: mdiStar,
                 name: val
             }));
-            added = true;
         }
     }
 
