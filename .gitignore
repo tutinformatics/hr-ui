@@ -7,7 +7,7 @@ yarn-error.log
 /.vscode/
 /.idea/
 
-.now
+.vercel
 .sessions
 .env
 .prettierrc
