@@ -104,16 +104,13 @@
                             <h3>Member</h3>
                         </Col>
                         <Col>
-                            <h3>Skill type</h3>
+                            <h3>Department</h3>
                         </Col>
                         <Col>
-                            <h3>Skill level</h3>
+                            <h3>Email</h3>
                         </Col>
                         <Col>
-                            <h3>Rating</h3>
-                        </Col>
-                        <Col>
-                            <h3>Years exp</h3>
+                            <h3>Mobile phone</h3>
                         </Col>
                     </Row>
                 </div>

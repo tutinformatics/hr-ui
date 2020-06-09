@@ -19,10 +19,11 @@
     import { spaces } from "../store.js";
     let work_space;
 
+    // Cleans the storage
+
     const unsubscribe = spaces.subscribe(value => {
         work_space = [...value];
     });
-
     onDestroy(unsubscribe);
 
     const { session } = stores();
@@ -61,6 +62,7 @@
     const sortList = ev => {
         list = ev.detail;
     };
+    console.log(work_space);
 </script>
 
 <svelte:head>
@@ -105,13 +107,20 @@ because Svelte starts complaining that the element must be a direct child on a c
                 iconRight={mdiStarOutline}
                 clear
                 autoclose>
-                <div>
-                    {#each work_space as space}
-                        <p>
-                            {@html space.name}
-                        </p>
-                    {/each}
-                </div>
+                {#if !Array.isArray(work_space) || !work_space.length}
+                    <div>
+                        <p>You do not added anything to list yet :(</p>
+                    </div>
+                {:else}
+                    <div>
+                        {#each work_space as space}
+                            <Row>
+                                <Icon src={space.icon} class="workspace-icon" />
+                                {@html space.name}
+                            </Row>
+                        {/each}
+                    </div>
+                {/if}
             </Button>
         </div>
 
