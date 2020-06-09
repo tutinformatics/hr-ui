@@ -107,7 +107,7 @@
 
 .employee-card {
   margin: 5px 7px 9px 7px;
-  background: #ffffff !important;
+  background: #ffffff;
   -webkit-box-shadow: -1px 2px 5px 0px rgba(0, 0, 0, 0.45) !important;
   -moz-box-shadow: -1px 2px 5px 0px rgba(0, 0, 0, 0.45) !important;
   box-shadow: -1px 2px 5px 0px rgba(0, 0, 0, 0.45) !important;

@@ -46,12 +46,28 @@
     .title {
         color: #4a5568;
     }
+
+    .department-tag {
+        border-radius: 15px;
+        width: 60px;
+        height: 25px;
+        background: #faf5ff;
+    }
+
+    .circle {
+        margin-left: 7px;
+        margin-right: 7px;
+        width: 7px;
+        height: 7px;
+        background: #b794f4;
+        border-radius: 50%
+    }
 </style>
 
 <script>
     import {flip} from 'svelte/animate';
     import {dndzone} from 'svelte-dnd-action'
-    import {Container, Row, Col, Button, Card} from 'svelte-chota'
+    import {Container, Row, Col, Button, Card, Tag} from 'svelte-chota'
     import CardView from "../skillboardView/CardView.svelte";
     import { fade } from 'svelte/transition';
 
@@ -149,15 +165,22 @@
                             </Row>
                             <small>
                                 <Row>
-                                    <strong>Department: </strong> Ofbiz <br/>
-                                </Row>
-                                <Row>
                                     <strong>Email: </strong> ofbizl@sapper.svelte <br/>
                                 </Row>
                                 <Row>
                                     <strong>Telephone: </strong> +37256938555 <br/>
                                 </Row>
                             </small>
+                            <Row>
+                                <Col size="8">
+                                </Col>
+                                <Col>
+                                    <div class="department-tag is-vertical-align">
+                                        <div class="circle"></div>
+                                        <small>Ofbiz</small>
+                                    </div>
+                                </Col>
+                            </Row>
                         </Card>
                     </div>
                 {/each}
