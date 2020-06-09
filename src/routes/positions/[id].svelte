@@ -100,6 +100,9 @@
     let department = position._toOne_Party
         ? position._toOne_Party._toOne_PartyGroup.groupName || ""
         : "";
+    let isPaid = position.salaryFlag || "";
+    let isTemporary = position.temporaryFlag || "";
+    let isFulltime = position.fulltimeFlag || "";
 </script>
 
 <style>
@@ -130,10 +133,21 @@
 
     <div class="paper__main-info">
         <Row>
-            <Col size="2" class="paper__main-info-type">Status</Col>
+            <Col size="2" class="paper__main-info-type">Department/Company</Col>
             <Col size="3" class="paper__main-info-value">
                 {#if isEditing}
-                    <div class="position-statuses">
+                    <input
+                        placeholder="Department or company name"
+                        bind:value={department} />
+                {:else}{department}{/if}
+            </Col>
+        </Row>
+
+        <Row>
+            <Col size="2" class="paper__main-info-type">Status</Col>
+            <Col size="2" class="paper__main-info-value">
+                {#if isEditing}
+                    <div class="radios">
                         {#each statuses as posStatus}
                             <Radio
                                 value={posStatus.description}
@@ -147,13 +161,38 @@
         </Row>
 
         <Row>
-            <Col size="2" class="paper__main-info-type">Department/Company</Col>
-            <Col size="3" class="paper__main-info-value">
+            <Col size="2" class="paper__main-info-type">Paid</Col>
+            <Col size="2" class="paper__main-info-value">
                 {#if isEditing}
-                    <input
-                        placeholder="Department or company name"
-                        bind:value={department} />
-                {:else}{department}{/if}
+                    <div class="radios">
+                        <Radio value="Y" bind:group={isPaid}>Yes</Radio>
+                        <Radio value="N" bind:group={isPaid}>No</Radio>
+                    </div>
+                {:else}{isPaid === 'Y' ? 'Yes' : 'No'}{/if}
+            </Col>
+        </Row>
+
+        <Row>
+            <Col size="2" class="paper__main-info-type">Temporary</Col>
+            <Col size="2" class="paper__main-info-value">
+                {#if isEditing}
+                    <div class="radios">
+                        <Radio value="Y" bind:group={isTemporary}>Yes</Radio>
+                        <Radio value="N" bind:group={isTemporary}>No</Radio>
+                    </div>
+                {:else}{isTemporary === 'Y' ? 'Yes' : 'No'}{/if}
+            </Col>
+        </Row>
+
+        <Row>
+            <Col size="2" class="paper__main-info-type">Full time</Col>
+            <Col size="2" class="paper__main-info-value">
+                {#if isEditing}
+                    <div class="radios">
+                        <Radio value="Y" bind:group={isFulltime}>Yes</Radio>
+                        <Radio value="N" bind:group={isFulltime}>No</Radio>
+                    </div>
+                {:else}{isFulltime === 'Y' ? 'Yes' : 'No'}{/if}
             </Col>
         </Row>
     </div>

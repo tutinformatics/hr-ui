@@ -30,12 +30,12 @@
     }
 
     .new-pos {
-        color: #007bff;
-        background-color: transparent;
+        background-color: #007bff;
+        color: white;
         border: none;
         outline: none;
         box-shadow: none;
-        margin-left: 5px;
+        margin-bottom: 5px;
         padding-left: 10px;
         padding-right: 10px;
     }
@@ -56,14 +56,12 @@
 </style>
 
 <div>
+    <a href="positions/create">
+        <button class="new-pos">Add New</button>
+    </a>
     <table>
         <tr>
-            <th>
-                Position
-                <a href="positions/create">
-                    <button class="new-pos">Add New</button>
-                </a>
-            </th>
+            <th>Position</th>
             <th>Department</th>
         </tr>
         {#each positions as pos}

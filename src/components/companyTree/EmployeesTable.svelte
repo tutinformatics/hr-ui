@@ -30,12 +30,12 @@
     }
 
     .new-empl {
-        color: #007bff;
-        background-color: transparent;
+        background-color: #007bff;
+        color: white;
         border: none;
         outline: none;
         box-shadow: none;
-        margin-left: 5px;
+        margin-bottom: 5px;
         padding-left: 10px;
         padding-right: 10px;
     }
@@ -56,14 +56,12 @@
 </style>
 
 <div>
+    <a href="/employees/create">
+        <button class="new-empl">Add New</button>
+    </a>
     <table>
         <tr>
-            <th>
-                Employee
-                <a href="/employees/create">
-                    <button class="new-empl">Add New</button>
-                </a>
-            </th>
+            <th>Employee</th>
             <th>Position</th>
             <th>Department</th>
         </tr>

@@ -24,9 +24,9 @@
     margin: 15vh auto 10vh;
     padding: 2vw;
 
-    -webkit-box-shadow: -6px 7px 12px -4px rgba(0, 0, 0, 0.6);
-    -moz-box-shadow: -6px 7px 12px -4px rgba(0, 0, 0, 0.6);
-    box-shadow: -6px 7px 12px -4px rgba(0, 0, 0, 0.6);
+    -webkit-box-shadow: -1px 2px 5px 0px rgba(0, 0, 0, 0.45);
+    -moz-box-shadow: -1px 2px 5px 0px rgba(0, 0, 0, 0.45);
+    box-shadow: -1px 2px 5px 0px rgba(0, 0, 0, 0.45);
 }
 .paper-image {
     text-align: right;
@@ -65,6 +65,6 @@
     display: flex;
 }
 
-.position-statuses label {
+.radios label {
     display: block;
 }

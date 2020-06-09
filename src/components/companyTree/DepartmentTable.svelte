@@ -62,12 +62,12 @@
     }
 
     .new-dep {
-        color: #007bff;
-        background-color: transparent;
+        background-color: #007bff;
+        color: white;
         border: none;
         outline: none;
         box-shadow: none;
-        margin-left: 5px;
+        margin-bottom: 5px;
         padding-left: 10px;
         padding-right: 10px;
     }
@@ -84,11 +84,13 @@
 </style>
 
 <div>
+    <button class="new-dep">Add New</button>
+
     <table>
         <tr>
             <th>
                 Department
-                <button class="new-dep">Add New</button>
+                <!-- <button class="new-dep">Add New</button> -->
             </th>
             <th>Location</th>
         </tr>
