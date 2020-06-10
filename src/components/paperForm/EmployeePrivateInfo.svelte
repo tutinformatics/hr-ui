@@ -1,13 +1,14 @@
 <script>
-    import { Row, Col } from "svelte-chota";
+    import { Row, Col, Radio } from "svelte-chota";
     import Datepicker from "../SvelteCalendar/Datepicker.svelte";
     import AddressInput from "./AddressInput.svelte";
 
     export let isEditing = false;
+    export let countries = [];
+    export let states = [];
     export let personalData = {};
-    export let financialData = {};
     export let address = {};
-    export let fullAddress = "";
+    export let fullAddress = {};
     export let email = "";
     export let homePhoneCC = "";
     export let homePhoneCN = "";
@@ -41,6 +42,15 @@
         text-align: center;
         margin-right: 1vw;
     }
+
+    .required {
+        color: red;
+        margin-left: 5px;
+    }
+
+    .input-field {
+        display: flex;
+    }
 </style>
 
 <Row>
@@ -49,12 +59,14 @@
         <h3>Contact</h3>
         <AddressInput
             {isEditing}
+            {countries}
+            {states}
             address={address._toOne_PostalAddress}
             bind:fullAddress />
 
         <Row>
-            <Col size="2" class="employee__main-info-type">Email</Col>
-            <Col size="3" class="employee__main-info-value">
+            <Col size="2" class="paper__main-info-type">Email</Col>
+            <Col size="3" class="paper__main-info-value">
                 {#if isEditing}
                     <input
                         placeholder="test@test.com"
@@ -65,17 +77,20 @@
         </Row>
 
         <Row>
-            <Col size="2" class="employee__main-info-type">Phone</Col>
-            <Col size="3" class="employee__main-info-value phone">
+            <Col size="2" class="paper__main-info-type">Phone</Col>
+            <Col size="3" class="paper__main-info-value phone">
                 {#if isEditing}
-                    <input
-                        placeholder="372"
-                        class="phone__extension"
-                        bind:value={homePhoneCC} />
-                    <input
-                        placeholder="12345678"
-                        class="phone__number"
-                        bind:value={homePhoneCN} />
+                    <div class="input-field">
+                        <input
+                            placeholder="372"
+                            class="phone__extension"
+                            bind:value={homePhoneCC} />
+                        <input
+                            placeholder="12345678"
+                            class="phone__number"
+                            bind:value={homePhoneCN} />
+                        <span class="required">*</span>
+                    </div>
                 {:else}{fullHomePhone}{/if}
             </Col>
         </Row>
@@ -83,14 +98,15 @@
         <!-- Marital status of the employee -->
         <h3>Marital Status</h3>
         <Row>
-            <Col size="2" class="employee__other-info-type">Marital Status</Col>
-            <Col size="3" class="employee__other-info-value">
+            <Col size="2" class="paper__other-info-type">Marital Status</Col>
+            <Col size="3" class="paper__other-info-value">
                 {#if isEditing}
-                    <select bind:value={maritalStatus}>
-                        <option />
-                        <option>Single</option>
-                        <option>Married</option>
-                    </select>
+                    <Radio value="Single" bind:group={maritalStatus}>
+                        Single
+                    </Radio>
+                    <Radio value="Married" bind:group={maritalStatus}>
+                        Married
+                    </Radio>
                 {:else}{maritalStatus}{/if}
             </Col>
         </Row>
@@ -98,10 +114,10 @@
         <!-- Citizenship information -->
         <h3>Citizenship</h3>
         <Row>
-            <Col size="2" class="employee__other-info-type">
+            <Col size="2" class="paper__other-info-type">
                 Identification Number
             </Col>
-            <Col size="3" class="employee__other-info-value">
+            <Col size="3" class="paper__other-info-value">
                 {#if isEditing}
                     <input
                         placeholder="Identification number"
@@ -111,10 +127,8 @@
         </Row>
 
         <Row>
-            <Col size="2" class="employee__other-info-type">
-                Passport Number
-            </Col>
-            <Col size="3" class="employee__other-info-value">
+            <Col size="2" class="paper__other-info-type">Passport Number</Col>
+            <Col size="3" class="paper__other-info-value">
                 {#if isEditing}
                     <input
                         placeholder="Passport number"
@@ -124,21 +138,19 @@
         </Row>
 
         <Row>
-            <Col size="2" class="employee__other-info-type">Gender</Col>
-            <Col size="3" class="employee__other-info-value">
+            <Col size="2" class="paper__other-info-type">Gender</Col>
+            <Col size="3" class="paper__other-info-value">
                 {#if isEditing}
-                    <select bind:value={gender}>
-                        <option />
-                        <option>Male</option>
-                        <option>Female</option>
-                    </select>
+                    <Radio value="Y" bind:group={gender}>Male</Radio>
+                    <Radio value="N" bind:group={gender}>Female</Radio>
+                    <Radio value="" bind:group={gender}>Not defined</Radio>
                 {:else}{gender}{/if}
             </Col>
         </Row>
 
         <Row>
-            <Col size="2" class="employee__other-info-type">Date of Birth</Col>
-            <Col size="3" class="employee__other-info-value">
+            <Col size="2" class="paper__other-info-type">Date of Birth</Col>
+            <Col size="3" class="paper__other-info-value">
                 {#if isEditing}
                     <!-- TODO: Currnently when no date is present the datepicker shows todays date as selected -->
                     <Datepicker

@@ -4,6 +4,7 @@
     export let forObject;
     export let isEditing = false;
     export let mode;
+    export let saved;
 </script>
 
 <style>
@@ -66,7 +67,11 @@
             </Col>
         {:else if mode === 'create'}
             <Col size="1" style="margin: 0">
-                <button class="object__edit-button">SAVE</button>
+                <button
+                    class="object__edit-button"
+                    on:click={() => (saved = true)}>
+                    SAVE
+                </button>
             </Col>
         {/if}
     </Row>

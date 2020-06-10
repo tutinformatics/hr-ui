@@ -62,7 +62,6 @@
     const sortList = ev => {
         list = ev.detail;
     };
-    console.log(work_space);
 </script>
 
 <svelte:head>

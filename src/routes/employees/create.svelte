@@ -1,11 +1,97 @@
 <script context="module">
-    export function preload(page, session) {
-        if (!session.token) this.redirect(302, "/login");
+    export async function preload(page, session) {
+        const { token } = session;
+        const url = `${process.env.SAPPER_APP_API_URL}/generic/v1/entityquery`;
+
+        if (!token) this.redirect(302, "/login");
+
+        const organizationsResponse = await this.fetch(`${url}/PartyGroup`, {
+            method: "POST",
+            body: JSON.stringify({
+                areRelationResultsMandatory: true,
+                fieldList: ["partyId", "groupName"],
+                entityRelations: {
+                    _toOne_Party: {
+                        areRelationResultsMandatory: true,
+                        fieldList: ["partyId"],
+                        entityRelations: {
+                            _toMany_PartyRole: {
+                                inputFields: {
+                                    roleTypeId_fld0_op: "equals",
+                                    roleTypeId_fld0_value:
+                                        "INTERNAL_ORGANIZATIO"
+                                }
+                            }
+                        }
+                    }
+                }
+            }),
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+                Authorization: `Bearer ${token}`
+            }
+        });
+        const organizationsResult = await organizationsResponse.json();
+
+        const countriesResponse = await this.fetch(`${url}/CountryCode`, {
+            method: "POST",
+            body: JSON.stringify({
+                fieldList: ["countryCode", "countryAbbr", "countryName"],
+                entityRelations: {
+                    _toOne_CountryTeleCode: {
+                        fieldList: ["teleCode"]
+                    }
+                }
+            }),
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+                Authorization: `Bearer ${token}`
+            }
+        });
+        const countriesResult = await countriesResponse.json();
+
+        const statesResponse = await this.fetch(`${url}/Geo`, {
+            method: "POST",
+            body: JSON.stringify({
+                inputFields: {
+                    geoTypeId_fld0_op: "in",
+                    geoTypeId_fld0_value: ["STATE", "PROVINCE", "COUNTY"]
+                },
+                fieldList: ["geoId", "geoName", "geoCode"]
+            }),
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+                Authorization: `Bearer ${token}`
+            }
+        });
+        const statesResult = await statesResponse.json();
+
+        if (!organizationsResponse.ok) {
+            console.error(organizationsResult.errorMessage);
+            return {};
+        }
+        if (!countriesResponse.ok) {
+            console.error(countriesResult.errorMessage);
+            return {};
+        }
+        if (!statesResponse.ok) {
+            console.error(statesResult.errorMessage);
+            return {};
+        }
+        return {
+            organizations: organizationsResult,
+            countries: countriesResult.sort(c => c.countryName),
+            states: statesResult.sort(s => s.geoName)
+        };
     }
 </script>
 
 <script>
-    import { Container, Row, Col, Tabs, Tab } from "svelte-chota";
+    import { stores } from "@sapper/app";
+    import { Container, Row, Col, Tabs, Tab, Modal, Card } from "svelte-chota";
     import FaBriefcase from "svelte-icons/fa/FaBriefcase.svelte";
     import FaUserLock from "svelte-icons/fa/FaUserLock.svelte";
     import FaPen from "svelte-icons/fa/FaPen.svelte";
@@ -13,6 +99,12 @@
     import EmployeePrivateInfo from "../../components/paperForm/EmployeePrivateInfo.svelte";
     import EmployeeHRInfo from "../../components/paperForm/EmployeeHRInfo.svelte";
     import PaperFormButtons from "../../components/paperForm/PaperFormButtons.svelte";
+
+    const { session } = stores();
+
+    export let organizations = [];
+    export let countries = [];
+    export let states = [];
 
     let activeTab = 0;
 
@@ -29,10 +121,7 @@
     let primaryEmail = "";
 
     let workLocation = "";
-    let workAddress = "";
-    let homeAddress = "";
-
-    let position = "";
+    let homeAddress = {};
 
     let maritalStatus = "";
 
@@ -41,7 +130,96 @@
     let gender = "";
     let birthDate = "";
 
-    async function createEmployee() {}
+    let open = false;
+    let saved = false;
+
+    /**
+     * Save the employee to the server.
+     */
+    async function createEmployee() {
+        const {
+            street,
+            houseNumber,
+            city,
+            postalCode,
+            stateProvince,
+            country
+        } = homeAddress;
+
+        console.log(
+            firstName,
+            lastName,
+            workLocation,
+            street,
+            houseNumber,
+            city,
+            postalCode,
+            stateProvince,
+            country,
+            homePhoneCN
+        );
+        if (
+            firstName.trim().length === 0 ||
+            lastName.trim().length === 0 ||
+            workLocation.trim().length === 0 ||
+            street.trim().length === 0 ||
+            houseNumber.trim().length === 0 ||
+            city.trim().length === 0 ||
+            postalCode.trim().length === 0 ||
+            country === "" ||
+            country === {} ||
+            homePhoneCN.trim().length === 0
+        ) {
+            open = true;
+            return;
+        }
+
+        const data = {
+            firstName,
+            middleName,
+            lastName,
+            partyIdFrom: workLocation,
+            address1: `${houseNumber} ${street}`,
+            city,
+            postalCode,
+            stateProvinceGeoId: stateProvince.geoId,
+            // countryCode: country.countryCode,
+            postalAddContactMechPurpTypeId: "PRIMARY_LOCATION",
+            countryCode: homePhoneCC,
+            contactNumber: homePhoneCN,
+            maritalStatusEnumId: maritalStatus.toUpperCase(),
+            socialSecurityNumber,
+            passportNumber,
+            gender,
+            birthDate: Date.parse(birthDate)
+        };
+        console.log(data);
+
+        const response = await fetch("/employees/services", {
+            method: "POST",
+            body: JSON.stringify({
+                toUrl: "/generic/v1/services/createEmployee",
+                data
+            }),
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+                Authorization: `Bearer ${$session.token}`
+            }
+        });
+        const result = await response.json();
+        console.log(result);
+    }
+
+    $: if (saved) {
+        saved = false;
+        createEmployee();
+    }
+    $: if (homeAddress.country) {
+        homePhoneCC = homeAddress.country._toOne_CountryTeleCode.teleCode;
+    } else {
+        homePhoneCC = "";
+    }
 </script>
 
 <style>
@@ -96,12 +274,28 @@
         margin-right: 1vw;
     }
 
-    .icon {
-        width: 2rem;
-        height: 2rem;
-        display: inline-block;
-        color: #757575;
-        vertical-align: text-top;
+    .required {
+        color: red;
+        margin-left: 5px;
+    }
+
+    .input-field {
+        display: flex;
+    }
+
+    .error-header {
+        font-weight: 500;
+    }
+
+    .error-button {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .error-button:focus {
+        border: 2px solid white;
+        outline: none;
+        box-shadow: none;
     }
 </style>
 
@@ -109,14 +303,42 @@
     <link rel="stylesheet" href="paper-form.css" />
 </svelte:head>
 
-<PaperFormButtons forObject="employees" isEditing={true} mode="create" />
+<Modal bind:open>
+    <Card>
+        <h4 slot="header" class="error-header">
+            Please fill out all required fields
+        </h4>
+
+        <p>The required fields are marked with red asterisk (*).</p>
+
+        <div slot="footer" class="is-right">
+            <button class="error-button" on:click={() => (open = false)}>
+                Close
+            </button>
+        </div>
+    </Card>
+</Modal>
+
+<PaperFormButtons
+    forObject="employees"
+    isEditing={true}
+    mode="create"
+    bind:saved />
 
 <Container class="paper">
     <Row>
         <Col size="5" class="paper-name">
-            <input placeholder="First Name" bind:value={firstName} />
-            <input placeholder="Middle Name" bind:value={middleName} />
-            <input placeholder="Last Name" bind:value={lastName} />
+            <div class="input-field">
+                <input placeholder="First Name" bind:value={firstName} />
+                <span class="required">*</span>
+            </div>
+            <div class="input-field">
+                <input placeholder="Middle Name" bind:value={middleName} />
+            </div>
+            <div class="input-field">
+                <input placeholder="Last Name" bind:value={lastName} />
+                <span class="required">*</span>
+            </div>
         </Col>
 
         <Col size="3" />
@@ -157,56 +379,32 @@
         <Row>
             <Col size="2" class="paper__main-info-type">Work Location</Col>
             <Col size="3" class="paper__main-info-value">
-                <input placeholder="Company name" bind:value={workLocation} />
-            </Col>
-        </Row>
-
-        <Row>
-            <Col size="2" class="paper__main-info-type">Position</Col>
-            <Col size="3" class="paper__main-info-value">
-                <input placeholder="Position" bind:value={position} />
+                <div class="input-field">
+                    <select bind:value={workLocation}>
+                        <option value="" />
+                        {#each organizations as org}
+                            <option value={org.partyId}>{org.groupName}</option>
+                        {/each}
+                    </select>
+                    <span class="required">*</span>
+                </div>
             </Col>
         </Row>
     </div>
 
-    <Tabs bind:active={activeTab} full class="paper__tabs">
-        <Tab>
-            <div class="icon">
-                <FaBriefcase />
-            </div>
-            Work Information
-        </Tab>
-        <Tab>
-            <div class="icon">
-                <FaUserLock />
-            </div>
-            Personal Information
-        </Tab>
-        <Tab>
-            <div class="icon">
-                <FaPen />
-            </div>
-            HR Settings
-        </Tab>
-    </Tabs>
-
     <div class="paper__other-info">
-        {#if activeTab === 0}
-            <EmployeeWorkInfo isEditing={true} bind:fullAddress={workAddress} />
-        {:else if activeTab === 1}
-            <EmployeePrivateInfo
-                isEditing={true}
-                bind:fullAddress={homeAddress}
-                bind:email={primaryEmail}
-                bind:homePhoneCC
-                bind:homePhoneCN
-                bind:maritalStatus
-                bind:passportNumber
-                bind:socialSecurityNumber
-                bind:gender
-                bind:birthDate />
-        {:else}
-            <EmployeeHRInfo />
-        {/if}
+        <EmployeePrivateInfo
+            isEditing={true}
+            {countries}
+            {states}
+            bind:fullAddress={homeAddress}
+            bind:email={primaryEmail}
+            bind:homePhoneCC
+            bind:homePhoneCN
+            bind:maritalStatus
+            bind:passportNumber
+            bind:socialSecurityNumber
+            bind:gender
+            bind:birthDate />
     </div>
 </Container>

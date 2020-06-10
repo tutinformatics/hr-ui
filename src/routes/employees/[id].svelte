@@ -202,7 +202,26 @@
             positionDataBody
         );
 
+        const countriesResponse = await this.fetch(`${url}/CountryCode`, {
+            method: "POST",
+            body: JSON.stringify({
+                fieldList: ["countryCode", "countryAbbr", "countryName"],
+                entityRelations: {
+                    _toOne_CountryTeleCode: {
+                        fieldList: ["teleCode"]
+                    }
+                }
+            }),
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+                Authorization: `Bearer ${token}`
+            }
+        });
+        const countriesResult = await countriesResponse.json();
+
         return {
+            countries: countriesResult,
             personalData,
             contactData,
             employmentData,
@@ -222,6 +241,7 @@
     import EmployeeHRInfo from "../../components/paperForm/EmployeeHRInfo.svelte";
     import PaperFormButtons from "../../components/paperForm/PaperFormButtons.svelte";
 
+    export let countries = [];
     export let personalData = {};
     export let contactData = {};
     export let employmentData = {};
@@ -443,6 +463,7 @@
         {:else if activeTab === 1}
             <EmployeePrivateInfo
                 {isEditing}
+                {countries}
                 {personalData}
                 {financialData}
                 address={homeAddress}
