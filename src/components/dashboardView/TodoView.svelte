@@ -46,7 +46,7 @@
     }
 
     function handleClick(e) {
-        alert("Draggable elements are still clickable :)");
+        // alert("Draggable elements are still clickable :)");
     }
 
     function changeTitle(index) {
@@ -165,7 +165,9 @@
                 {#each column.items as item (item.id)}
                     <div on:click={handleClick}>
                         <Card class="employee-card">
-                            <Row>{item.partyId}</Row>
+                            <a href={`/employees/${item.partyId}`}>
+                                <Row>{item.partyId}</Row>
+                            </a>
                             <small>
                                 <Row>
                                     <strong>Email:</strong>
