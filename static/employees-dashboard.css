@@ -1,27 +1,3 @@
-.employeeCard {
-    margin-left: auto;
-    margin-right: auto;
-}
-.employeeCard__body {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    cursor: pointer;
-    transition: margin-left 0.25s ease-in, box-shadow 0.25s ease-out;
-}
-.employeeCard__body:hover {
-    -webkit-box-shadow: 0px 13px 29px -12px rgba(0, 0, 0, 0.45);
-    -moz-box-shadow: 0px 13px 29px -12px rgba(0, 0, 0, 0.45);
-    box-shadow: 0px 13px 29px -12px rgba(0, 0, 0, 0.45);
-    margin-left: 0.3vw;
-}
-.employee-card {
-    margin: 5px 7px 9px 7px;
-    background: #ffffff;
-    -webkit-box-shadow: -1px 2px 5px 0px rgba(0, 0, 0, 0.45) !important;
-    -moz-box-shadow: -1px 2px 5px 0px rgba(0, 0, 0, 0.45) !important;
-    box-shadow: -1px 2px 5px 0px rgba(0, 0, 0, 0.45) !important;
-}
-
 .view {
     width: 25px;
     height: auto;
@@ -83,4 +59,21 @@
     z-index: 90;
     /*background-color: lightgrey;*/
     box-shadow: 3px 3px 6px #ccc;
+}
+
+.employeeCard {
+    margin-left: auto;
+    margin-right: auto;
+}
+.employeeCard__body {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    cursor: pointer;
+    transition: margin-left 0.25s ease-in, box-shadow 0.25s ease-out;
+}
+.employeeCard__body:hover {
+    -webkit-box-shadow: 0px 13px 29px -12px rgba(0, 0, 0, 0.45);
+    -moz-box-shadow: 0px 13px 29px -12px rgba(0, 0, 0, 0.45);
+    box-shadow: 0px 13px 29px -12px rgba(0, 0, 0, 0.45);
+    margin-left: 0.3vw;
 }
