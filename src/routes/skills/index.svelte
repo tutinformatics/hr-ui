@@ -50,7 +50,7 @@
 </script>
 
 <script>
-    import EmployeeSkillBoard from "../components/EmployeeSkillBoard.svelte"
+    import EmployeeSkillBoard from "../../components/EmployeeSkillBoard.svelte"
     export let skills;
     console.log(skills)
 </script>

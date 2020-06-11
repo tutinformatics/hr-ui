@@ -11,5 +11,6 @@ yarn-error.log
 .sessions
 .env
 .prettierrc
+.idea
 
 .vercel

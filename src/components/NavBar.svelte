@@ -102,6 +102,7 @@ because Svelte starts complaining that the element must be a direct child on a c
             class="dropdown is-horizontal-align is-vertical-align"
             slot="right">
             <Button
+                class="workspaces"
                 dropdown="Workspaces"
                 iconRight={mdiStarOutline}
                 clear

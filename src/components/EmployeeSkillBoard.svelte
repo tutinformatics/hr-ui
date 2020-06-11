@@ -26,16 +26,17 @@
 </script>
 
 
-<ChildNavBar/>
-<br/>
-<br/>
-<br/>
-<br/>
 <Aside
         bind:tableView={table}
         bind:cardView={card}
         bind:todoView={todo}
 />
+<ChildNavBar/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 <Row>
     <Col>
         {#if table}

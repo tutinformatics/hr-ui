@@ -1,8 +1,9 @@
 <script>
-    import {Input, Field, Card, Row, Col, Button, Tag} from 'svelte-chota'
+    import {Input, Field, Card, Row, Col, Button, Tag, Icon} from 'svelte-chota'
     import MdApps from 'svelte-icons/md/MdApps.svelte'
     import FaTable from 'svelte-icons/fa/FaTable.svelte'
     import FaExpandArrowsAlt from 'svelte-icons/fa/FaExpandArrowsAlt.svelte'
+    import {mdiViewCompactOutline, mdiViewList, mdiViewColumn} from '@mdi/js';
 
     export let tableView = true;
     export let cardView = false;
@@ -40,29 +41,35 @@
         border-left: gray solid 2px;
     }
 
-    .btn-group {
+    .btn-group-aside {
         margin-left: 40%
     }
 </style>
 
 
 <aside>
-    <div class="btn-group">
+    <div class="btn-group-aside">
         <Row>
-            <Button on:click={showTableView}>
-                <div class="view"><FaTable/></div>
+            <Button class="btn" on:click={showTableView} outline>
+                <div class="view is-horizontal-align">
+                    <Icon src={mdiViewList}/>
+                </div>
             </Button>
         </Row>
         <br/>
         <Row>
-            <Button on:click={showCardView}>
-                <div class="view"><MdApps/></div>
+            <Button class="btn" on:click={showCardView} outline>
+                <div class="view is-horizontal-align">
+                    <Icon src={mdiViewCompactOutline}/>
+                </div>
             </Button>
         </Row>
         <br/>
         <Row>
-            <Button on:click={showTodoView}>
-                <div class="view"><FaExpandArrowsAlt/></div>
+            <Button class="btn" on:click={showTodoView} outline>
+                <div class="view is-horizontal-align">
+                    <Icon src={mdiViewColumn}/>
+                </div>
             </Button>
         </Row>
     </div>

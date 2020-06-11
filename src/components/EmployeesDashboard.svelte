@@ -77,11 +77,9 @@
     }
 </script>
 
-<svelte:head>
-    <link rel="stylesheet" href="employees-dashboard.css" />
-</svelte:head>
 <Aside bind:tableView={table} bind:cardView={card} bind:todoView={todo} />
 <TVNavbar />
+<br />
 <br />
 <br />
 <br />
