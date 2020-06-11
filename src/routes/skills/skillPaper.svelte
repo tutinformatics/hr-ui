@@ -4,9 +4,9 @@
     import FaUserLock from "svelte-icons/fa/FaUserLock.svelte";
     import FaPen from "svelte-icons/fa/FaPen.svelte";
 
-    import EmployeeWorkInfo from "../../components/paperFrom/EmployeeWorkInfo.svelte";
-    import EmployeePrivateInfo from "../../components/paperFrom/EmployeePrivateInfo.svelte";
-    import EmployeeHRInfo from "../../components/paperFrom/EmployeeHRInfo.svelte";
+    import EmployeeWorkInfo from "../../components/paperForm/EmployeeWorkInfo.svelte";
+    import EmployeePrivateInfo from "../../components/paperForm/EmployeePrivateInfo.svelte";
+    import EmployeeHRInfo from "../../components/paperForm/EmployeeHRInfo.svelte";
 
     let activeTab = 0;
 </script>
