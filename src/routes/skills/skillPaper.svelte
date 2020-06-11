@@ -1,3 +1,16 @@
+<script>
+    import { Container, Row, Col, Tabs, Tab } from "svelte-chota";
+    import FaBriefcase from "svelte-icons/fa/FaBriefcase.svelte";
+    import FaUserLock from "svelte-icons/fa/FaUserLock.svelte";
+    import FaPen from "svelte-icons/fa/FaPen.svelte";
+
+    import EmployeeWorkInfo from "../../components/paperFrom/EmployeeWorkInfo.svelte";
+    import EmployeePrivateInfo from "../../components/paperFrom/EmployeePrivateInfo.svelte";
+    import EmployeeHRInfo from "../../components/paperFrom/EmployeeHRInfo.svelte";
+
+    let activeTab = 0;
+</script>
+
 <style>
     h1 {
         margin: 0;
@@ -30,22 +43,7 @@
         margin-top: 4vh;
         font-weight: 600;
     }
-
-
 </style>
-
-<script>
-    import {Container, Row, Col, Tabs, Tab} from "svelte-chota";
-    import FaBriefcase from "svelte-icons/fa/FaBriefcase.svelte";
-    import FaUserLock from "svelte-icons/fa/FaUserLock.svelte";
-    import FaPen from "svelte-icons/fa/FaPen.svelte";
-
-    import EmployeeWorkInfo from "../../components/EmployeeWorkInfo.svelte";
-    import EmployeePrivateInfo from "../../components/EmployeePrivateInfo.svelte";
-    import EmployeeHRInfo from "../../components/EmployeeHRInfo.svelte";
-
-    let activeTab = 0;
-</script>
 
 <Container class="employee">
     <Row class="employee__name-and-image">
@@ -61,9 +59,7 @@
     <div class="employee__main-info">
         <Row>
             <Col size="2" class="employee__main-info-type">Work Phone</Col>
-            <Col size="3" class="employee__main-info-value phone">
-                555-5555
-            </Col>
+            <Col size="3" class="employee__main-info-value phone">555-5555</Col>
         </Row>
 
         <Row>
@@ -113,28 +109,36 @@
                     <!-- Skill info -->
                     <h3>Skills</h3>
                     <Row>
-                        <Col size="2" class="employee__main-info-type">Skill type:</Col>
+                        <Col size="2" class="employee__main-info-type">
+                            Skill type:
+                        </Col>
                         <Col size="3" class="employee__main-info-value">
                             Java/Groovy/BSH
                         </Col>
                     </Row>
 
                     <Row>
-                        <Col size="2" class="employee__main-info-type">Years Experience</Col>
+                        <Col size="2" class="employee__main-info-type">
+                            Years Experience
+                        </Col>
                         <Col size="3" class="employee__main-info-value">
                             25 years
                         </Col>
                     </Row>
 
                     <Row>
-                        <Col size="2" class="employee__main-info-type">Skill Rating</Col>
+                        <Col size="2" class="employee__main-info-type">
+                            Skill Rating
+                        </Col>
                         <Col size="3" class="employee__main-info-value phone">
                             1
                         </Col>
                     </Row>
 
                     <Row>
-                        <Col size="2" class="employee__main-info-type">Skill Level</Col>
+                        <Col size="2" class="employee__main-info-type">
+                            Skill Level
+                        </Col>
                         <Col size="3" class="employee__main-info-value phone">
                             2
                         </Col>
@@ -143,9 +147,10 @@
                     <!-- Marital status of the employee -->
                     <h3>Marital Status</h3>
                     <Row>
-                        <Col size="2" class="employee__other-info-type">Marital Status</Col>
-                        <Col size="3" class="employee__other-info-value">
+                        <Col size="2" class="employee__other-info-type">
+                            Marital Status
                         </Col>
+                        <Col size="3" class="employee__other-info-value" />
                     </Row>
 
                     <!-- Citizenship information -->
@@ -154,32 +159,30 @@
                         <Col size="2" class="employee__other-info-type">
                             Identification Number
                         </Col>
-                        <Col size="3" class="employee__other-info-value">
-
-                        </Col>
+                        <Col size="3" class="employee__other-info-value" />
                     </Row>
 
                     <Row>
-                        <Col size="2" class="employee__other-info-type">Passport Number</Col>
-                        <Col size="3" class="employee__other-info-value">
-
+                        <Col size="2" class="employee__other-info-type">
+                            Passport Number
                         </Col>
+                        <Col size="3" class="employee__other-info-value" />
                     </Row>
 
                     <Row>
-                        <Col size="2" class="employee__other-info-type">Gender</Col>
-                        <Col size="3" class="employee__other-info-value">
-
+                        <Col size="2" class="employee__other-info-type">
+                            Gender
                         </Col>
+                        <Col size="3" class="employee__other-info-value" />
                     </Row>
                     <Row>
-                        <Col size="2" class="employee__other-info-type">Date of Birth</Col>
+                        <Col size="2" class="employee__other-info-type">
+                            Date of Birth
+                        </Col>
                     </Row>
                 </Col>
             </Row>
-        {:else}
-            Hr info here
-        {/if}
+        {:else}Hr info here{/if}
     </div>
 
 </Container>
