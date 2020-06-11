@@ -47,6 +47,11 @@
     margin-right: 40px !important;
 }
 
+.workspaces {
+    outline: none !important;
+    color: black !important;
+}
+
 .dropdown-link:hover {
     cursor: default;
 }

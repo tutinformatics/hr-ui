@@ -4,7 +4,7 @@
 
 <script>
 
-    import {Input, Field, Card, Row, Col, Button, Tag, Nav, Modal} from 'svelte-chota'
+    import {Input, Field, Card, Row, Col, Button, Tag, Nav, Modal, Icon} from 'svelte-chota'
     import { onDestroy } from 'svelte';
     import FaUserPlus from 'svelte-icons/fa/FaUserPlus.svelte'
     import {mdiMagnify} from '@mdi/js';
@@ -50,26 +50,24 @@
     </Card>
 </Modal>
 <Card class="text-justify is-fixed header-menu">
-    <Row class="is-vertical-align">
+    <Row class="menu-row">
         <Col>
-            <h3 class="pull-left">Employees</h3>
+            <Button clear class='add-to-workspace'
+                    on:click={() => addWorkSpace('<a slot="left" href="/employees">Employees</a>')}
+                    on:click={show}>
+                <h3 class="pull-left">Employees <Icon class="add-to-workspace-icon" src={mdiStar}/></h3>
+
+            </Button>
         </Col>
         <Col>
-            <a href="/employees/create">
+            <a href="/employees/create" class="is-vertical-align">
                 <Button outlined class="blue-button">
                     <Row><div class="add-employee-button"><FaUserPlus/></div> New employee</Row>
                 </Button>
             </a>
         </Col>
-        <Col>
-            <Button outlined class="blue-button"
-                    on:click={() => addWorkSpace('<a slot="left" href="/employees">Employees</a>')}
-                    on:click={show}>
-                <Row><div class="add-employee-button"><FaUserPlus/></div> Add to workspaces</Row>
-            </Button>
-        </Col>
         <Col size="4">
-            <Field gapless>
+            <Field gapless class="search-field">
                 <Input placeholder="Search"/>
                 <Button icon={mdiMagnify} class="blue-button"/>
             </Field>

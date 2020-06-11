@@ -10,3 +10,5 @@ yarn-error.log
 .sessions
 .env
 .idea
+
+.vercel

@@ -90,7 +90,7 @@ because Svelte starts complaining that the element must be a direct child on a c
         <a slot="left" href="/skills">Skills</a>
 
         <div class="dropdown is-horizontal-align is-vertical-align" slot="right">
-            <Button dropdown="Workspaces" iconRight={mdiStarOutline} clear autoclose>
+            <Button class="workspaces" dropdown="Workspaces" iconRight={mdiStarOutline} clear autoclose>
                 {#if !Array.isArray(work_space) || !work_space.length}
                 <div>
                     <p>You do not added anything to list yet :(</p>
