@@ -87,7 +87,6 @@
 
     export let position = {};
     export let statuses = {};
-    console.log(position);
 
     let isEditing = false;
 

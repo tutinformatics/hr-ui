@@ -3,14 +3,14 @@
     import AddressInput from "./AddressInput.svelte";
 
     export let isEditing = false;
+    export let countries = [];
+    export let states = [];
     export let employmentData = {};
 
-    export let fullAddress = '';
-
     const address = employmentData._toOne_FromParty
-            ? employmentData._toOne_FromParty._toMany_PartyContactMech[0]
-                    ._toOne_PostalAddress
-            : {};
+        ? employmentData._toOne_FromParty._toMany_PartyContactMech[0]
+              ._toOne_PostalAddress
+        : {};
 </script>
 
 <style>
@@ -23,6 +23,6 @@
 <Row>
     <Col>
         <h3>Location</h3>
-        <AddressInput {isEditing} {address} bind:fullAddress />
+        <AddressInput {isEditing} {countries} {states} {address} />
     </Col>
 </Row>

@@ -18,11 +18,6 @@
     let stateProvince = stateProvinceGeo.geoName || "";
     let country = countryGeo.geoName || "";
 
-    const regex = new RegExp(",{2,}|^,", "g");
-    // $: fullAddress = `${street},${houseNumber},${city},${postalCode},${stateProvince},${country}`.replace(
-    //     regex,
-    //     ""
-    // );
     $: fullAddress = {
         street,
         houseNumber,
@@ -31,6 +26,10 @@
         stateProvince,
         country
     };
+    $: fullAddressString = Object.values(fullAddress)
+        .join(",")
+        .replace(/,{2,}/g, ",")
+        .replace(/^,|,$/, "");
 </script>
 
 <style>
@@ -98,6 +97,6 @@
                 </select>
                 <span class="required">*</span>
             </div>
-        {:else}{fullAddress}{/if}
+        {:else}{fullAddressString}{/if}
     </Col>
 </Row>
