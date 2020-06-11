@@ -123,15 +123,6 @@
                 }
             }
         };
-        // Request for financial data like bank account number etc.
-        const financialDataBody = {
-            inputFields: {
-                ownerPartyId: id,
-                statusId_fld0_op: "equals",
-                statusId_fld0_value: "FNACT_ACTIVE"
-            },
-            fieldList: ["finAccountTypeId", "finAccountCode"]
-        };
         // Request for employee position at the company.
         const positionDataBody = {
             inputFields: {
@@ -193,10 +184,6 @@
             url + "/Employment",
             employmentDataBody
         );
-        const financialData = await fetchData(
-            url + "/FinAccount",
-            financialDataBody
-        );
         const positionData = await fetchData(
             url + "/EmplPositionFulfillment",
             positionDataBody
@@ -220,12 +207,42 @@
         });
         const countriesResult = await countriesResponse.json();
 
+        const statesResponse = await this.fetch(`${url}/Geo`, {
+            method: "POST",
+            body: JSON.stringify({
+                inputFields: {
+                    geoTypeId_fld0_op: "in",
+                    geoTypeId_fld0_value: ["STATE", "PROVINCE", "COUNTY"]
+                },
+                fieldList: ["geoId", "geoName", "geoCode"]
+            }),
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+                Authorization: `Bearer ${token}`
+            }
+        });
+        const statesResult = await statesResponse.json();
+
+        let countries = countriesResult;
+        let states = statesResult;
+        if (!countriesResponse.ok) {
+            console.error(countriesResult.errorMessage);
+            countries = {};
+        }
+        if (!statesResponse.ok) {
+            console.error(statesResult.errorMessage);
+            states = {};
+        }
+
         return {
-            countries: countriesResult,
+            countries: countries.sort((a, b) =>
+                a.countryName.localeCompare(b.countryName)
+            ),
+            states: states.sort((a, b) => a.geoName.localeCompare(b.geoName)),
             personalData,
             contactData,
             employmentData,
-            financialData,
             positionData
         };
     }
@@ -242,10 +259,10 @@
     import PaperFormButtons from "../../components/paperForm/PaperFormButtons.svelte";
 
     export let countries = [];
+    export let states = [];
     export let personalData = {};
     export let contactData = {};
     export let employmentData = {};
-    export let financialData = {};
     export let positionData = {};
 
     let isEditing = false;
@@ -321,7 +338,7 @@
 
     let email = extractContact("EMAIL_ADDRESS").infoString || "";
 
-    const homeAddress = extractContact("POSTAL_ADDRESS");
+    let homeAddress = extractContact("POSTAL_ADDRESS");
 
     let workLocation = employmentData._toOne_FromParty
         ? employmentData._toOne_FromParty._toOne_PartyGroup.groupName || ""
@@ -459,15 +476,20 @@
 
     <div class="paper__other-info">
         {#if activeTab === 0}
-            <EmployeeWorkInfo {isEditing} {employmentData} />
+            <EmployeeWorkInfo
+                {isEditing}
+                {countries}
+                {states}
+                {employmentData} />
         {:else if activeTab === 1}
             <EmployeePrivateInfo
                 {isEditing}
                 {countries}
+                {states}
                 {personalData}
-                {financialData}
                 address={homeAddress}
-                {email}
+                bind:fullAddress={homeAddress}
+                bind:email
                 bind:homePhoneCC
                 bind:homePhoneCN
                 {fullHomePhone} />

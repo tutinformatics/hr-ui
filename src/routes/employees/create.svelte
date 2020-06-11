@@ -69,22 +69,28 @@
         });
         const statesResult = await statesResponse.json();
 
+        let organizations = organizationsResult;
+        let countries = countriesResult;
+        let states = statesResult;
         if (!organizationsResponse.ok) {
             console.error(organizationsResult.errorMessage);
-            return {};
+            organizations = {};
         }
         if (!countriesResponse.ok) {
             console.error(countriesResult.errorMessage);
-            return {};
+            countries = {};
         }
         if (!statesResponse.ok) {
             console.error(statesResult.errorMessage);
-            return {};
+            states = {};
         }
+
         return {
-            organizations: organizationsResult,
-            countries: countriesResult.sort(c => c.countryName),
-            states: statesResult.sort(s => s.geoName)
+            organizations,
+            countries: countries.sort((a, b) =>
+                a.countryName.localeCompare(b.countryName)
+            ),
+            states: states.sort((a, b) => a.geoName.localeCompare(b.geoName))
         };
     }
 </script>
