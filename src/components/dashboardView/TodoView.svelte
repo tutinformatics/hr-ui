@@ -2,12 +2,9 @@
     <link rel='stylesheet' href='employees.css'>
 </svelte:head>
 <style>
-    .done {
-        opacity: 0.4
-    }
 
     .board {
-        height: 90vh;
+        height: 70vh;
         width: 100%;
         padding: 0.5em;
         margin-bottom: 40px;
@@ -43,6 +40,13 @@
         align-items: center;
     }
 
+    .column-footer {
+        margin-top: 1em;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+    }
+
     .title {
         color: #4a5568;
     }
@@ -66,24 +70,27 @@
 
 <script>
     import {flip} from 'svelte/animate';
-    import {dndzone} from 'svelte-dnd-action'
+    import {dndzone} from '../svelte-dnd-action'
     import {Container, Row, Col, Button, Card, Tag} from 'svelte-chota'
     import CardView from "../skillboardView/CardView.svelte";
     import { fade } from 'svelte/transition';
 
     export let employees;
+    let add = employees.length;
 
     function addColumn() {
         employees = employees.concat({
             done: false,
-            id: employees.length + 1,
+            id: add + 1,
             name: '<input id="title-input" type="text" placeholder="Title here..."/>',
             items: []
         });
+        add += 1;
     }
 
-    function deleteColumn() {
-        employees = employees.filter(e => !e.done);
+    function deleteColumn(id) {
+        employees = employees.filter(e => e.id != id);
+        console.log(employees);
     }
 
     $: remaining = employees.filter(e => !e.done).length;
@@ -120,38 +127,30 @@
     }
 </script>
 
-<div class="is-vertical-align is-horizontal-align">
-    <Card>
-        <Row>
-            <Col class="is-vertical-align is-horizontal-align">
-                <strong>Columns on the desk right now: {remaining}</strong>
-            </Col>
-        </Row>
-        <Row>
-            <Col class="is-vertical-align is-horizontal-align">
-                <Button outlined class="blue-button" on:click={addColumn}>
-                    Add new column
-                </Button>
-                <Button outlined class="blue-button" on:click={deleteColumn}>
-                    Delete column
-                </Button>
-            </Col>
-        </Row>
-    </Card>
-</div>
-
 <section class="board"
          use:dndzone={{items:employees, flipDurationMs, type:'columns'}}
          on:consider={handleDndConsiderColumns}
          on:finalize={handleDndFinalizeColumns}>
     {#each employees as column (column.id)}
         <div class="column" class:done={column.done}>
-            <input
-                    class="pull-right"
-                    type=checkbox
-                    bind:checked={column.done}
-
-            >
+            <div class="pull-right">
+                <Button dropdown="..." autoclose clear>
+                    <Row>
+                        <Button outlined
+                                on:click={addColumn}
+                        >
+                            Add column
+                        </Button>
+                    </Row>
+                    <Row>
+                        <Button outlined
+                                on:click={deleteColumn(column.id)}
+                        >
+                            Delete column
+                        </Button>
+                    </Row>
+                </Button>
+            </div>
             <div class="column-title text-center">
                 <strong class="title" on:change={changeTitle(column.id)}>{@html column.name}</strong>
             </div>
@@ -184,6 +183,9 @@
                         </Card>
                     </div>
                 {/each}
+            </div>
+            <div class="column-footer">
+                <strong>Footer btw</strong>
             </div>
         </div>
     {/each}

@@ -94,6 +94,7 @@
   border-color: #007bff;
 }
 
+
 .employee__other-info-type {
   font-weight: 500;
 }
@@ -111,4 +112,18 @@
   -webkit-box-shadow: -1px 2px 5px 0px rgba(0, 0, 0, 0.45) !important;
   -moz-box-shadow: -1px 2px 5px 0px rgba(0, 0, 0, 0.45) !important;
   box-shadow: -1px 2px 5px 0px rgba(0, 0, 0, 0.45) !important;
+}
+
+.dropdown .card {
+  margin-left: -106px !important;
+}
+.dropdown .row .button {
+  margin-top: 10px !important;
+  width: 150px !important;
+  height: auto !important;
+}
+
+.canban-menu {
+  outline: none !important;
+  color: black !important;
 }

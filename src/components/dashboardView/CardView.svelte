@@ -13,6 +13,12 @@
 
 </script>
 
+<style>
+    .choose {
+        margin-right: 10px;
+    }
+</style>
+
 <Col size="3">
     <div style="max-width:600px">
         <Card class="other-view-card-body">
@@ -26,7 +32,7 @@
             <hr/>
             <div slot="footer">
                 <Row>
-                    <Checkbox on:change={onAll} {checked}><small>Choose</small></Checkbox>
+                    <Checkbox on:change={onAll} {checked}><small class="choose">Choose</small></Checkbox>
                 </Row>
             </div>
         </Card>

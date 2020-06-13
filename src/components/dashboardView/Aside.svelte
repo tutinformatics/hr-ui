@@ -1,5 +1,6 @@
 <svelte:head>
     <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
+    <link rel='stylesheet' href='employees-dashboard.css'>
 </svelte:head>
 <script>
     import {Input, Field, Card, Row, Col, Button, Tag, Icon} from 'svelte-chota'
@@ -14,21 +15,18 @@
     export let todoView = false;
 
     function showTableView() {
-        console.log("table: true");
         tableView = true;
         cardView = false;
         todoView = false;
     }
 
     function showCardView() {
-        console.log("card: true");
         tableView = false;
         cardView = true;
         todoView = false;
     }
 
     function showTodoView() {
-        console.log("todo: true");
         tableView = false;
         cardView = false;
         todoView = true;
@@ -40,7 +38,6 @@
         float: right;
         width: 10%;
         padding-left: .5rem;
-        /*margin-left: .5rem;*/
         font-style: italic;
         color: #29627e;
         position: sticky;
@@ -49,12 +46,13 @@
     }
 
     .btn-group-aside {
-        margin-left: 40%
+        margin-left: 42%
     }
 
     .iconify {
         width: auto;
         height: 30px;
+        margin-left: -15px;
     }
 
 
@@ -65,25 +63,19 @@
     <div class="btn-group-aside">
         <Row>
             <Button class="btn" on:click={showTableView} outline>
-                <div class="view is-horizontal-align">
-                    <Icon src={mdiViewHeadline}/>
-                </div>
+                <span class="iconify" data-icon="mdi:view-headline" data-inline="false"></span>
             </Button>
         </Row>
         <br/>
         <Row>
             <Button class="btn" on:click={showCardView} outline>
-                <div class="view is-horizontal-align">
-                    <span class="iconify" data-icon="ic:outline-view-module" data-inline="false"></span>
-                </div>
+                <span class="iconify" data-icon="ic:outline-view-module" data-inline="false"></span>
             </Button>
         </Row>
         <br/>
         <Row>
             <Button class="btn" on:click={showTodoView} outline>
-                <div class="view is-horizontal-align">
-                    <span class="iconify" data-icon="ic:outline-view-column" data-inline="false"></span>
-                </div>
+                <span class="iconify" data-icon="ic:outline-view-column" data-inline="false"></span>
             </Button>
         </Row>
     </div>

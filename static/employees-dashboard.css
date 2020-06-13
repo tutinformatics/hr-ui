@@ -3,10 +3,6 @@
     height: auto;
 }
 
-.menu-row {
-
-
-}
 
 .btn-group button {
     background-color: #007bff; /* Green background */
@@ -27,6 +23,11 @@
 /* Add a background color on hover */
 .btn-group button:hover {
     background-color: #BDE8FF;
+}
+
+.btn {
+    height: auto !important;
+    width: 0px !important;
 }
 
 .btn:hover {

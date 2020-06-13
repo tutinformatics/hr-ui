@@ -35,7 +35,7 @@
 
 <script>
     import EmployeesDashboard from '../../components/EmployeesDashboard.svelte'
-    export let employees
+    export let employees;
 </script>
 
 <EmployeesDashboard workers={employees}/>
